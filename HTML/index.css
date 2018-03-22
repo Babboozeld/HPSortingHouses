@@ -9,9 +9,6 @@
     }
 }
 
-body {
-	cursor: url('26755.png'), default;
-}
 .body{
 	min-height: calc(100vh - 120px);
 }
