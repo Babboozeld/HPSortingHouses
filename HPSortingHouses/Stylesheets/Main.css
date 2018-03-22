@@ -63,7 +63,7 @@ footer p:hover {
     width: var(--width);
     height: var(--height);
     top: -100vh;
-    transition: 2s;
+    transition: top 2s;
 }
 
 .flag-box {
