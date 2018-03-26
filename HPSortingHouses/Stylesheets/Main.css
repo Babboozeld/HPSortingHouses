@@ -14,6 +14,7 @@ body {
     width: 100vw;
     background: url(../Images/bg1.jpg) center center no-repeat;
     background-size: cover;
+    transition: background 2s ease;
 }
 
 #Background:before {
@@ -24,6 +25,7 @@ body {
     background-color: black;
     opacity: 0.3;
 }
+
 
 /*header*/
 header {
@@ -141,7 +143,12 @@ footer p:hover {
     color: white;
 }
 
-#toggleflagcheckbox:checked + .flag-container {
+#toggleflagcheckbox:checked + .flag-container{
     top: 0px;
 }
+.flag-active {
+    top: 0px;
+}
+
+
 
