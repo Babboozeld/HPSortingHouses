@@ -1,0 +1,14 @@
+/* - Navbar* - */
+@media (min-width: 768px) {
+.navbar-brand.abs
+    {
+        position: absolute;
+        width: 100%;
+        left: 0;
+        text-align: center;
+    }
+}
+
+.navgradient{
+	background: linear-gradient(rgba(0,0,0,0.6), transparent);
+}
