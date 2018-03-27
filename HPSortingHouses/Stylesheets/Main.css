@@ -150,6 +150,9 @@ footer p:hover {
 .flag-active {
     top: 0px;
 }
+input {
+    width: 50%;
+}
 
 
 
