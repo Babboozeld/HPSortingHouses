@@ -1,5 +1,6 @@
 ﻿:root {
     --gray-green: rgb(87,136,98);
+    --flag-width: 0.7;
 }
 
 body {
@@ -87,7 +88,6 @@ footer p:hover {
 .flag-container {
     --height: 100vh;
     --width: 50vw;
-    --flag-width: 20%;
     position: fixed;
     width: var(--width);
     height: var(--height);
@@ -97,7 +97,7 @@ footer p:hover {
 
 .flag-box {
     position: relative;
-    width: var(--flag-width);
+    width: calc(var(--flag-width) * 100%);
     height: 75%;
     margin: auto;
     background-color: var(--gray-green);
