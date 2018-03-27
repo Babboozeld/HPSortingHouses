@@ -1,6 +1,7 @@
 -<!DOCTYPE html>
 <html>
 <head>
+<meta name= "viewport" content= "width=device-width, initail-scale=1.0" />
  <link rel="stylesheet" type="text/css" href="sorting.css" >
 <style>
 * {
@@ -13,45 +14,60 @@ margin: 0;
 
 /* 4 mooie boxjes */
 .box {
-position:fixed;
+	position:fixed;
     width: 50%;
 	height: 50%;
     padding: 10px;
-   	transition: all 3s;
+   	transition: all 1s;
+	background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6));
 }
 
 .box1 {
 	left:0;
 	top: 0;
-	background: url("img1.png") center center no-repeat;
+	background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url("img1.png") center center no-repeat;
 	background-size: cover;
 }
 
 .box2 {
 	right: 0;
 	top: 0;
-	background: url("img2.jpg") center center no-repeat;
+	background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url("img2.jpg") center center no-repeat;
 	background-size: cover;
 }
 
 .box3 {
 	left: 0;
 	bottom: 0;
-	background: url("img3.jpg") center center no-repeat;
+	background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url("img3.jpg") center center no-repeat;
 	background-size: cover;
 }
 
 .box4 {
 	right: 0;
 	bottom: 0;
-	background: url("img4.png") center center no-repeat;
+	background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url("img4.png") center center no-repeat;
 	background-size: cover;
 }
-
 .box:hover {
-	height: 55%;
-	width: 55%;
-	z-index: 10;
+transition: all 1s;
+}
+
+.box1:hover {
+background: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0)), url("img1.png") center center no-repeat;
+background-size: cover;
+}
+.box2:hover {
+background: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0)), url("img2.jpg") center center no-repeat;
+background-size: cover;
+}
+.box3:hover {
+background: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0)), url("img3.jpg") center center no-repeat;
+background-size: cover;
+}
+.box4:hover {
+background: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0)), url("img4.png") center center no-repeat;
+background-size: cover;
 }
 
 
@@ -65,12 +81,15 @@ position:fixed;
     padding: 15px 25px;
     text-align: center;
     font-size: 16px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
     cursor: pointer;
-	bottom: 10px;
 	left:50%;
 	text-decoration: none;
 	transform: translateX(-50%);
 	border-radius: 8px;
+	opacity: 0;
 	}
 	
 .button:hover {
