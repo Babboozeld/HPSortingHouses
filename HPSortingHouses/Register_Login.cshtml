@@ -2,7 +2,17 @@
     Layout = "~/_SiteLayout.cshtml";
     Page.Title = "Become a wizard";
 }
-<div id="flag1" class="flag-container flag-active">
+<style>
+    .flag-login.flag-container {
+        --width: 40vw;
+        --flag-width: 80%;
+    }
+    .flag-register.flag-container {
+        --width: 60vw;
+        --flag-width: 80%;
+    }
+</style>
+<div id="flag1" class="flag-container flag-active flag-login">
     <div class="flag-box">
 
         <a class="button-flag" style="display: none;">Join</a>
@@ -11,7 +21,7 @@
 
     </div>
 </div>
-<div id="flag1" class="flag-container flag-active" style="left: 50%;">
+<div id="flag1" class="flag-container flag-active flag-register" style="left: 40%;">
     <div class="flag-box">
 
         <a class="button-flag" style="display: none;">Join</a>

@@ -87,6 +87,7 @@ footer p:hover {
 .flag-container {
     --height: 100vh;
     --width: 50vw;
+    --flag-width: 20%;
     position: fixed;
     width: var(--width);
     height: var(--height);
@@ -96,7 +97,7 @@ footer p:hover {
 
 .flag-box {
     position: relative;
-    width: 70%;
+    width: var(--flag-width);
     height: 75%;
     margin: auto;
     background-color: var(--gray-green);
@@ -106,9 +107,9 @@ footer p:hover {
     width: 0;
     height: 0;
     margin: auto;
-    border-right: calc(var(--width) * 0.35) solid var(--gray-green);
+    border-right: calc(var(--width) * (var(--flag-width) * 0.5)) solid var(--gray-green);
     border-bottom: calc(var(--height) * 0.15) solid transparent;
-    border-left: calc(var(--width) * 0.35) solid var(--gray-green);
+    border-left: calc(var(--width) * (var(--flag-width) * 0.5)) solid var(--gray-green);
 }
 
 .button-flag {
