@@ -1,0 +1,89 @@
+﻿
+/* 4 mooie boxjes */
+.box {
+    position: fixed;
+    width: 50%;
+    height: 50%;
+    padding: 10px;
+    transition: all 1s;
+    background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6));
+}
+.box1 {
+    left: 0;
+    top: 0;
+    background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url("../Images/img/img1.png") center center no-repeat;
+    background-size: cover;
+}
+
+.box2 {
+    right: 0;
+    top: 0;
+    background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url("../Images/img/img2.jpg") center center no-repeat;
+    background-size: cover;
+}
+
+.box3 {
+    left: 0;
+    bottom: 0;
+    background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url("../Images/img/img3.jpg") center center no-repeat;
+    background-size: cover;
+}
+
+.box4 {
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url("../Images/img/img4.png") center center no-repeat;
+    background-size: cover;
+}
+
+.box:hover .button {
+    opacity: 1;
+}
+
+.box1:hover {
+    background: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0)), url("../Images/img/img1.png") center center no-repeat;
+    background-size: cover;
+    cursor: pointer;
+}
+
+.box2:hover {
+    background: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0)), url("../Images/img/img2.jpg") center center no-repeat;
+    background-size: cover;
+    cursor: pointer;
+}
+
+.box3:hover {
+    background: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0)), url("../Images/img/img3.jpg") center center no-repeat;
+    background-size: cover;
+    cursor: pointer;
+}
+
+.box4:hover {
+    background: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0)), url("../Images/img/img4.png") center center no-repeat;
+    background-size: cover;
+    cursor: pointer;
+}
+/* buttons */
+.button {
+    position: absolute;
+    background-color: white;
+    border: 3px black;
+    color: black;
+    font-weight: bold;
+    padding: 15px 25px;
+    text-align: center;
+    font-size: 16px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    cursor: pointer;
+    left: 50%;
+    text-decoration: none;
+    transform: translateX(-50%);
+    border-radius: 8px;
+    opacity: 1;
+}
+
+    .button:hover {
+        box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    }

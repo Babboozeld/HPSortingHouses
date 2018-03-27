@@ -1,0 +1,44 @@
+﻿@{
+    /**/
+
+    Layout = "~/_SiteLayout.cshtml";
+    Page.Title = "Sorting";
+
+    int a, b, c, d;
+    Random rnd = new Random();
+    a = rnd.Next(1, 5);
+    b = rnd.Next(1, 5);
+    while (a == b)
+    {
+        b = rnd.Next(1, 5);
+    }
+    c = rnd.Next(1, 5);
+    while (c == a || c == b)
+    {
+        c = rnd.Next(1, 5);
+    }
+    d = rnd.Next(1, 5);
+    while (d == a || d == b || d == c)
+    {
+        d = rnd.Next(1, 5);
+    }
+
+}
+<head>
+    <link href="~/Stylesheets/sorting.css" rel="stylesheet" type="text/css" />
+</head>
+
+<div class="boxen">
+    <div class="box box1">
+        <a class="button" id="@a" href="#">click me1 </a>
+    </div>
+    <div class="box box2">
+        <a class="button" id="@b" href="#">click me2 </a>
+    </div>
+    <div class="box box3">
+        <a class="button" id="@c" href="#">click me3 </a>
+    </div>
+    <div class="box box4">
+        <a class="button" id="@d" href="#">click me4 </a>
+    </div>
+</div>
