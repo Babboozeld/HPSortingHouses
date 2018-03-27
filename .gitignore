@@ -257,5 +257,5 @@ paket-files/
 # Python Tools for Visual Studio (PTVS)
 __pycache__/
 *.pyc
-HPSortingHouses/Images/bg2.jpg
-HPSortingHouses/_AppStart.cshtml
+
+
