@@ -20,15 +20,15 @@
         var password = Request.Form["password"];
         var password1 = Request.Form["password1"];
 
-        if (username != "" && password != "")
+        if (email != "" && username != "" && password != "" && password1 != "")
 
         {
-            string sel = "SELECT * FROM User WHERE username = @0";
+            string sel = "SELECT * FROM user WHERE username = @0";
             var result = db.Query(sel, username);
             if (result.Count() == 0 && username != "" && password != "")
             {
-                string ins = "INSERT INTO User (email, username, password) VALUES(@0,@1,@2)";
-                db.Execute(ins, email, username, password);
+                string ins = "INSERT INTO user (email, username, password) VALUES(@0,@1,@2)";
+                db.Execute(ins, email, username, password, password1);
                 bericht3 = true;
             }
             else if (result.Count() > 0 && username != "" && password != "")
