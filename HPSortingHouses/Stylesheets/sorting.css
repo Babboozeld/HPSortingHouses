@@ -1,4 +1,5 @@
 ﻿
+
 /* 4 mooie boxjes */
 .box {
     position: fixed;
@@ -8,59 +9,60 @@
     transition: all 1s;
     background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6));
 }
-.box1 {
+.box0 {
     left: 0;
+    top: 0;   
+}
+
+.box1 {
+    right: 0;
     top: 0;
-    background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url("../Images/img/img1.png") center center no-repeat;
-    background-size: cover;
+    /*background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url("../Images/img/img2.jpg") center center no-repeat;
+    background-size: cover;*/
 }
 
 .box2 {
-    right: 0;
-    top: 0;
-    background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url("../Images/img/img2.jpg") center center no-repeat;
+    left: 0;
+    bottom: 0;
+    /*background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url("../Images/img/img3.jpg") center center no-repeat;
     background-size: cover;
+    */
 }
 
 .box3 {
-    left: 0;
-    bottom: 0;
-    background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url("../Images/img/img3.jpg") center center no-repeat;
-    background-size: cover;
-}
-
-.box4 {
     right: 0;
     bottom: 0;
-    background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url("../Images/img/img4.png") center center no-repeat;
+    /*background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url("../Images/img/img4.png") center center no-repeat;
     background-size: cover;
+    */
 }
 
 .box:hover .button {
     opacity: 1;
 }
 
+.box0:hover {
+    cursor: pointer;
+}
+
 .box1:hover {
-    background: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0)), url("../Images/img/img1.png") center center no-repeat;
+    /*background: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0)), url("../Images/img/img2.jpg") center center no-repeat;
     background-size: cover;
+    */ 
     cursor: pointer;
 }
 
 .box2:hover {
-    background: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0)), url("../Images/img/img2.jpg") center center no-repeat;
+    /*background: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0)), url("../Images/img/img3.jpg") center center no-repeat;
     background-size: cover;
+    */ 
     cursor: pointer;
 }
 
 .box3:hover {
-    background: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0)), url("../Images/img/img3.jpg") center center no-repeat;
+    /*background: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0)), url("../Images/img/img4.png") center center no-repeat;
     background-size: cover;
-    cursor: pointer;
-}
-
-.box4:hover {
-    background: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0)), url("../Images/img/img4.png") center center no-repeat;
-    background-size: cover;
+    */ 
     cursor: pointer;
 }
 /* buttons */
@@ -84,6 +86,44 @@
     opacity: 1;
 }
 
-    .button:hover {
-        box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
-    }
+.button:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+.vraag1_0 {
+    background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url("../Images/img/img1.png") center center no-repeat;
+    background-size: cover;
+}
+
+.vraag1_0:hover {
+    background: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0)), url("../Images/img/img1.png") center center no-repeat;
+    background-size: cover;
+}
+.vraag1_1 {
+    background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url("../Images/img/img2.jpg") center center no-repeat;
+    background-size: cover;
+}
+
+.vraag1_1:hover {
+    background: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0)), url("../Images/img/img2.jpg") center center no-repeat;
+    background-size: cover;
+}
+.vraag1_2 {
+    background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url("../Images/img/img3.jpg") center center no-repeat;
+    background-size: cover;
+}
+
+.vraag1_2:hover {
+    background: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0)), url("../Images/img/img3.jpg") center center no-repeat;
+    background-size: cover;
+}
+
+.vraag1_3 {
+    background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url("../Images/img/img4.png") center center no-repeat;
+    background-size: cover;
+}
+
+.vraag1_3:hover {
+    background: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0)), url("../Images/img/img4.png") center center no-repeat;
+    background-size: cover;
+}
+

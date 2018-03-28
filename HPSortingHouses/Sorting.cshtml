@@ -1,5 +1,4 @@
 ﻿@{
-    /**/
 
     Layout = "~/_SiteLayout.cshtml";
     Page.Title = "Sorting";
@@ -23,11 +22,43 @@
         d = rnd.Next(1, 5);
     }
 
-}
-<head>
-    <link href="~/Stylesheets/sorting.css" rel="stylesheet" type="text/css" />
-</head>
+    int[] array = new int[4]
+    {
+        a, b, c, d
+    };
 
+}
+
+<link href="~/Stylesheets/sorting.css" rel="stylesheet" type="text/css" />
+
+@for (int i = 0; i<4; i++)
+{
+    switch (array[i])
+    {
+        case 1:
+            <div class="box box@(i) vraag1_0">
+                <a class="button" href="#">click me1</a>
+            </div>
+            break;
+        case 2:
+            <div class="box box@(i) vraag1_1">
+                <a class="button" href="#">click me2</a>
+            </div>
+            break;
+        case 3:
+            <div class="box box@(i) vraag1_2">
+                <a class="button" href="#">click me3</a>
+            </div>
+            break;
+        case 4:
+            <div class="box box@(i) vraag1_3">
+                <a class="button" href="#">click me4</a>
+            </div>
+            break;
+    }
+}
+
+<!--
 <div class="boxen">
 
     <div class="box box@(a)">
@@ -43,3 +74,4 @@
         <a class="box4" id="@d" href="#">click me4 </a>
     </div>
 </div>
+-->
