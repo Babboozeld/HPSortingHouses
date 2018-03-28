@@ -7,8 +7,10 @@ if (flag1 != null) {
 */
 
 var flag1 = document.getElementById("flag1");
+var flag2 = document.getElementById("flag2");
 var bg = document.getElementById("Background");
 var carouselB = document.getElementById("carousel-buttons");
+flag1.style.top = "-100vh";
 flag1.style.top = 0;
 
 function switchCarousel(x) {
@@ -18,6 +20,7 @@ function switchCarousel(x) {
         activeFlags[i].classList.remove(fa);
     }*/
     flag1.style.top = "-100vh";
+    flag2.style.top = "-100vh";
 
     if (x.classList.contains("cButton1")) {
         bg.style.backgroundImage = "url('../Images/bg1.jpg')";
@@ -27,5 +30,6 @@ function switchCarousel(x) {
         bg.style.backgroundImage = "url('../Images/bg2.jpg')";
     } else {
         bg.style.backgroundImage = "url('../Images/bg3.jpg')";
+        flag2.style.top = 0;
     }
 }
