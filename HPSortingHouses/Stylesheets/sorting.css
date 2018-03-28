@@ -1,12 +1,23 @@
-﻿
-
+﻿.txtvraag {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 150%;
+    text-align: center;
+    border: 3px solid white;
+    border-radius: 8px;
+    padding: 8px;
+    background-color: rgb(13, 13, 13);
+    opacity: 0.85;
+}
 /* 4 mooie boxjes */
 .box {
     position: fixed;
     width: 50%;
     height: 50%;
     padding: 10px;
-    transition: all 1s;
     background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6));
 }
 .box0 {
@@ -17,77 +28,24 @@
 .box1 {
     right: 0;
     top: 0;
-    /*background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url("../Images/img/img2.jpg") center center no-repeat;
-    background-size: cover;*/
 }
 
 .box2 {
     left: 0;
     bottom: 0;
-    /*background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url("../Images/img/img3.jpg") center center no-repeat;
-    background-size: cover;
-    */
 }
 
 .box3 {
     right: 0;
     bottom: 0;
-    /*background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url("../Images/img/img4.png") center center no-repeat;
-    background-size: cover;
-    */
 }
 
-.box:hover .button {
-    opacity: 1;
-}
-
-.box0:hover {
+.box:hover {
     cursor: pointer;
 }
-
-.box1:hover {
-    /*background: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0)), url("../Images/img/img2.jpg") center center no-repeat;
-    background-size: cover;
-    */ 
-    cursor: pointer;
-}
-
-.box2:hover {
-    /*background: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0)), url("../Images/img/img3.jpg") center center no-repeat;
-    background-size: cover;
-    */ 
-    cursor: pointer;
-}
-
-.box3:hover {
-    /*background: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0)), url("../Images/img/img4.png") center center no-repeat;
-    background-size: cover;
-    */ 
-    cursor: pointer;
-}
-/* buttons */
-.button {
-    position: absolute;
-    background-color: white;
-    border: 3px black;
-    color: black;
-    font-weight: bold;
-    padding: 15px 25px;
-    text-align: center;
-    font-size: 16px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    cursor: pointer;
-    left: 50%;
-    text-decoration: none;
-    transform: translateX(-50%);
-    border-radius: 8px;
-    opacity: 1;
-}
-
-.button:hover {
-    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+.box:hover .text {
+        transition: .5s ease;
+        opacity: 1;
 }
 .vraag1_0 {
     background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url("../Images/img/img1.png") center center no-repeat;
@@ -102,7 +60,6 @@
     background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url("../Images/img/img2.jpg") center center no-repeat;
     background-size: cover;
 }
-
 .vraag1_1:hover {
     background: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0)), url("../Images/img/img2.jpg") center center no-repeat;
     background-size: cover;
@@ -111,12 +68,10 @@
     background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url("../Images/img/img3.jpg") center center no-repeat;
     background-size: cover;
 }
-
 .vraag1_2:hover {
     background: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0)), url("../Images/img/img3.jpg") center center no-repeat;
     background-size: cover;
 }
-
 .vraag1_3 {
     background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url("../Images/img/img4.png") center center no-repeat;
     background-size: cover;
@@ -126,4 +81,14 @@
     background: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0)), url("../Images/img/img4.png") center center no-repeat;
     background-size: cover;
 }
-
+.text {
+    color: white;
+    font-size: 30px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+    opacity: 0;
+}
