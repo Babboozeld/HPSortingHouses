@@ -65,7 +65,7 @@
     }
 }
 <head>
-    <link href="~/Stylesheets/Register-Login.css" rel="stylesheet" type="text/css" />
+    <link href="~/Stylesheets/Register.css" rel="stylesheet" type="text/css" />
 </head>
 
 
@@ -81,70 +81,71 @@
 </style>
 
 <div id="flag1" class="flag-container flag-active flag-register" style="left: 40%;">
-    <div class="flag-box">
+	<div class="flag-box">
 
-        <a class="button-flag" style="display: none;">Join</a>
-        <form class="loginform" method="post">
-            <div>
-                <label for="Email" class="col-sm-2 col-form-label">Email</label>
-                <div class="col-sm-12">
-                    <input type="text" class="form-control" id="Email" placeholder="Email" value="@Request.Form["email"]">
-                </div>
-            </div>
+		<a class="button-flag" style="display: none;">Join</a>
+		<form class="loginform" method="post">
+			<div>
+				<label for="Email" class="col-sm-2 col-form-label">Email</label>
+				<div class="col-sm-12">
+					<input type="text" class="form-control" id="Email" placeholder="Email" value="@Request.Form["email"]">
+				</div>
+			</div>
 
-            <div>
-                <label for="Username" class="col-sm-2 col-form-label">Username</label>
-                <div class="col-sm-12">
-                    <input type="text" class="form-control" id="Username" placeholder="Username" value="@Request.Form["username"]">
-                </div>
-            </div>
-            <div>
-                <label for="Password" class="col-sm-2 col-form-label">Password</label>
-                <div class="col-sm-12">
-                    <input type="password" class="form-control" id="Password" placeholder="Password" value="@Request.Form["password"]">
+			<div>
+				<label for="Username" class="col-sm-2 col-form-label">Username</label>
+				<div class="col-sm-12">
+					<input type="text" class="form-control" id="Username" placeholder="Username" value="@Request.Form["username"]">
+				</div>
+			</div>
+			<div>
+				<label for="Password" class="col-sm-2 col-form-label">Password</label>
+				<div class="col-sm-12">
+					<input type="password" class="form-control" id="Password" placeholder="Password" value="@Request.Form["password"]">
 
-                </div>
-                <div>
-                    <label for="Confirm-password" class="col-sm-2 col-form-label">Confirm Password</label>
-                    <div class="col-sm-12">
-                        <input type="text" class="form-control" id="Confirm-password" placeholder="Password" value="@Request.Form["password1"]">
-                    </div>
-                </div>
-                @if (bericht1 == true)
-                {
-                    <h3>Password form is empty</h3>
-                }
+				</div>
+				<div>
+					<label for="Confirm-password" class="col-sm-2 col-form-label">Confirm Password</label>
+					<div class="col-sm-12">
+						<input type="text" class="form-control" id="Confirm-password" placeholder="Password" value="@Request.Form["password1"]">
+					</div>
+				</div>
+				@if (bericht1 == true)
+				{
+					<h3>Password form is empty</h3>
+				}
 
-                @if (bericht2 == true)
-                {
-                    <h3>Username form is empty</h3>
-                }
-                @if (bericht3 == true)
-                {
-                    <h4>You have succesfully registered!</h4>
-                }
-                @if (bericht4 == true)
-                {
-                    <h3>Username is already taken</h3>
-                }
-                @if (bericht5 == true)
-                {
-                    <h3>All fields are empty!</h3>
-                }
-                @if (bericht6 == true)
-                {
-                    <h3>Email form is empty</h3>
-                }
-                @if (bericht7 == true)
-                {
-                    <h3>Confirm password form is empty</h3>
-                }
-                <div id="buttonlog">
-                    <button name="registerbutton" type="button" class="btn btn-secondary btn-lg">Register</button>
-                </div>
-
-            </div>
-        </form>
-    </div>
+				@if (bericht2 == true)
+				{
+					<h3>Username form is empty</h3>
+				}
+				@if (bericht3 == true)
+				{
+					<h4>You have succesfully registered!</h4>
+				}
+				@if (bericht4 == true)
+				{
+					<h3>Username is already taken</h3>
+				}
+				@if (bericht5 == true)
+				{
+					<h3>All fields are empty!</h3>
+				}
+				@if (bericht6 == true)
+				{
+					<h3>Email form is empty</h3>
+				}
+				@if (bericht7 == true)
+				{
+					<h3>Confirm password form is empty</h3>
+				}
+				<div id="buttonlog">
+					<button name="registerbutton" type="button" class="btn btn-secondary btn-lg">Register</button>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
     <div class="flag-box-under">
+
     </div>
