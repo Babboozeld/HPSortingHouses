@@ -47,40 +47,82 @@
         transition: .5s ease;
         opacity: 1;
 }
-.vraag1_0 {
+.vraag1_1 {
     background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url("../Images/img/img1.png") center center no-repeat;
     background-size: cover;
 }
 
-.vraag1_0:hover {
+.vraag1_1:hover {
     background: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0)), url("../Images/img/img1.png") center center no-repeat;
     background-size: cover;
 }
-.vraag1_1 {
+.vraag1_2 {
     background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url("../Images/img/img2.jpg") center center no-repeat;
     background-size: cover;
 }
-.vraag1_1:hover {
+.vraag1_2:hover {
     background: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0)), url("../Images/img/img2.jpg") center center no-repeat;
     background-size: cover;
 }
-.vraag1_2 {
+.vraag1_3 {
     background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url("../Images/img/img3.jpg") center center no-repeat;
     background-size: cover;
 }
-.vraag1_2:hover {
+.vraag1_3:hover {
     background: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0)), url("../Images/img/img3.jpg") center center no-repeat;
     background-size: cover;
 }
-.vraag1_3 {
+.vraag1_4 {
     background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url("../Images/img/img4.png") center center no-repeat;
     background-size: cover;
 }
 
-.vraag1_3:hover {
+.vraag1_4:hover {
     background: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0)), url("../Images/img/img4.png") center center no-repeat;
     background-size: cover;
 }
+
+.vraag2_1 {
+    background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url("../Images/img/img5.jpg") center center no-repeat;
+    background-size: cover;
+}
+
+.vraag2_1:hover {
+        background: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0)), url("../Images/img/img5.jpg") center center no-repeat;
+        background-size: cover;
+    }
+
+.vraag2_2 {
+    background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url("../Images/img/img6.png") center center no-repeat;
+    background-size: cover;
+}
+
+.vraag2_2:hover {
+        background: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0)), url("../Images/img/img6.png") center center no-repeat;
+        background-size: cover;
+    }
+
+.vraag2_3 {
+    background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url("../Images/img/img7.jpg") center center no-repeat;
+    background-size: cover;
+}
+
+.vraag2_3:hover {
+        background: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0)), url("../Images/img/img7.jpg") center center no-repeat;
+        background-size: cover;
+    }
+
+.vraag2_4 {
+    background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url("../Images/img/img8.jpg") center center no-repeat;
+    background-size: cover;
+}
+
+.vraag2_4:hover {
+        background: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0)), url("../Images/img/img8.jpg") center center no-repeat;
+        background-size: cover;
+    }
+
+
 .text {
     color: white;
     font-size: 30px;
