@@ -22,9 +22,7 @@
             string sel = "SELECT * FROM [user] WHERE email = @0 AND password = @1";
             var result = db.Query(sel, email, password);
             if (result.Count() > 0)
-            {
-                
-                
+            {  
                 Session["email"] = "forumuser";
                 Response.Redirect("~/forum.cshtml");
             }
