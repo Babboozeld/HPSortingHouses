@@ -6,7 +6,7 @@
     string provider = "System.Data.SqlClient";
     Database db = Database.OpenConnectionString(connectionString, provider);
 
-    bool bericht = false;
+    bool bericht1 = false;
     bool bericht2 = false;
     bool bericht3 = false;
     bool bericht4 = false;
@@ -34,7 +34,7 @@
                 var result2 = db.Query(sel2, email, password);
                 if (result2.Count() == 0 && email != "" && password != "")
                 {
-                    bericht = true;
+                    bericht1 = true;
                 }
 
             }
@@ -43,11 +43,11 @@
         {
             bericht2 = true;
         }
-        if (email != "" && password == "")
+        if (email == "" && password != "")
         {
             bericht3 = true;
         }
-        if (email == "" && password != "")
+        if (email != "" && password == "")
         {
             bericht4 = true;
         }
@@ -64,27 +64,44 @@
     </style>
 </head>
 <div id="flag1" class="flag-container flag-active flag-login">
-    <div class="flag-box">
-        <a class="button-flag" style="display: none;">Join</a>
-        <form class="loginform">
-            <div>
-                <label for="Email" class="col-sm-2 col-form-label">Email</label>
-                <div class="col-sm-12">
-                    <input type="text" class="form-control" id="Email" name="email" placeholder="Email" value="@Request.Form["email"]">
-                </div>
-            </div>
-            <div>
-                <label for="Password" class="col-sm-2 col-form-label">Password</label>
-                <div class="col-sm-12">
-                    <input type="password" class="form-control" id="Password" name="password" placeholder="Password" value="@Request.Form["password"]">
+	<div class="flag-box">
+		<a class="button-flag" style="display: none;">Join</a>
+		<form class="loginform">
+			<div>
+				<label for="Email" class="col-sm-2 col-form-label">Email</label>
+				<div class="col-sm-12">
+					<input type="text" class="form-control" id="Email" name="email" placeholder="Email" value="@Request.Form["email"]">
+				</div>
+			</div>
+			<div>
+				<label for="Password" class="col-sm-2 col-form-label">Password</label>
+				<div class="col-sm-12">
+					<input type="password" class="form-control" id="Password" name="password" placeholder="Password" value="@Request.Form["password"]">
 
-                </div>
-                <div id="buttonlog">
-                    <button type="button" class="btn btn-secondary btn-lg">Log in</button>
-                </div>
-            </div>
-        </form>
-    </div>
-    <div class="flag-box-under">
-    </div>
+				</div>
+				<div id="buttonlog">
+					<button type="button" class="btn btn-secondary btn-lg">Log in</button>
+				</div>
+			</div>
+		</form>
+	</div>
+	<div class="flag-box-under">
+	</div>
+	@if (bericht1 == true)
+	{
+		<h3>Succesfol ingelogd.</h3>
+		// Hier komt redirect naar main page //
+	}
+	@if (bericht2 == true)
+	{
+		<h3>You should probably try to login.</h3>
+	}
+	@if (bericht3 == true)
+	{
+		<h3>Email is empty.</h3>
+	}
+	@if (bericht4 == true)
+	{
+		<h3>Password is empty.</h3>
+	}
 </div>
