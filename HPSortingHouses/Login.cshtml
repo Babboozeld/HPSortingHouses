@@ -18,20 +18,20 @@
         
 
         Session["email"] = email;
-        if (email!= "" && password != "")
+        if (email != "" && password != "")
         {
-            string sel = "SELECT * FROM user WHERE email = @0 AND password = @1";
+            string sel = "SELECT * FROM [user] WHERE email = @0 AND password = @1";
             var result = db.Query(sel, email, password);
             if (result.Count() > 0)
             {
                 
                 
-                Session["type"] = "forumuser";
+                Session["email"] = "forumuser";
                 Response.Redirect("~/forum.cshtml");
             }
             else if (email != "" && password != "")
             {
-                string sel2 = "SELECT * FROM user WHERE email = @0 AND password = @1";
+                string sel2 = "SELECT * FROM [user] WHERE email = @0 AND password = @1";
                 var result2 = db.Query(sel2, email, password);
                 if (result2.Count() == 0 && email != "" && password != "")
                 {
@@ -70,7 +70,7 @@
 
         <a class="button-flag" style="display: none;">Join</a>
 
-        <form class="loginform">
+        <form class="loginform" method="post">
             <div>
                 <label for="Email" class="col-sm-2 col-form-label">Email</label>
                 <div class="col-sm-12">
@@ -84,10 +84,11 @@
 
                 </div>
                 <div id="buttonlog">
-                    <button type="button" class="btn btn-secondary btn-lg">Log in</button>
+                    <button type="submit" class="btn btn-secondary btn-lg">Log in</button>
                 </div>
 
             </div>
+            
         </form>
 
     </div>

@@ -1,5 +1,13 @@
 ﻿@{
+
+    if (Session["email"] == null)
+    {
+        Response.Redirect("~/Login.cshtml");
+    }
+
+
+
+
     Layout = "~/_SiteLayout.cshtml";
     Page.Title = "Home Page";
-}
 }
