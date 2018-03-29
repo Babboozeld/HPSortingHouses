@@ -10,8 +10,10 @@ var flag1 = document.getElementById("flag1");
 var flag2 = document.getElementById("flag2");
 var bg = document.getElementById("Background");
 var carouselB = document.getElementById("carousel-buttons");
+var cButtons = document.querySelectorAll(".cButton");
 flag1.style.top = "-100vh";
 flag1.style.top = 0;
+emblemBox = document.getElementById("emblem-box");
 
 function switchCarousel(x) {
 
@@ -22,14 +24,23 @@ function switchCarousel(x) {
     flag1.style.top = "-100vh";
     flag2.style.top = "-100vh";
 
+    cButtons.forEach(function(entry) {
+        entry.classList.remove("active");
+    });
+    emblemBox.classList.remove("eRight");
+    emblemBox.classList.remove("eLeft");
+
     if (x.classList.contains("cButton1")) {
         bg.style.backgroundImage = "url('../Images/bg1.jpg')";
         //flag1.classList.add(fa);
         flag1.style.top = 0;
+        emblemBox.classList.add("eRight");
     } else if (x.classList.contains("cButton2")) {
         bg.style.backgroundImage = "url('../Images/bg2.jpg')";
     } else {
         bg.style.backgroundImage = "url('../Images/bg3.jpg')";
         flag2.style.top = 0;
+        emblemBox.classList.add("eLeft");
     }
+    x.classList.add("active");
 }

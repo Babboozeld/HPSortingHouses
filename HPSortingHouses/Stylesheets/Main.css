@@ -161,6 +161,9 @@ footer p:hover {
     transform: translateX(-50%);
 }
 
+.cButton:hover, .cButton.active {
+    opacity: 0.6;
+}
 .cButton {
     position: relative;
     height: 20px;
@@ -168,8 +171,12 @@ footer p:hover {
     border-radius: 50%;
     background-color: white;
     display: inline-block;
+    opacity: 0.3;
+    transition: opacity 1s;
 }
-.cButton:after {
+
+/*
+.cButton.active:after {
     content: "";
     position: absolute;
     width: 100%;
@@ -177,12 +184,16 @@ footer p:hover {
     transform: scale(0.9,0.9);
     border-radius: 50%;
     background-color: gray;
+    opacity: 0.6;
+    transition: opacity 1.5s;
 }
+*/
 
 .cButton2, .cButton3 {
     margin-left: 8px;
 }
 
+/*emblem*/
 #emblem-box {
     background: url(../Images/HPTPCverD14.png) center center no-repeat;
     background-size: cover;
@@ -192,5 +203,21 @@ footer p:hover {
     transform: translate(-50%,-50%);
     width: 450px;
     height: 450px;
+    transition: left 2.5s;
+}
+#emblem-box {
+    display: flex;
+    flex-wrap: wrap;
+}
+.emblem-house {
+    width: 50%;
+    height: 50%;
+}
+#emblem-box.eLeft {
+    left: 25%;
+}
+
+#emblem-box.eRight {
+    left: 75%;
 }
 
