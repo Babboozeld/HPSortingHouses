@@ -27,51 +27,66 @@
 
     //generator 2
 
-    int aa, bb;
+    int aa;
     Random rand = new Random();
     aa = rnd.Next(1, 3);
-    
+
 
     //arrays
 
     int[] vraag = new int[3]
 {
-        1, 2, 3
+1, 2, 3
 };
 
     int[] positie = new int[4]
     {
-        a, b, c, d
+a, b, c, d
     };
-
+    if (IsPost)
+    {
+        <h1>dksafhaksjfs</h1>
+    }
 
 }
 
 <link href="~/Stylesheets/sorting.css" rel="stylesheet" type="text/css" />
 
-@for (int i = 0; i<4; i++)
+@for (int i = 0; i < 4; i++)
 {
     switch (positie[i])
     {
         case 1:
-            <div class="box box@(i) vraag@(aa)_1">
-                <div class="text">Hufflepuff</div>
-            </div>
+    <form method="post">
+    <input type="hidden" name="name" value="1" />
+    <button type="submit" class="box box@(i) vraag@(aa)_1">
+        <div class="text"></div>
+    </button>
+    </form>
             break;
         case 2:
-            <div class="box box@(i) vraag@(aa)_2">
-                <div class="text">Ravenclaw</div>
-            </div>
+    <form method="post">
+        <input type="hidden" name="name" value="2" />
+        <button type="submit" class="box box@(i) vraag@(aa)_2">
+            <div class="text"></div>
+        </button>
+    </form>
             break;
         case 3:
-            <div class="box box@(i) vraag@(aa)_3">
-                <div class="text">Gryffindor</div>
-            </div>
+    <form method="post">
+        <input type="hidden" name="name" value="1" />
+        <button type="submit" class="box box@(i) vraag@(aa)_3">
+            <div class="text"></div>
+        </button>
+    </form>
             break;
         case 4:
-            <div class="box box@(i) vraag@(aa)_4">
-                <div class="text">Slytherin</div>
-            </div>
+    <form method="post">
+        <input type="hidden" name="name" value="1" />
+        <button type="submit" class="box box@(i) vraag@(aa)_4">
+            <div class="text"></div>
+        </button>
+    </form>
             break;
     }
     <h1 class="txtvraag">
