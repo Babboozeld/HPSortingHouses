@@ -56,29 +56,21 @@
         {
             bericht7 = true;
         }
-
-    }
-
-    
+    } 
 }
 <head>
-    <link href="~/Stylesheets/Register.css" rel="stylesheet" type="text/css" />
+	<link href="~/Stylesheets/Register.css" rel="stylesheet" type="text/css" />
+	<style>
+		.flag-register.flag-container {
+			--width: 60vw;
+			--flag-width: 0.8;
+			--gray-green: rgb(87,136,98);
+		}
+	</style>
 </head>
 
-
-
-<style>
-	.flag-register.flag-container {
-        --width: 60vw;
-        --flag-width: 0.8;
-        --gray-green: rgb(87,136,98);
-    }
-</style>
-
 <div id="flag1" class="flag-container flag-active flag-register" style="left: 40%;">
-
     <div class="flag-box">
-
         <a class="button-flag" style="display: none;">Join</a>
         <form class="loginform" method="post">
             <div>
@@ -108,22 +100,19 @@
                 </div>
                @if (bericht1 == true)
                {
-                   <h3>meerdere inloggegevens zijn incorrect ingevoerd</h3>
+                   <h3>Meerdere inloggegevens zijn incorrect ingevoerd.</h3>
                }
-
-               
-
                 @if (bericht2 == true)
                 {
-                    <h3>Username form is empty</h3>
+                    <h3>Username form is empty.</h3>
                 }
                 @if (bericht3 == true)
                 {
-                    <h4>Password is empty</h4>
+                    <h4>Password is empty.</h4>
                 }
                 @if (bericht4 == true)
                 {
-                    <h3>Username is empty</h3>
+                    <h3>Username is empty.</h3>
                 }
                 @if (bericht5 == true)
                 {
@@ -131,20 +120,19 @@
                 }
                 @if (bericht6 == true)
                 {
-                    <h3>Email form is empty</h3>
+                    <h3>Email form is empty.</h3>
                 }
                 @if (bericht7 == true)
                 {
-                    <h3>Confirm password form is empty</h3>
+                    <h3>Confirm password form is empty.</h3>
                 }
                 <div id="buttonlog">
                     <button name="registerbutton" type="submit" class="btn btn-secondary btn-lg">Register</button>
                 </div>
-
             </div>
         </form>
     </div>
-
     <div class="flag-box-under">
 
     </div>
+</div>
