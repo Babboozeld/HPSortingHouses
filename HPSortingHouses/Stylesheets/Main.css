@@ -1,59 +1,62 @@
-﻿:root {
-    --gray-green: rgb(87,136,98);
-    --flag-width: 0.7;
+:root {
+  --gray-green: rgb(87, 136, 98);
+  --flag-width: 0.7;
 }
 
 body {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 /*background*/
+
 #Background {
-    position: absolute;
-    height: 100vh;
-    width: 100vw;
-    background: url(../Images/bg1.jpg) center center no-repeat;
-    background-size: cover;
-    transition: background 2s ease;
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  background: url(../Images/bg1.jpg) center center no-repeat;
+  background-size: cover;
+  transition: background 2s ease;
 }
 
 #Background:before {
-    display: flex;
-    content: "";
-    width: 100%;
-    height: 100%;
-    background-color: black;
-    opacity: 0.3;
+  display: flex;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  opacity: 0.3;
 }
 
+/*header
 
-/*header*/
 header {
-    z-index: 5;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
+  z-index: 5;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
 }
 
 @media (min-width: 768px) {
-    .navbar-brand.abs {
-        position: absolute;
-        width: 100%;
-        left: 0;
-        text-align: center;
-    }
+  .navbar-brand.abs {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    text-align: center;
+  }
 }
 
 nav img {
-    transform: scale(0.6, 0.6);
-}
-nav {
-    background: linear-gradient(rgba(0,0,0,0.8),transparent);
+  transform: scale(0.6, 0.6);
 }
 
-/*footer*/
+nav {
+  background: linear-gradient(rgba(0, 0, 0, 0.8), transparent);
+}
+*/
+
+/*footer
 footer {
     display: block;
     position: fixed;
@@ -83,96 +86,105 @@ footer p {
 footer p:hover {
      opacity: 0.6;
 }
+*/
 
-/*Flag*/
+/*Flag
+
 .flag-container {
-    --height: 100vh;
-    --width: 50vw;
-    position: fixed;
-    width: var(--width);
-    height: var(--height);
-    top: -100vh;
-    transition: top 2s;
+  --height: 100vh;
+  --width: 50vw;
+  position: fixed;
+  width: var(--width);
+  height: var(--height);
+  top: -100vh;
+  transition: top 2s;
 }
 
 .flag-box {
-    position: relative;
-    width: calc(var(--flag-width) * 100%);
-    height: 75%;
-    margin: auto;
-    background-color: var(--gray-green);
+  position: relative;
+  width: calc(var(--flag-width) * 100%);
+  height: 75%;
+  margin: auto;
+  background-color: var(--gray-green);
 }
 
 .flag-box-under {
-    width: 0;
-    height: 0;
-    margin: auto;
-    border-right: calc(var(--width) * (var(--flag-width) * 0.5)) solid var(--gray-green);
-    border-bottom: calc(var(--height) * 0.15) solid transparent;
-    border-left: calc(var(--width) * (var(--flag-width) * 0.5)) solid var(--gray-green);
+  width: 0;
+  height: 0;
+  margin: auto;
+  border-right: calc(var(--width) * (var(--flag-width) * 0.5)) solid var(--gray-green);
+  border-bottom: calc(var(--height) * 0.15) solid transparent;
+  border-left: calc(var(--width) * (var(--flag-width) * 0.5)) solid var(--gray-green);
 }
 
 .button-flag {
-    --button-color: white;
-    position: absolute;
-    display: block;
-    padding: 10px 55px;
-    border: solid var(--button-color) 5px;
-    width: 60px;
-    color: var(--button-color);
-    font-size: 35px;
-    text-align: center;
-    font-weight: bold;
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-}
-.button-flag:hover {
-    --button-color: red;
+  --button-color: white;
+  position: absolute;
+  display: block;
+  padding: 10px 55px;
+  border: solid var(--button-color) 5px;
+  width: 60px;
+  color: var(--button-color);
+  font-size: 35px;
+  text-align: center;
+  font-weight: bold;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
+.button-flag:hover {
+  --button-color: red;
+}
+
+*/
+
 /*flag toggle temp*/
+
 #toggleflagcheckbox {
-    display: none;
+  display: none;
 }
 
 .togle-flag {
-    position: fixed;
-    font-size: 80px;
-    right: 20px;
-    top: 50vh;
-    color: white;
+  position: fixed;
+  font-size: 80px;
+  right: 20px;
+  top: 50vh;
+  color: white;
 }
 
-#toggleflagcheckbox:checked + .flag-container{
-    top: 0px;
+#toggleflagcheckbox:checked+.flag-container {
+  top: 0px;
 }
+
 .flag-active {
-    top: 0px;
+  top: 0px;
 }
 
 /*Carousel buttons*/
+
 #carousel-buttons {
-    position: fixed;
-    margin: 0;
-    padding: 0;
-    bottom: 90px;
-    left: 50%;
-    transform: translateX(-50%);
+  position: fixed;
+  margin: 0;
+  padding: 0;
+  bottom: 90px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .cButton:hover, .cButton.active {
-    opacity: 0.6;
+  opacity: 0.6;
 }
+
 .cButton {
-    position: relative;
-    height: 20px;
-    width: 20px;
-    border-radius: 50%;
-    background-color: white;
-    display: inline-block;
-    opacity: 0.3;
-    transition: opacity 1s;
+  position: relative;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background-color: white;
+  display: inline-block;
+  opacity: 0.3;
+  transition: opacity 1s;
 }
 
 /*
@@ -190,34 +202,37 @@ footer p:hover {
 */
 
 .cButton2, .cButton3 {
-    margin-left: 8px;
+  margin-left: 8px;
 }
 
 /*emblem*/
+
 #emblem-box {
-    background: url(../Images/HPTPCverD14.png) center center no-repeat;
-    background-size: cover;
-    position: fixed;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%,-50%);
-    width: 450px;
-    height: 450px;
-    transition: left 2.5s;
+  background: url(../Images/HPTPCverD14.png) center center no-repeat;
+  background-size: cover;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 450px;
+  height: 450px;
+  transition: left 2.5s;
 }
+
 #emblem-box {
-    display: flex;
-    flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
 }
+
 .emblem-house {
-    width: 50%;
-    height: 50%;
+  width: 50%;
+  height: 50%;
 }
+
 #emblem-box.eLeft {
-    left: 25%;
+  left: 25%;
 }
 
 #emblem-box.eRight {
-    left: 75%;
+  left: 75%;
 }
-

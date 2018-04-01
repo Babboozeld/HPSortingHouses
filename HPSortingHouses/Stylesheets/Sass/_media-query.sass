@@ -1,0 +1,8 @@
+/*+++MEDIA-QUERY+++*/
+$mq-list: (xs: '(max-width: 539px)', sm: '(min-width: 540px) and (max-width: 719px)', md: '(min-width: 720px) and (max-width: 919px)', lg: '(min-width: 920px) and (max-width: 1139px)', xl: '(min-width: 1200px)')
+
+@each $size, $query in $mq-list
+  @media #{$query}
+    @include mq-flag($size)
+
+//https://medium.com/front-end-developers/the-solution-to-media-queries-in-sass-5493ebe16844
