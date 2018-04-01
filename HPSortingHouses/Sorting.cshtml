@@ -1,8 +1,45 @@
 ﻿@{
+    //1. setup sessions
+    if (Session["Hufflepuff"] == null)
+    {
+        List<int> VraagCountList = new List<int>(new int[] { 1, 2 });
+        Session["Vlist"] = VraagCountList;
+        Session["Hufflepuff"] = 0;
+        Session["Ravenclaw"] = 0;
+        Session["Slytherin"] = 0;
+        Session["Gryffindor"] = 0;
+    }
+
+    List<int> VList = (List<int>)Session["Vlist"];
+    //2.
+    if (IsPost)
+    {
+        //post waardes
+        int Bvraag = Request.Form["vraag"].AsInt();
+        int antwoord = Request.Form["antwoord"].AsInt();
+
+        //fuctie die waardes bbij house sessions doet
+
+
+        //vraag uit list halen
+
+        VList.Remove(Bvraag);
+
+    }
+
+    //3. check of user klaar is, list is leeg
+    if (VList.Count() == 0)
+    {
+        <h1>hi</h1>
+    }
+
+    Session["Vlist"] = VList;
+
 
     Layout = "~/_SiteLayout.cshtml";
     Page.Title = "Sorting";
 
+    //4. nieuw vraag
 
     //generator 1
     int a, b, c, d;
@@ -23,30 +60,12 @@
     {
         d = rnd.Next(1, 5);
     }
+    int[] positie = new int[4] { a, b, c, d };
 
 
-    //generator 2
-
-    int aa;
-    Random rand = new Random();
-    aa = rnd.Next(1, 3);
-
-
-    //arrays
-
-    int[] vraag = new int[3]
-{
-1, 2, 3
-};
-
-    int[] positie = new int[4]
-    {
-a, b, c, d
-    };
-    if (IsPost)
-    {
-        <h1>dksafhaksjfs</h1>
-    }
+    Random random = new Random();
+    int lp = rnd.Next(VList.Count);
+    int aa = VList[lp];
 
 }
 
@@ -58,7 +77,8 @@ a, b, c, d
     {
         case 1:
     <form method="post">
-    <input type="hidden" name="name" value="1" />
+        <input type="hidden" name="vraag" value="@aa" />
+    <input type="hidden" name="antwoord" value="1" />
     <button type="submit" class="box box@(i) vraag@(aa)_1">
         <div class="text"></div>
     </button>
@@ -66,7 +86,8 @@ a, b, c, d
             break;
         case 2:
     <form method="post">
-        <input type="hidden" name="name" value="2" />
+        <input type="hidden" name="vraag" value="@aa" />
+        <input type="hidden" name="antwoord" value="2" />
         <button type="submit" class="box box@(i) vraag@(aa)_2">
             <div class="text"></div>
         </button>
@@ -74,7 +95,8 @@ a, b, c, d
             break;
         case 3:
     <form method="post">
-        <input type="hidden" name="name" value="1" />
+        <input type="hidden" name="vraag" value="@aa" />
+        <input type="hidden" name="antwoord" value="3" />
         <button type="submit" class="box box@(i) vraag@(aa)_3">
             <div class="text"></div>
         </button>
@@ -82,7 +104,8 @@ a, b, c, d
             break;
         case 4:
     <form method="post">
-        <input type="hidden" name="name" value="1" />
+        <input type="hidden" name="vraag" value="@aa" />
+        <input type="hidden" name="antwoord" value="4" />
         <button type="submit" class="box box@(i) vraag@(aa)_4">
             <div class="text"></div>
         </button>
