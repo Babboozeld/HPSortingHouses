@@ -173,8 +173,9 @@
                         <input type="password" class="form-control" id="Password" name="password" placeholder="Password" value="@Request.Form["password"]">
 
                     </div>
+                    <input type="hidden" name="submitbutton" value="login" />
                     <div id="buttonlog">
-                        <button name="submitbutton" type="submit" class="btn btn-secondary btn-lg" value="login">Log In</button>
+                        <button type="submit" class="btn btn-secondary btn-lg">Log In</button>
                     </div>
                 </div>
                 @if (bericht1_1 == true)
@@ -267,8 +268,9 @@
                     {
                         <h4>Succesfully registered!</h4>
                     }
+                    <input type="hidden" name="submitbutton" value="register"/>
                     <div id="buttonlog">
-                        <button name="submitbutton" type="submit" class="btn btn-secondary btn-lg" value="register">Register</button>
+                        <button type="submit" class="btn btn-secondary btn-lg">Register</button>
                     </div>
                 </div>
             </form>
