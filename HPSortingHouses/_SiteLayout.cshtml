@@ -21,57 +21,56 @@
 </head>
 
 <body>
-  <div id="Background">
+    <div id="background"></div>
     <header class="header">
-      <!-- Navigatie -->
-      <nav class="navbar navbar-expand-md navbar-dark ">
+        <!-- Navigatie -->
+        <nav class="navbar navbar-expand-md navbar-dark ">
         <img src="~/Images/HPTP80.png"><a href="~/Default.cshtml" class="navbar-brand">School of Wizards</a>
         <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#collapsingNavbar1">
                     <span class="navbar-toggler-icon"></span>
                 </button>
         <div class="navbar-collapse collapse" id="collapsingNavbar1">
-          <ul class="navbar-nav ml-auto">
+            <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a class="nav-link" href="#">Home</a>
+                <a class="nav-link" href="#">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Lore</a>
+                <a class="nav-link" href="#">Lore</a>
             </li>
             @if (Session["email"] != null) {
             <li class="nav-item">
-              <a class="nav-link" href="#">Lessen</a>
+                <a class="nav-link" href="#">Lessen</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Ingeleverd huiswerk</a>
+                <a class="nav-link" href="#">Ingeleverd huiswerk</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Profiel</a>
+                <a class="nav-link" href="#">Profiel</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Scoreboard</a>
+                <a class="nav-link" href="#">Scoreboard</a>
             </li>
             } else {
             <li class="nav-item">
-              <a class="nav-link" href="~/Login.cshtml">Login</a>
+                <a class="nav-link" href="~/Login.cshtml">Login</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="~/Register.cshtml">Register</a>
+                <a class="nav-link" href="~/Register.cshtml">Register</a>
             </li>
             }
-          </ul>
+            </ul>
         </div>
-      </nav>
+        </nav>
     </header>
 
     <main>
-      @RenderBody()
+        @RenderBody()
     </main>
 
     <footer class="footer">
-      <div class="footer__gradient"></div>
-      <p class="footer__item">&copy; @DateTime.Now.Year - School of Wizards</p>
+        <div class="footer__gradient"></div>
+        <p class="footer__item">&copy; @DateTime.Now.Year - School of Wizards</p>
     </footer>
-  </div>
 
   <script src="~/Scripts/Main.js"></script>
 </body>

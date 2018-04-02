@@ -39,9 +39,27 @@
     @extend .flag
     --fcolor: rgb(128, 136, 87)
     right: 0
+  &--login
+    @extend .flag
+    --width: 40vw
+    --flag-width: 0.8
+    --fcolor: rgb(222,99,99)
+    top: 0
+  &--register
+    @extend .flag
+    --width: 60vw
+    --flag-width: 0.8
+    --fcolor: rgb(87,136,98)
+    left: 40%
+    top: 0
+
 
 =mq-flag($s)
-  @if $s == sm
+  @if $s == xs
+    .flag
+      --width: 100vw
+      --flag-width: 0.8
+  @else if $s == sm
     .flag
       --width: 100vw
       --flag-width: 0.8

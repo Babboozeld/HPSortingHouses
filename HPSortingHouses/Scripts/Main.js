@@ -8,7 +8,7 @@ if (flag1 != null) {
 
 var flag1 = document.getElementById("flag1");
 var flag2 = document.getElementById("flag2");
-var bg = document.getElementById("Background");
+var bg = document.getElementById("background");
 var carouselB = document.getElementById("carousel-buttons");
 var cButtons = document.querySelectorAll(".cButton");
 flag1.style.top = "-100vh";
