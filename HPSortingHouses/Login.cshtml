@@ -17,7 +17,6 @@
         var email = Request.Form["email"];
         var password = Request.Form["password"];
 
-        Session["email"] = email;
         if (email != "" && password != "")
         {
             string sel = "SELECT * FROM [user] WHERE email = @0 AND password = @1";
@@ -58,7 +57,7 @@
     <div class="flag__container ">
         <div class="flag__top">
             <a class="button-flag" style="display: none;">Join</a>
-            <form class="loginform">
+            <form class="loginform" method="post">
                 <div>
                     <label for="Email" class="col-sm-2 col-form-label">Email</label>
                     <div class="col-sm-12">
