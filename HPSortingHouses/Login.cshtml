@@ -13,17 +13,29 @@
     bool bericht4 = false;
 
     if (IsPost)
-    {   
+    {
         var email = Request.Form["email"];
         var password = Request.Form["password"];
-        
+
         Session["email"] = email;
         if (email != "" && password != "")
         {
             string sel = "SELECT * FROM [user] WHERE email = @0 AND password = @1";
             var result = db.Query(sel, email, password);
+            if (email == "" && password == "")
+            {
+                bericht2 = true;
+            }
+            if (email == "" && password != "")
+            {
+                bericht3 = true;
+            }
+            if (email != "" && password == "")
+            {
+                bericht4 = true;
+            }
             if (result.Count() > 0)
-            {  
+            {
                 Session["email"] = "forumuser";
                 Response.Redirect("~/forum.cshtml");
             }
@@ -36,18 +48,6 @@
                     bericht1 = true;
                 }
             }
-        }
-        if (email == "" && password == "")
-        {
-            bericht2 = true;
-        }
-        if (email == "" && password != "")
-        {
-            bericht3 = true;
-        }
-        if (email != "" && password == "")
-        {
-            bericht4 = true;
         }
     }
 }
@@ -69,29 +69,28 @@
                     <label for="Password" class="col-sm-2 col-form-label">Password</label>
                     <div class="col-sm-12">
                         <input type="password" class="form-control" id="Password" name="password" placeholder="Password" value="@Request.Form["password"]">
-
                     </div>
+                    @if (bericht1 == true)
+                    {
+                        <h3>Succesfol ingelogd.</h3>
+                        // Hier komt redirect naar main page //
+                    }
+                    @if (bericht2 == true)
+                    {
+                        <h3>You should probably try to login.</h3>
+                    }
+                    @if (bericht3 == true)
+                    {
+                        <h3>Email is empty.</h3>
+                    }
+                    @if (bericht4 == true)
+                    {
+                        <h3>Password is empty.</h3>
+                    }
                     <div id="buttonlog">
                         <button name="registerbutton" type="submit" class="btn btn-secondary btn-lg">Log In</button>
                     </div>
                 </div>
-                @if (bericht1 == true)
-                {
-                    <h3>Succesfol ingelogd.</h3>
-                    // Hier komt redirect naar main page //
-                }
-                @if (bericht2 == true)
-                {
-                    <h3>You should probably try to login.</h3>
-                }
-                @if (bericht3 == true)
-                {
-                    <h3>Email is empty.</h3>
-                }
-                @if (bericht4 == true)
-                {
-                    <h3>Password is empty.</h3>
-                }
             </form>
         </div>
         <div class="flag__bottom">
