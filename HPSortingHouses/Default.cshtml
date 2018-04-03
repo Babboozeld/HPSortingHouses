@@ -1,4 +1,10 @@
 ﻿@{
+    //chech of je al ingelogd bent 
+    if (Session["id"] != null)
+    {
+        Response.Redirect("~/forum.cshtml");
+    }
+
     Layout = "~/_SiteLayout.cshtml";
     Page.Title = "Home Page";
 }

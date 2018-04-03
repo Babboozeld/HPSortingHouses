@@ -1,0 +1,11 @@
+﻿@{
+    //chech of je al ingelogd bent 
+    if (Session["id"] != null)
+    {
+        Session["id"] = null;
+        Session["email"] = null;
+        Session["username"] = null;
+        Session["house"] = null;
+    }
+    Response.Redirect("~/Default.cshtml");
+}
