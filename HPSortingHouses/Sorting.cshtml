@@ -1,5 +1,5 @@
 ﻿@{
-    if (Session["id"] != null)
+    if (Session["id"] == null)
     {
         Response.Redirect("~/SignInUp.cshtml?request=login");
     }
@@ -16,7 +16,7 @@
     {
         string findsorting = "SELECT * FROM [sorting] WHERE Id = @0;";
         var findsresult = db.QuerySingle(findsorting, Convert.ToInt32(Session["id"]));
-        if (findsresult.id != null)
+        if (findsresult != null)
         {
             Session["Vlist"] = findsresult.Vlist;
             Session["Hufflepuff"] = findsresult.Hufflepuff;
@@ -43,7 +43,8 @@
         int antwoord = Request.Form["antwoord"].AsInt();
 
         //validatie op inputs
-        if (Bvraag <= 5 && Bvraag >= 0 && antwoord >= 0 && antwoord <= 4)
+        //if (Bvraag <= 5 && Bvraag >= 0 && antwoord >= 0 && antwoord <= 4)
+        if (Bvraag <= 6 && Bvraag > 0) 
         {
             //fuctie die waardes bbij house sessions doet
             AntwoordRes(Bvraag, antwoord);
@@ -104,7 +105,7 @@
 
 
     Random random = new Random();
-    int lp = rnd.Next(VList.Count);
+    int lp = rnd.Next(0, VList.Count);
     int aa = VList[lp];
 
 }
