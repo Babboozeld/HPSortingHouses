@@ -2,36 +2,25 @@
     Layout = "~/_SiteLayout.cshtml";
     Page.Title = "Home Page";
 }
-<style>
-    #flag1.flag-container {
-        --width: 40vw;
-        --flag-width: 0.7;
-    }
 
-    #flag2.flag-container {
-        right: 0;
-        --width: 40vw;
-        --flag-width: 0.7;
-        --gray-green: rgb(128, 136, 87);
-    }
-</style>
 <label for="toggleflagcheckbox" class="togle-flag" style="display: none;">≡</label>
 <input type="checkbox" id="toggleflagcheckbox" name="name" value="" />
 
-<div id="flag1" class="flag-container">
-    <div class="flag-box">
+<div id="flag1" class="flag">
+    <div class="flag__container ">
+        <div class="flag__top">
 
-    </div>
-    <div class="flag-box-under">
-
+        </div>
+        <div class="flag__bottom"></div>
     </div>
 </div>
 
-<div id="flag2" class="flag-container" style="top: -100vh; ">
-    <div class="flag-box">
+<div id="flag2" class="flag--info-inhoud ">
+    <div class="flag__container ">
+        <div class="flag__top">
 
-    </div>
-    <div class="flag-box-under">
+        </div>
+        <div class="flag__bottom--pointy"></div>
     </div>
 </div>
 
