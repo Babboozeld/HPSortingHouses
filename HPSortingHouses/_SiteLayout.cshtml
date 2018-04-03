@@ -37,7 +37,7 @@
             <li class="nav-item">
                 <a class="nav-link" href="#">Lore</a>
             </li>
-            @if (Session["email"] != null) {
+            @if (Session["id"] != null) {
             <li class="nav-item">
                 <a class="nav-link" href="#">Lessen</a>
             </li>
@@ -52,10 +52,10 @@
             </li>
             } else {
             <li class="nav-item">
-                <a class="nav-link" href="~/Login.cshtml">Login</a>
+                <a class="nav-link" href="~/SignInUp.cshtml?request=login">Login</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="~/Register.cshtml">Register</a>
+                <a class="nav-link" href="~/SignInUp.cshtml?request=register">Register</a>
             </li>
             }
             </ul>

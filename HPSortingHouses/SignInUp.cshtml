@@ -1,4 +1,10 @@
-﻿@{
+﻿@using WebMatrix.Data;
+@{
+    if (Session["id"] != null)
+    {
+        Response.Redirect("~/forum.cshtml");
+    }
+
     Layout = "~/_SiteLayout.cshtml";
     Page.Title = "Become a wizard";
     string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\HarryPotter.mdf;Integrated Security=True";
@@ -62,7 +68,8 @@
             {
                 bericht1_4 = true;
             }
-        } else if (submittype == "register")
+        }
+        else if (submittype == "register")
         {
             var email = Request.Form["email"];
             var username = Request.Form["username"];
@@ -270,7 +277,7 @@
                     {
                         <h4>Succesfully registered!</h4>
                     }
-                    <input type="hidden" name="submitbutton" value="register"/>
+                    <input type="hidden" name="submitbutton" value="register" />
                     <div id="buttonlog">
                         <button type="submit" class="btn btn-secondary btn-lg">Register</button>
                     </div>

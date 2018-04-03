@@ -1,14 +1,35 @@
 ﻿@{
-
     if (Session["id"] == null)
     {
         Response.Redirect("~/Login.cshtml");
     }
 
-
-
+    int dashboardrequest = 0;   //0:   nog niet in huis     1:    result sorting     2:   
 
     Layout = "~/_SiteLayout.cshtml";
+    if (Session["house"] == null)
+    {
+        Page.Title = "Find your house";
+    } else
+    {
+        if(Request.QueryString["dashboard"] == "result")
+        {
+            Page.Title = "Your house is...";
+            dashboardrequest = 1;
+        } else
+        {
+            //default
+        }
+    }
     Page.Title = "Home Page";
 }
-<h1>cool</h1>
+
+@switch (dashboardrequest)
+{
+    case 0:     //nog niet in huis
+
+        break;
+    case 1:     //result soring 
+
+        break;
+}
