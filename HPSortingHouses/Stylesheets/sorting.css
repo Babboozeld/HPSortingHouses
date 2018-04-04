@@ -50,7 +50,6 @@
 .vraag1_1 {
     background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url("../Images/img/img1.png") center center no-repeat;
     background-size: cover;
-    color: white;
 }
 
 .vraag1_1:hover {
@@ -60,7 +59,6 @@
 .vraag1_2 {
     background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url("../Images/img/img2.jpg") center center no-repeat;
     background-size: cover;
-    color: white;
 }
 .vraag1_2:hover {
     background: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0)), url("../Images/img/img2.jpg") center center no-repeat;
@@ -69,30 +67,27 @@
 .vraag1_3 {
     background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url("../Images/img/img3.jpg") center center no-repeat;
     background-size: cover;
-    color: white;
 }
-.vraag1_3:hover {
-    background: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0)), url("../Images/img/img3.jpg") center center no-repeat;
-    background-size: cover;
-}
+    .vraag1_3:hover {
+        background: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0)), url("../Images/img/img3.jpg") center center no-repeat;
+        background-size: cover;
+    }
 .vraag1_4 {
     background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url("../Images/img/img4.png") center center no-repeat;
     background-size: cover;
-    color: white;
 }
 
-.vraag1_4:hover {
-    background: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0)), url("../Images/img/img4.png") center center no-repeat;
-    background-size: cover;
-}
+    .vraag1_4:hover {
+        background: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0)), url("../Images/img/img4.png") center center no-repeat;
+        background-size: cover;
+    }
 
 .vraag2_1 {
     background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url("../Images/img/img5.jpg") center center no-repeat;
     background-size: cover;
-    color: white;
 }
 
-.vraag2_1:hover {
+    .vraag2_1:hover {
         background: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0)), url("../Images/img/img5.jpg") center center no-repeat;
         background-size: cover;
     }
@@ -100,7 +95,6 @@
 .vraag2_2 {
     background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url("../Images/img/img6.png") center center no-repeat;
     background-size: cover;
-    color: white;
 }
 
 .vraag2_2:hover {
@@ -111,7 +105,6 @@
 .vraag2_3 {
     background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url("../Images/img/img7.jpg") center center no-repeat;
     background-size: cover;
-    color: white;
 }
 
 .vraag2_3:hover {
@@ -122,7 +115,6 @@
 .vraag2_4 {
     background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url("../Images/img/img8.jpg") center center no-repeat;
     background-size: cover;
-    color: black;
 }
 
 .vraag2_4:hover {
@@ -133,7 +125,6 @@
 .vraag3_1 {
     background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url("../Images/img/img9.png") center center no-repeat;
     background-size: cover;
-    color: white;
 }
 
     .vraag3_1:hover {
@@ -144,7 +135,6 @@
 .vraag3_2 {
     background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url("../Images/img/img10.png") center center no-repeat;
     background-size: cover;
-    color: black;
 }
 
     .vraag3_2:hover {
@@ -155,7 +145,6 @@
 .vraag3_3 {
     background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url("../Images/img/img11.jpg") center center no-repeat;
     background-size: cover;
-    color: white;
 }
 
     .vraag3_3:hover {
@@ -166,7 +155,6 @@
 .vraag3_4 {
     background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url("../Images/img/img12.jpg") center center no-repeat;
     background-size: cover;
-    color: white;
 }
 
     .vraag3_4:hover {
@@ -177,7 +165,6 @@
 .vraag4_1 {
     background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url("../Images/img/img13.jpg") center center no-repeat;
     background-size: cover;
-    color: black;
 }
 
     .vraag4_1:hover {
@@ -188,7 +175,6 @@
 .vraag4_2 {
     background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url("../Images/img/img14.jpg") center center no-repeat;
     background-size: cover;
-    color: black;
 }
 
     .vraag4_2:hover {
@@ -199,7 +185,6 @@
 .vraag4_3 {
     background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url("../Images/img/img15.png") center center no-repeat;
     background-size: cover;
-    color: black;
 }
 
     .vraag4_3:hover {
@@ -210,7 +195,6 @@
 .vraag4_4 {
     background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url("../Images/img/img16.jpg") center center no-repeat;
     background-size: cover;
-    color: white;
 }
 
     .vraag4_4:hover {
@@ -222,7 +206,6 @@
 .vraag5_1 {
     background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url("../Images/img/img17.jpg") center center no-repeat;
     background-size: cover;
-    color: black;
 }
 
     .vraag5_1:hover {
@@ -233,7 +216,6 @@
 .vraag5_2 {
     background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url("../Images/img/img18.jpg") center center no-repeat;
     background-size: cover;
-    color: white;
 }
 
     .vraag5_2:hover {
@@ -244,7 +226,6 @@
 .vraag5_3 {
     background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url("../Images/img/img19.jpg") center center no-repeat;
     background-size: cover;
-    color: white;
 }
 
     .vraag5_3:hover {
@@ -255,7 +236,6 @@
 .vraag5_4 {
     background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url("../Images/img/img20.jpg") center center no-repeat;
     background-size: cover;
-    color: white;
 }
 
     .vraag5_4:hover {
@@ -266,7 +246,6 @@
 .vraag6_1 {
     background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url("../Images/img/img21.jpg") center center no-repeat;
     background-size: cover;
-    color: white;
 }
 
     .vraag6_1:hover {
@@ -277,7 +256,6 @@
 .vraag6_2 {
     background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url("../Images/img/img22.jpg") center center no-repeat;
     background-size: cover;
-    color: white;
 }
 
     .vraag6_2:hover {
@@ -288,7 +266,6 @@
 .vraag6_3 {
     background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url("../Images/img/img23.jpg") center center no-repeat;
     background-size: cover;
-    color: black;
 }
 
     .vraag6_3:hover {
@@ -299,7 +276,6 @@
 .vraag6_4 {
     background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url("../Images/img/img24.jpg") center center no-repeat;
     background-size: cover;
-    color: black;
 }
 
     .vraag6_4:hover {
@@ -310,7 +286,6 @@
 .vraag7_1 {
     background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url("../Images/img/img25.jpg") center center no-repeat;
     background-size: cover;
-    color: black;
 }
 
     .vraag7_1:hover {
@@ -321,7 +296,6 @@
 .vraag7_2 {
     background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url("../Images/img/img26.jpg") center center no-repeat;
     background-size: cover;
-    color: black;
 }
 
     .vraag7_2:hover {
@@ -332,7 +306,6 @@
 .vraag7_3 {
     background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url("../Images/img/img27.jpg") center center no-repeat;
     background-size: cover;
-    color: black;
 }
 
     .vraag7_3:hover {
@@ -343,7 +316,6 @@
 .vraag7_4 {
     background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url("../Images/img/img28.jpg") center center no-repeat;
     background-size: cover;
-    color: black;
 }
 
     .vraag7_4:hover {
