@@ -1,0 +1,109 @@
+﻿@{
+    //chech of je al ingelogd bent
+    /*if (Session["id"] != null)
+    {
+        Response.Redirect("~/forum.cshtml");
+    }*/
+    int id = Convert.ToInt32(Session["id"]);
+
+    //subjectpost needs
+    string subjecttitel = "";
+    string catgo = "";
+    string inhoud = "";
+    string succes = "";
+    //getpost needs
+    Topic topic = null;
+    List<Post> posts = null;
+
+
+    //type post 
+    if (IsPost)
+    {
+        string postform = Request.Form["postform"];
+
+        if (postform == "subject")
+        {
+            subjecttitel = Request.Form["subject"];
+            catgo = Request.Form["catgo"];
+            inhoud = Request.Form["inhoud"];
+            succes = Posts_handler.PostSubject(subjecttitel, catgo, inhoud, id);
+        }
+    }
+
+    //page 
+    int PostPage = 0;   // 0: default/readsubjects    1: Subjectpost       2: readpost    3:    subject does not exist
+
+    if (Request.QueryString["poststate"] == "subject")
+    {
+        PostPage = 1;
+    } else if (Request.QueryString["poststate"] == "post" && Request.QueryString["topicid"] != null)
+    {
+        int topicid = Convert.ToInt32(Request.QueryString["topicid"]);
+        topic = Posts_handler.GetTopic(topicid);
+
+        if (topic != null)
+        {
+            posts = Posts_handler.GetPost(topicid);
+            PostPage = 2;
+        } else
+        {
+            PostPage = 3;
+        }
+    }
+    //else default PostPage = 0
+
+    Layout = "~/_SiteLayout.cshtml";
+    Page.Title = "Become a wizard";
+
+}
+@switch (PostPage)
+{
+    case 1:
+        <div class="flag f-form">
+            <div class="flag__container ">
+                <div id="opmaak" class="flag__top">
+
+                    <form method="post">
+                        <div class="form-group">
+                            <br /><br /><label for="exampleFormControlInput1">Title</label>
+                            <input name="subject" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Title" value="@subjecttitel">
+                        </div>
+                        <div class="form-group">
+                            <br /><br /><label for="exampleFormControlSelect1">Category</label>
+                            <select name="catgo" class="form-control" id="exampleFormControlSelect1">
+                                <option>Harry Potter films</option>
+                                <option>Harry Potter books</option>
+                                <option>Lore</option>
+                                <option>Off topic</option>
+                                <option>Spam</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlTextarea1">Post</label>
+                            <textarea name="inhoud" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        </div>
+                        <input type="hidden" name="postform" value="subject" />
+                        <button type="submit" class="btn btn-primary btn-lg">Post new topic</button>
+                        <h3>@succes</h3>
+                    </form>
+
+                </div>
+                <div class="flag__bottom--pointy"></div>
+            </div>
+        </div>
+
+        break;
+    case 2:
+        <div class="container col-8">
+            <div class="row">   <!-- subject -->
+                <h1>@topic.title</h1>
+                <p>@topic.sub</p>
+                <p>@topic.</p>
+                
+            </div>
+        </div>
+        break;
+    case 3:
+        // subject does not exist!
+        break;
+}
