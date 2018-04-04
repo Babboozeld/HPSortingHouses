@@ -8,24 +8,16 @@ using WebMatrix.Data;
 /// </summary>
 public static class Posts_handler
 {
-    public static int PostTopic(Topic topic)
+    public static string PostTopic(Topic topic)
     {
-        //open database
-        string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\HarryPotter.mdf;Integrated Security=True";
-        string provider = "System.Data.SqlClient";
-        Database db = Database.OpenConnectionString(connectionString, provider);  
-        
+        Database db = DatabaseConnectie();
         db.Execute("INSERT INTO [topics] (title, cat, content, by, date) VALUES (@0, @1, @2, @3, @4)", topic.title, topic.cat, topic.content, topic.by, DateTime.Now);
-        return Convert.ToInt32(db.QueryValue("SELECT MAX(id) FROM [topics]"));
+        return Convert.ToString(db.QueryValue("SELECT MAX(id) FROM [topics]"));
     }
 
     public static Topic GetTopic(int id)
     {
-        //open datbase
-        string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\HarryPotter.mdf;Integrated Security=True";
-        string provider = "System.Data.SqlClient";
-        Database db = Database.OpenConnectionString(connectionString, provider);
-
+        Database db = DatabaseConnectie();
         var topicdata = db.QuerySingle("SELECT * FROM [topics] WHERE id = @0", id);
         if (topicdata == null)
         {
@@ -38,11 +30,7 @@ public static class Posts_handler
 
     public static List<Post> GetPost(int id)
     {
-        //open datbase
-        string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\HarryPotter.mdf;Integrated Security=True";
-        string provider = "System.Data.SqlClient";
-        Database db = Database.OpenConnectionString(connectionString, provider);
-
+        Database db = DatabaseConnectie();
         List<Post> posts = null;
         var postsdata = db.Query("SELECT * FROM [posts] WHERE topic = @0", id);
 
@@ -54,5 +42,10 @@ public static class Posts_handler
         return posts;
     }
 
-   
+   public static Database DatabaseConnectie()
+    {
+        string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\HarryPotter.mdf;Integrated Security=True";
+        string provider = "System.Data.SqlClient";
+        return Database.OpenConnectionString(connectionString, provider);
+    }
 }
