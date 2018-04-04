@@ -80,10 +80,10 @@
             </style>
         }
 
-        <div class="flag flag--middle flaghouse">
+        <div class="flag flag--middle flaghouse5">
             <div class="flag__container ">
                 <div id="opmaak" class="flag__top">
-                    <br /><br /><br /><br /><h1>Your a @Session["house"]</h1>
+                    <br /><br /><br /><br /><h1>You're sorted in @Session["house"]!</h1>
                     <br /><p>You can now enjoy all the features of the site </p>
                     <br /><a type="button" href="~/forum.cshtml" class="btn btn-secondary">Go to your house!</a>
                 </div>
@@ -92,7 +92,42 @@
         </div>
         break;
     case 2:
-        <div class="flag flag--middle flaghouse">
+        if (Convert.ToString(Session["house"]) == "Hufflepuff")
+        {
+            <style>
+                .flaghouse5 {
+                    --fcolor: geel;
+                }
+            </style>
+        }
+
+        else if (Convert.ToString(Session["house"]) == "Slytherin")
+        {
+            <style>
+                .flaghouse5 {
+                    --fcolor: green;
+                }
+            </style>
+        }
+
+        else if (Convert.ToString(Session["house"]) == "Gryffindor")
+        {
+            <style>
+                .flaghouse5 {
+                    --fcolor: red;
+                }
+            </style>
+        }
+
+        else if (Convert.ToString(Session["house"]) == "Ravenclaw")
+        {
+            <style>
+                .flaghouse5 {
+                    --fcolor: blue;
+                }
+            </style>
+        }
+        <div class="flag flag--middle flaghouse5">
             <div class="flag__container ">
                 <div id="opmaak" class="flag__top">
                     <br /><br /><br /><br /><h1>Welcome to @Session["house"]</h1>
