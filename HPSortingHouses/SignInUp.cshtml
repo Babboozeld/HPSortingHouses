@@ -33,13 +33,13 @@
         if (submittype == "login")
         {
             var email = Request.Form["email"];
-            var password = Request.Form["password"];
+            var password = Request.Form["password"]; 
 
             if (email != "" && password != "")
             {
                 string sel = "SELECT * FROM [user] WHERE email = @0 AND password = @1";
                 var result = db.QuerySingle(sel, email, password);
-                if (result.Id == null)
+                if (result.Id != null)
                 {
                     Session["id"] = result.Id;
                     Session["email"] = result.email;

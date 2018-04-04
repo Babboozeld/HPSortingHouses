@@ -1,0 +1,301 @@
+﻿@{
+    if (Session["id"] == null)
+    {
+        Response.Redirect("~/SignInUp.cshtml?request=login");
+    }
+    if (Session["house"] != null)
+    {
+        Response.Redirect("~/forum.cshtml");
+    }
+    string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\HarryPotter.mdf;Integrated Security=True";
+    string provider = "System.Data.SqlClient";
+    Database db = Database.OpenConnectionString(connectionString, provider);
+
+    //1. setup sessions
+    if (Session["Hufflepuff"] == null)
+    {
+        string findsorting = "SELECT * FROM [sorting] WHERE Id = @0;";
+        var findsresult = db.QuerySingle(findsorting, Convert.ToInt32(Session["id"]));
+        if (findsresult != null)
+        {
+            Session["Vlist"] = findsresult.Vlist;
+            Session["Hufflepuff"] = findsresult.Hufflepuff;
+            Session["Ravenclaw"] = findsresult.Ravenclaw;
+            Session["Slytherin"] = findsresult.Slytherin;
+            Session["Gryffindor"] = findsresult.Gryffindor;
+        } else
+        {
+            List<int> VraagCountList = new List<int>(new int[] { 1, 2, 3, 4, 5, 6 });
+            Session["Vlist"] = VraagCountList;
+            Session["Hufflepuff"] = 0;
+            Session["Ravenclaw"] = 0;
+            Session["Slytherin"] = 0;
+            Session["Gryffindor"] = 0;
+        }
+    }
+
+    List<int> VList = (List<int>)Session["Vlist"];
+    //2. check of er is beantwoordt en past de score aan
+    if (IsPost)
+    {
+        //post waardes
+        int Bvraag = Request.Form["vraag"].AsInt();
+        int antwoord = Request.Form["antwoord"].AsInt();
+
+        //validatie op inputs
+        //if (Bvraag <= 5 && Bvraag >= 0 && antwoord >= 0 && antwoord <= 4)
+        if (Bvraag <= 6 && Bvraag > 0) 
+        {
+            //fuctie die waardes bbij house sessions doet
+            AntwoordRes(Bvraag, antwoord);
+
+            //vraag uit list halen
+            VList.Remove(Bvraag);
+        }
+    }
+
+    //3. check of user klaar is, list is leeg
+    if (VList.Count() == 0)
+    {
+        List<string> houses = new List<string> {"Ravenclaw", "Slytherin", "Gryffindor" };
+        string hoogstehuisscore = "Hufflepuff";
+
+        for (int i = 0; i < 3; i++)
+        {
+            if (Convert.ToInt32(Session[hoogstehuisscore]) < Convert.ToInt32(Session[houses[i]])) {
+                hoogstehuisscore = houses[i];
+            }
+        }
+
+        string sethouse = "UPDATE [user] SET house = @0 WHERE Id = @1;";
+        db.Execute(sethouse, hoogstehuisscore, Convert.ToInt32(Session["id"]));
+        Session["house"] = hoogstehuisscore;
+        Session["Vlist"] = null;
+        Response.Redirect("~/forum.cshtml?dashboard=result");
+    }
+
+    Session["Vlist"] = VList;
+
+
+    Layout = "~/_SiteLayout.cshtml";
+    Page.Title = "Sorting";
+
+    //4. nieuw vraag
+
+    //generator 1
+    int a, b, c, d;
+    Random rnd = new Random();
+    a = rnd.Next(1, 5);
+    b = rnd.Next(1, 5);
+    while (a == b)
+    {
+        b = rnd.Next(1, 5);
+    }
+    c = rnd.Next(1, 5);
+    while (c == a || c == b)
+    {
+        c = rnd.Next(1, 5);
+    }
+    d = rnd.Next(1, 5);
+    while (d == a || d == b || d == c)
+    {
+        d = rnd.Next(1, 5);
+    }
+    int[] positie = new int[4] { a, b, c, d };
+
+
+    Random random = new Random();
+    int lp = rnd.Next(0, VList.Count);
+    int aa = VList[lp];
+
+}
+
+<link href="~/Stylesheets/sorting.css" rel="stylesheet" type="text/css" />
+
+@for (int i = 0; i < 4; i++)
+{
+    switch (positie[i])
+    {
+        case 1:
+            <form method="post">
+                <input type="hidden" name="vraag" value="@aa" />
+                <input type="hidden" name="antwoord" value="1" />
+                <button type="submit" class="box box@(i) vraag@(aa)_1">
+                    <div class="text">@TextRes(aa, positie[i])</div>
+                </button>
+            </form>
+            break;
+        case 2:
+            <form method="post">
+                <input type="hidden" name="vraag" value="@aa" />
+                <input type="hidden" name="antwoord" value="2" />
+                <button type="submit" class="box box@(i) vraag@(aa)_2">
+                    <div class="text">@TextRes(aa, positie[i])</div>
+                </button>
+            </form>
+            break;
+        case 3:
+            <form method="post">
+                <input type="hidden" name="vraag" value="@aa" />
+                <input type="hidden" name="antwoord" value="3" />
+                <button type="submit" class="box box@(i) vraag@(aa)_3">
+                    <div class="text">@TextRes(aa, positie[i])</div>
+                </button>
+            </form>
+            break;
+        case 4:
+            <form method="post">
+                <input type="hidden" name="vraag" value="@aa" />
+                <input type="hidden" name="antwoord" value="4" />
+                <button type="submit" class="box box@(i) vraag@(aa)_4">
+                    <div class="text">@TextRes(aa, positie[i])</div>
+                </button>
+            </form>
+            break;
+    }
+    <h1 class="txtvraag">
+        Coole vraag is dit 1!
+    </h1>
+}
+
+@{string TextRes(int vraag, int antwoord)
+    {
+        switch (vraag)
+        {
+            case 1:
+                switch (antwoord)
+                {
+                    case 1:
+                        return "hufflepuff";
+                    case 2:
+                        return "ravenclaw";
+                    case 3:
+                        return "gryffindor";
+                    case 4:
+                        return "slytherin";
+                }
+                break;
+            case 2:
+                switch (antwoord)
+                {
+                    case 1:
+                        return "Phoenix";
+                    case 2:
+                        return "Dragon";
+                    case 3:
+                        return "thestral";
+                    case 4:
+                        return "Unicorn";
+                }
+                break;
+            case 3:
+                switch (antwoord)
+                {
+                    case 1:
+                        return "Quidditch field";
+                    case 2:
+                        return "Library";
+                    case 3:
+                        return "Room of requirement";
+                    case 4:
+                        return "Forbidden forest";
+                }
+                break;
+            case 4:
+                switch (antwoord)
+                {
+                    case 1:
+                        return "Pensieve";
+                    case 2:
+                        return "Marvolo Gaunt's Ring";
+                    case 3:
+                        return "Elder Wand";
+                    case 4:
+                        return "Invisibility Cloack";
+                }
+                break;
+            case 5:
+                switch (antwoord)
+                {
+                    case 1:
+                        return "Cat";
+                    case 2:
+                        return "Owl";
+                    case 3:
+                        return "Rat";
+                    case 4:
+                        return "Toad";
+                }
+                break;
+            case 6:
+                switch (antwoord)
+                {
+                    case 1:
+                        return "Invisibility Potion";
+                    case 2:
+                        return "Elixir of life";
+                    case 3:
+                        return "Memory Potion";
+                    case 4:
+                        return "Draught of Peace";
+                }
+                break;
+        }
+        return "404";
+    }
+}
+
+@{void AntwoordRes(int vraag, int antwoord)  /*heb wat voorbeeld syntax gemaakt*/
+    {
+        /*voor ref:
+        Session["Hufflepuff"]
+        Session["Ravenclaw"]
+        Session["Slytherin"]
+        Session["Gryffindor"]
+        */
+        switch (vraag)
+        {
+            case 1:
+                switch (antwoord)
+                {
+                    case 1:
+                        Session["Hufflepuff"] = Convert.ToUInt32(Session["Hufflepuff"]) + 1;
+                        break;
+                    case 2:
+                        Session["Ravenclaw"] = Convert.ToUInt32(Session["Ravenclaw"]) + 1;
+                        break;
+                    case 3:
+                        Session["Slytherin"] = Convert.ToUInt32(Session["Slytherin"]) + 1;
+                        break;
+                    case 4:
+                        Session["Gryffindor"] = Convert.ToUInt32(Session["Gryffindor"]) + 1;
+                        break;
+                }
+                break;
+            case 2:     /*als het geld op meerdere elementen kun je deze syntax gebruiken*/
+            case 3:
+                switch (antwoord)
+                {
+                    case 1:
+                        Session["Hufflepuff"] = Convert.ToUInt32(Session["Hufflepuff"]) + 3;
+                        break;
+                    case 2:
+                        Session["Ravenclaw"] = Convert.ToUInt32(Session["Ravenclaw"]) + 3;
+                        Session["Slytherin"] = Convert.ToUInt32(Session["Ravenclaw"]) + 1;
+                        break;
+                    case 3:
+                        Session["Slytherin"] = Convert.ToUInt32(Session["Slytherin"]) + 3;
+                        Session["Hufflepuff"] = Convert.ToUInt32(Session["Ravenclaw"]) + 1;
+                        Session["Ravenclaw"] = Convert.ToUInt32(Session["Ravenclaw"]) + 3;
+                        break;
+                    case 4:
+                        Session["Gryffindor"] = Convert.ToUInt32(Session["Gryffindor"]) + 2;
+                        break;
+                }
+                break;
+            case 4:
+
+                break;
+        }
+    }
+}
