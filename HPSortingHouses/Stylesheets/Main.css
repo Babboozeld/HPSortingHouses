@@ -144,6 +144,10 @@ footer p:hover {
 
 /*flag toggle temp*/
 
+.muggleflag {
+    --fcolor: rgb(245, 70, 70)
+}
+
 #toggleflagcheckbox {
   display: none;
 }
@@ -239,3 +243,34 @@ footer p:hover {
 #emblem-box.eRight {
   left: 75%;
 }
+
+#opmaak{
+    color: white;
+    padding-left: 20%;
+    padding-right: 20%;
+    text-align: center;
+}
+
+    #opmaak p{
+        font-size: 20px;
+}
+
+#blockquote {
+    background: transparent;
+    border-left: 10px solid #ccc;
+    margin: 1.5em 10px;
+    padding: 0.5em 10px;
+    quotes: "\201C""\201D""\2018""\2019";
+}
+
+    #blockquote:before {
+        content: open-quote;
+        font-size: 4em;
+        line-height: 0.1em;
+        margin-right: 0.25em;
+        vertical-align: -0.4em;
+    }
+
+    #blockquote p {
+        display: inline;
+    }
