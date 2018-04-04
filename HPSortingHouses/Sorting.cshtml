@@ -25,7 +25,7 @@
             Session["Gryffindor"] = findsresult.Gryffindor;
         } else
         {
-            List<int> VraagCountList = new List<int>(new int[] { 1, 2, 3, 4, 5, 6 });
+            List<int> VraagCountList = new List<int>(new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 });
             Session["Vlist"] = VraagCountList;
             Session["Hufflepuff"] = 0;
             Session["Ravenclaw"] = 0;
@@ -44,7 +44,7 @@
 
         //validatie op inputs
         //if (Bvraag <= 5 && Bvraag >= 0 && antwoord >= 0 && antwoord <= 4)
-        if (Bvraag <= 6 && Bvraag > 0) 
+        if (Bvraag <= 10 && Bvraag > 0) 
         {
             //fuctie die waardes bbij house sessions doet
             AntwoordRes(Bvraag, antwoord);
@@ -238,6 +238,58 @@
                         return "Memory Potion";
                     case 4:
                         return "Draught of Peace";
+                }
+                break;
+            case 7:
+                switch (antwoord)
+                {
+                    case 1:
+                        return "Earth";
+                    case 2:
+                        return "Water";
+                    case 3:
+                        return "Fire";
+                    case 4:
+                        return "Air";
+                }
+                break;
+            case 8:
+                switch (antwoord)
+                {
+                    case 1:
+                        return "";
+                    case 2:
+                        return "";
+                    case 3:
+                        return "";
+                    case 4:
+                        return "";
+                }
+                break;
+            case 9:
+                switch (antwoord)
+                {
+                    case 1:
+                        return "Ambitious";
+                    case 2:
+                        return "Bravery";
+                    case 3:
+                        return "Hard Work";
+                    case 4:
+                        return "Intelligence";
+                }
+                break;
+            case 10:
+                switch (antwoord)
+                {
+                    case 1:
+                        return "Defence againt the dark arts";
+                    case 2:
+                        return "Potions";
+                    case 3:
+                        return "Flying";
+                    case 4:
+                        return "Charms";
                 }
                 break;
         }
