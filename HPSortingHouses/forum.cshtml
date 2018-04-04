@@ -33,8 +33,9 @@
         <div class="flag flag--middle">
             <div class="flag__container ">
                 <div class="flag__top">
-                    <h1>Your a mugle</h1>
-                    <p>Do or finish de sorting test and find out in wich house you belong!</p>
+                    <h1>Your a muggle</h1>
+                    <p id="blockquote">"It is our choices, @Session["username"], that show what we truly are, far more than our abilities."</p>
+                    <p>Go and finish the sorting test and see in which house you belong!</p>
                     <a href="~/Sorting.cshtml">Go</a>
                 </div>
                 <div class="flag__bottom--pointy"></div>
@@ -54,6 +55,7 @@
         </div>
         break;
     case 2:
-        <p>cool dat je nu lid bent als een @Session["house"]</p>
+        <h2>Welcome to @Session["house"]</h2>
+        <p>Ye'r a wizard, @Session["username"]</p>
         break;
 }
