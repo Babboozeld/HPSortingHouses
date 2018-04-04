@@ -18,11 +18,19 @@
         var findsresult = db.QuerySingle(findsorting, Convert.ToInt32(Session["id"]));
         if (findsresult != null)
         {
-            Session["Vlist"] = findsresult.Vlist;
-            Session["Hufflepuff"] = findsresult.Hufflepuff;
-            Session["Ravenclaw"] = findsresult.Ravenclaw;
-            Session["Slytherin"] = findsresult.Slytherin;
-            Session["Gryffindor"] = findsresult.Gryffindor;
+            string[] VlistArray = findsresult.Vlist.Split('+');
+            var VlistList = new List<int>();
+            foreach (string item in VlistArray)
+            {
+                VlistList.Add(Convert.ToInt32(item));
+            }
+            Session["Vlist"] = VlistList;
+            Session["Hufflepuff"] = Convert.ToInt32(findsresult.Hufflepuff);
+            Session["Ravenclaw"] = Convert.ToInt32(findsresult.Ravenclaw);
+            Session["Slytherin"] = Convert.ToInt32(findsresult.Slytherin);
+            Session["Gryffindor"] = Convert.ToInt32(findsresult.Gryffindor);
+            string deletesortingrecord = "DELETE FROM [sorting] WHERE Id = @0;";
+            db.Execute(deletesortingrecord, Convert.ToInt32(Session["id"]));
         } else
         {
             List<int> VraagCountList = new List<int>(new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 });
@@ -43,7 +51,6 @@
         int antwoord = Request.Form["antwoord"].AsInt();
 
         //validatie op inputs
-        //if (Bvraag <= 5 && Bvraag >= 0 && antwoord >= 0 && antwoord <= 4)
         if (Bvraag <= 10 && Bvraag > 0) 
         {
             //fuctie die waardes bbij house sessions doet
@@ -207,7 +214,7 @@
                     case 1:
                         return "Pensieve";
                     case 2:
-                        return "Marvolo Gaunt's Ring";
+                        return "Resurrection Stone";
                     case 3:
                         return "Elder Wand";
                     case 4:
@@ -311,42 +318,212 @@
                 switch (antwoord)
                 {
                     case 1:
-                        Session["Hufflepuff"] = Convert.ToUInt32(Session["Hufflepuff"]) + 1;
+                        Session["Hufflepuff"] = Convert.ToUInt32(Session["Hufflepuff"]) + 2;
                         break;
                     case 2:
-                        Session["Ravenclaw"] = Convert.ToUInt32(Session["Ravenclaw"]) + 1;
+                        Session["Ravenclaw"] = Convert.ToUInt32(Session["Ravenclaw"]) + 2;
                         break;
                     case 3:
-                        Session["Slytherin"] = Convert.ToUInt32(Session["Slytherin"]) + 1;
-                        break;
-                    case 4:
-                        Session["Gryffindor"] = Convert.ToUInt32(Session["Gryffindor"]) + 1;
-                        break;
-                }
-                break;
-            case 2:     /*als het geld op meerdere elementen kun je deze syntax gebruiken*/
-            case 3:
-                switch (antwoord)
-                {
-                    case 1:
-                        Session["Hufflepuff"] = Convert.ToUInt32(Session["Hufflepuff"]) + 3;
-                        break;
-                    case 2:
-                        Session["Ravenclaw"] = Convert.ToUInt32(Session["Ravenclaw"]) + 3;
-                        Session["Slytherin"] = Convert.ToUInt32(Session["Ravenclaw"]) + 1;
-                        break;
-                    case 3:
-                        Session["Slytherin"] = Convert.ToUInt32(Session["Slytherin"]) + 3;
-                        Session["Hufflepuff"] = Convert.ToUInt32(Session["Ravenclaw"]) + 1;
-                        Session["Ravenclaw"] = Convert.ToUInt32(Session["Ravenclaw"]) + 3;
+                        Session["Slytherin"] = Convert.ToUInt32(Session["Slytherin"]) + 2;
                         break;
                     case 4:
                         Session["Gryffindor"] = Convert.ToUInt32(Session["Gryffindor"]) + 2;
                         break;
                 }
                 break;
+            case 2:
+                switch (antwoord)
+                {
+                    case 1:
+                        Session["Slytherin"] = Convert.ToUInt32(Session["Slytherin"]) + 1;
+                        Session["Gryffindor"] = Convert.ToUInt32(Session["Gryffindor"]) + 2;
+                        break;
+                    case 2:
+                        Session["Slytherin"] = Convert.ToUInt32(Session["Slytherin"]) + 2;
+                        Session["Gryffindor"] = Convert.ToUInt32(Session["Gryffindor"]) + 1;
+                        break;
+                    case 3:
+                        Session["Ravenclaw"] = Convert.ToUInt32(Session["Ravenclaw"]) + 1;
+                        Session["Hufflepuff"] = Convert.ToUInt32(Session["Hufflepuff"]) + 2;
+                        break;
+                    case 4:
+                        Session["Hufflepuff"] = Convert.ToUInt32(Session["Hufflepuff"]) + 1;
+                        Session["Ravenclaw"] = Convert.ToUInt32(Session["Ravenclaw"]) + 2;
+                        break;
+                }
+                break;
+            case 3:
+                switch (antwoord)
+                {
+                    case 1:
+                        Session["Gryffindor"] = Convert.ToUInt32(Session["Gryffindor"]) + 2;
+                        Session["Slytherin"] = Convert.ToUInt32(Session["Slytherin"]) + 1;
+                        break;
+                    case 2:
+                        Session["Hufflepuff"] = Convert.ToUInt32(Session["Hufflepuff"]) + 1;
+                        Session["Ravenclaw"] = Convert.ToUInt32(Session["Ravenclaw"]) + 2;
+                        break;
+                    case 3:
+                        Session["Ravenclaw"] = Convert.ToUInt32(Session["Ravenclaw"]) + 1;
+                        Session["Hufflepuff"] = Convert.ToUInt32(Session["Hufflepuff"]) + 2;
+                        break;
+                    case 4:
+                        Session["Slytherin"] = Convert.ToUInt32(Session["Slytherin"]) + 2;
+                        Session["Gryffindor"] = Convert.ToUInt32(Session["Gryffindor"]) + 1;
+                        break;
+                }
+                break;
             case 4:
+                switch (antwoord)
+                {
+                    case 1:
+                        Session["Ravenclaw"] = Convert.ToUInt32(Session["Ravenclaw"]) + 1;
+                        Session["Gryffindor"] = Convert.ToUInt32(Session["Gryffindor"]) + 1;
+                        break;
+                    case 2:
+                        Session["Ravenclaw"] = Convert.ToUInt32(Session["Ravenclaw"]) + 2;
+                        Session["Slytherin"] = Convert.ToUInt32(Session["Slytherin"]) + 2;
+                        break;
+                    case 3:
+                        Session["Gryffindor"] = Convert.ToUInt32(Session["Gryffindor"]) + 2;
+                        Session["Slytherin"] = Convert.ToUInt32(Session["Slytherin"]) + 1;
+                        break;
+                    case 4:
+                        Session["Hufflepuff"] = Convert.ToUInt32(Session["Hufflepuff"]) + 2;
+                        break;
+                }
+                break;
+            case 5:
+                switch (antwoord)
+                {
+                    case 1:
+                        Session["Gryffindor"] = Convert.ToUInt32(Session["Gryffindor"]) + 1;
+                        Session["Ravenclaw"] = Convert.ToUInt32(Session["Ravenclaw"]) + 2;
+                        break;
+                    case 2:
+                        Session["Gryffindor"] = Convert.ToUInt32(Session["Gryffindor"]) + 2;
+                        Session["Ravenclaw"] = Convert.ToUInt32(Session["Ravenclaw"]) + 1;
 
+                        break;
+                    case 3:
+                        Session["Slytherin"] = Convert.ToUInt32(Session["Slytherin"]) + 2;
+                        Session["Hufflepuff"] = Convert.ToUInt32(Session["Hufflepuff"]) + 1;
+                        break;
+                    case 4:
+                        Session["Slytherin"] = Convert.ToUInt32(Session["Slytherin"]) + 1;
+                        Session["Hufflepuff"] = Convert.ToUInt32(Session["Hufflepuff"]) + 2;
+                        break;
+                }
+                break;
+            case 6:
+                switch (antwoord)
+                {
+                    case 1:
+                        Session["Hufflepuff"] = Convert.ToUInt32(Session["Hufflepuff"]) + 2;
+                        Session["Slytherin"] = Convert.ToUInt32(Session["Slytherin"]) + 1;
+                        break;
+                    case 2:
+                        Session["Hufflepuff"] = Convert.ToUInt32(Session["Hufflepuff"]) + 1;
+                        Session["Slytherin"] = Convert.ToUInt32(Session["Slytherin"]) + 2;
+                        break;
+                    case 3:
+                        Session["Ravenclaw"] = Convert.ToUInt32(Session["Ravenclaw"]) + 3;
+                        break;
+                    case 4:
+                        Session["Gryffindor"] = Convert.ToUInt32(Session["Gryffindor"]) + 3;
+                        break;
+                }
+                break;
+            case 7:
+                switch (antwoord)
+                {
+                    case 1:
+                        Session["Hufflepuff"] = Convert.ToUInt32(Session["Hufflepuff"]) + 2;
+                        break;
+                    case 2:
+                        Session["Ravenclaw"] = Convert.ToUInt32(Session["Ravenclaw"]) + 1;
+                        Session["Hufflepuff"] = Convert.ToUInt32(Session["Hufflepuff"]) + 1;
+                        break;
+                    case 3:
+                        Session["Gryffindor"] = Convert.ToUInt32(Session["Gryffindor"]) + 2;
+                        Session["Slytherin"] = Convert.ToUInt32(Session["Slytherin"]) + 3;
+                        break;
+                    case 4:
+                        Session["Gryffindor"] = Convert.ToUInt32(Session["Gryffindor"]) + 1;
+                        Session["Ravenclaw"] = Convert.ToUInt32(Session["Ravenclaw"]) + 2;
+                        break;
+                }
+                break;
+            case 8:
+                switch (antwoord)
+                {
+                    case 1:
+                        Session["Slytherin"] = Convert.ToUInt32(Session["Slytherin"]) + 1;
+                        Session["Gryffindor"] = Convert.ToUInt32(Session["Gryffindor"]) + 2;
+                        break;
+                    case 2:
+                        Session["Slytherin"] = Convert.ToUInt32(Session["Slytherin"]) + 2;
+                        break;
+                    case 3:
+                        Session["Ravenclaw"] = Convert.ToUInt32(Session["Ravenclaw"]) + 2;
+                        Session["Hufflepuff"] = Convert.ToUInt32(Session["Hufflepuff"]) + 2;
+                        break;
+                    case 4:
+                        Session["Gryffindor"] = Convert.ToUInt32(Session["Gryffindor"]) + 1;
+                        Session["Ravenclaw"] = Convert.ToUInt32(Session["Ravenclaw"]) + 1;
+                        Session["Hufflepuff"] = Convert.ToUInt32(Session["Hufflepuff"]) + 1;
+                        break;
+                }
+                break;
+            case 9:
+                switch (antwoord)
+                {
+                    case 1:
+                        Session["Gryffindor"] = Convert.ToUInt32(Session["Gryffindor"]) + 1;
+                        Session["Slytherin"] = Convert.ToUInt32(Session["Slytherin"]) + 2;
+                        break;
+                    case 2:
+                        Session["Gryffindor"] = Convert.ToUInt32(Session["Gryffindor"]) + 2;
+                        Session["Slytherin"] = Convert.ToUInt32(Session["Slytherin"]) + 1;
+                        break;
+                    case 3:
+                        Session["Ravenclaw"] = Convert.ToUInt32(Session["Ravenclaw"]) + 1;
+                        Session["Hufflepuff"] = Convert.ToUInt32(Session["Hufflepuff"]) + 2;
+                        break;
+                    case 4:
+                        Session["Ravenclaw"] = Convert.ToUInt32(Session["Ravenclaw"]) + 2;
+                        Session["Hufflepuff"] = Convert.ToUInt32(Session["Hufflepuff"]) + 1;
+                        break;
+                }
+                break;
+            case 10:
+                switch (antwoord)
+                {
+                    case 1:
+                        Session["Gryffindor"] = Convert.ToUInt32(Session["Gryffindor"]) + 3;
+                        Session["Slytherin"] = Convert.ToUInt32(Session["Slytherin"]) + 1;
+                        Session["Ravenclaw"] = Convert.ToUInt32(Session["Ravenclaw"]) + 0;
+                        Session["Hufflepuff"] = Convert.ToUInt32(Session["Hufflepuff"]) + 0;
+                        break;
+                    case 2:
+                        Session["Gryffindor"] = Convert.ToUInt32(Session["Gryffindor"]) + 1;
+                        Session["Slytherin"] = Convert.ToUInt32(Session["Slytherin"]) + 1;
+                        Session["Ravenclaw"] = Convert.ToUInt32(Session["Ravenclaw"]) + 2;
+                        Session["Hufflepuff"] = Convert.ToUInt32(Session["Hufflepuff"]) + 2;
+                        break;
+                    case 3:
+                        Session["Gryffindor"] = Convert.ToUInt32(Session["Gryffindor"]) + 2;
+                        Session["Slytherin"] = Convert.ToUInt32(Session["Slytherin"]) + 2;
+                        Session["Ravenclaw"] = Convert.ToUInt32(Session["Ravenclaw"]) + 0;
+                        Session["Hufflepuff"] = Convert.ToUInt32(Session["Hufflepuff"]) + 0;
+                        break;
+                    case 4:
+                        Session["Gryffindor"] = Convert.ToUInt32(Session["Gryffindor"]) + 2;
+                        Session["Slytherin"] = Convert.ToUInt32(Session["Slytherin"]) + 2;
+                        Session["Ravenclaw"] = Convert.ToUInt32(Session["Ravenclaw"]) + 2;
+                        Session["Hufflepuff"] = Convert.ToUInt32(Session["Hufflepuff"]) + 2;
+                        break;
+                }
                 break;
         }
     }

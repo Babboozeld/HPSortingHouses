@@ -37,8 +37,19 @@
             string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\HarryPotter.mdf;Integrated Security=True";
             string provider = "System.Data.SqlClient";
             Database db = Database.OpenConnectionString(connectionString, provider);
-            string sortingProgress = "INSTERT INTO [sorting] (Id, Vlist, Hufflepuff, Ravenclaw, Slytherin, Gryffindor) VALUES (@0,@1,@2,@3,@4,@5,@6);";
-            db.Execute(sortingProgress, Session["id"], Session["Vlist"], Session["Hufflepuff"], Session["Ravenclaw"], Session["Slytherin"], Session["Gryffindor"]);
+
+            string Vliststring = "";
+            foreach (int item in (List<int>)Session["Vlist"]) {
+                Vliststring += "+" + Convert.ToString(item);
+            }
+            Vliststring = Vliststring.Remove(0, 1);
+            int id = Convert.ToInt32(Session["id"]);
+            int h = Convert.ToInt32(Session["Hufflepuff"]);
+            int r = Convert.ToInt32(Session["Ravenclaw"]);
+            int s = Convert.ToInt32(Session["Slytherin"]);
+            int g = Convert.ToInt32(Session["Gryffindor"]);
+            string sortingProgress = "INSERT INTO [sorting] (Id, Vlist, Hufflepuff, Ravenclaw, Slytherin, Gryffindor) VALUES (@0, @1, @2, @3, @4, @5)";
+            db.Execute(sortingProgress, id, Vliststring, h, r, s, g);
         }
     }
 
