@@ -274,3 +274,8 @@ footer p:hover {
     #blockquote p {
         display: inline;
     }
+
+    .f-form {
+        --width: 80vw;
+        top: 0;
+    }
