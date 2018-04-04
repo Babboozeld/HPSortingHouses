@@ -12,7 +12,7 @@
     Database db = Database.OpenConnectionString(connectionString, provider);
 
     //1. setup sessions
-    if (Session["Hufflepuff"] == null)
+    if (Session["Vlist"] == null)
     {
         string findsorting = "SELECT * FROM [sorting] WHERE Id = @0;";
         var findsresult = db.QuerySingle(findsorting, Convert.ToInt32(Session["id"]));
