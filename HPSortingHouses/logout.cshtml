@@ -19,6 +19,10 @@
         int g = Convert.ToInt32(Session["Gryffindor"]);
         string sortingProgress = "INSERT INTO [sorting] (Id, Vlist, Hufflepuff, Ravenclaw, Slytherin, Gryffindor) VALUES (@0, @1, @2, @3, @4, @5)";
         db.Execute(sortingProgress, id, Vliststring, h, r, s, g);
+        Session["Hufflepuff"] = null;
+        Session["Ravenclaw"] = null;
+        Session["Slytherin"] = null;
+        Session["Gryffindor"] = null;
     }
 
     //chech of je al ingelogd bent 
