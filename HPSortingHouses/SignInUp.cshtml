@@ -39,7 +39,7 @@
             {
                 string sel = "SELECT * FROM [user] WHERE email = @0 AND password = @1";
                 var result = db.QuerySingle(sel, email, password);
-                if (result.Id != null)
+                if (result != null)
                 {
                     Session["id"] = result.Id;
                     Session["email"] = result.email;
