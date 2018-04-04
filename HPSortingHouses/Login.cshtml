@@ -17,22 +17,22 @@
         var email = Request.Form["email"];
         var password = Request.Form["password"];
 
+        if (email == "" && password == "")
+        {
+            bericht2 = true;
+        }
+        if (email == "" && password != "")
+        {
+            bericht3 = true;
+        }
+        if (email != "" && password == "")
+        {
+            bericht4 = true;
+        }
         if (email != "" && password != "")
         {
             string sel = "SELECT * FROM [user] WHERE email = @0 AND password = @1";
             var result = db.Query(sel, email, password);
-            if (email == "" && password == "")
-            {
-                bericht2 = true;
-            }
-            if (email == "" && password != "")
-            {
-                bericht3 = true;
-            }
-            if (email != "" && password == "")
-            {
-                bericht4 = true;
-            }
             if (result.Count() > 0)
             {
                 Session["email"] = "forumuser";
@@ -71,7 +71,7 @@
                     </div>
                     @if (bericht1 == true)
                     {
-                        <h3>Succesfol ingelogd.</h3>
+                        <h3>Wrong password.</h3>
                         // Hier komt redirect naar main page //
                     }
                     @if (bericht2 == true)
