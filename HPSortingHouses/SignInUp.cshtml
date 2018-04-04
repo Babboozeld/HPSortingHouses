@@ -1,6 +1,6 @@
 ﻿@using WebMatrix.Data;
 @{
-    //chech of je al ingelogd bent 
+    //check of je al ingelogd bent 
     if (Session["id"] != null)
     {
         Response.Redirect("~/forum.cshtml");
@@ -141,7 +141,7 @@
             if (email != "" && username != "" && password != "" && password1 != "")
             {
                 string sel = "SELECT username FROM [user] WHERE username = @0";
-                var result = db.Query(sel, username);
+                githvar result = db.Query(sel, username);
                 if (result.Count() > 0 && username != "" && password != "")
                 {
                     bericht2_7 = true;
