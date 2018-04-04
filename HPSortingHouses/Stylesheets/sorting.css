@@ -68,26 +68,26 @@
     background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url("../Images/img/img3.jpg") center center no-repeat;
     background-size: cover;
 }
-.vraag1_3:hover {
-    background: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0)), url("../Images/img/img3.jpg") center center no-repeat;
-    background-size: cover;
-}
+    .vraag1_3:hover {
+        background: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0)), url("../Images/img/img3.jpg") center center no-repeat;
+        background-size: cover;
+    }
 .vraag1_4 {
     background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url("../Images/img/img4.png") center center no-repeat;
     background-size: cover;
 }
 
-.vraag1_4:hover {
-    background: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0)), url("../Images/img/img4.png") center center no-repeat;
-    background-size: cover;
-}
+    .vraag1_4:hover {
+        background: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0)), url("../Images/img/img4.png") center center no-repeat;
+        background-size: cover;
+    }
 
 .vraag2_1 {
     background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url("../Images/img/img5.jpg") center center no-repeat;
     background-size: cover;
 }
 
-.vraag2_1:hover {
+    .vraag2_1:hover {
         background: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0)), url("../Images/img/img5.jpg") center center no-repeat;
         background-size: cover;
     }
@@ -449,7 +449,6 @@
 
 
 .text {
-    color: white;
     font-size: 30px;
     position: absolute;
     top: 50%;
