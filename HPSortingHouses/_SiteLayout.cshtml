@@ -25,53 +25,47 @@
     <header class="header">
         <!-- Navigatie -->
         <nav class="navbar navbar-expand-md navbar-dark ">
-        <img src="~/Images/HPTP80.png"><a href="~/Default.cshtml" class="navbar-brand">School of Wizards</a>
-        <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#collapsingNavbar1">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-        <div class="navbar-collapse collapse" id="collapsingNavbar1">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Lessen</a>
-                </li>
-                @if (Session["id"] != null)
-    {
-
-            @if (Session["id"] != null) {
-            <li class="nav-item">
-                <a class="nav-link" href="#">Lessen</a>
-            </li>
-            <li>
-                <a class="nav-link" href="#">Inleveren huiswerk</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Scoreboard</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Lore</a>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    @Session["username"]
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Profile</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Log out</a>
-                </div>
-            </li>
-}
-else
-{
-            <li class="nav-item">
-                <a class="nav-link" href="~/SignInUp.cshtml?request=login">Login</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="~/SignInUp.cshtml?request=register">Register</a>
-            </li>
-}
-            </ul>
-        </div>
+            <img src="~/Images/HPTP80.png"><a href="~/Default.cshtml" class="navbar-brand">School of Wizards</a>
+            <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#collapsingNavbar1">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse" id="collapsingNavbar1">
+                <ul class="navbar-nav ml-auto">
+                    @if (Session["id"] != null) { 
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Lessen</a>
+                        </li>
+                    <li>
+                        <a class="nav-link" href="#">Inleveren huiswerk</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Scoreboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Lore</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            @Session["username"]
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">Profile</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Log out</a>
+                        </div>
+                    </li>
+                    }
+                    else
+                    {
+                    <li class="nav-item">
+                        <a class="nav-link" href="~/SignInUp.cshtml?request=login">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="~/SignInUp.cshtml?request=register">Register</a>
+                    </li>
+                    }
+                </ul>
+            </div>
         </nav>
     </header>
 
@@ -84,7 +78,7 @@ else
         <p class="footer__item">&copy; @DateTime.Now.Year - School of Wizards</p>
     </footer>
 
-  <script src="~/Scripts/Main.js"></script>
+    <script src="~/Scripts/Main.js"></script>
 </body>
 
 </html>
