@@ -18,11 +18,19 @@
         var findsresult = db.QuerySingle(findsorting, Convert.ToInt32(Session["id"]));
         if (findsresult != null)
         {
-            Session["Vlist"] = findsresult.Vlist;
-            Session["Hufflepuff"] = findsresult.Hufflepuff;
-            Session["Ravenclaw"] = findsresult.Ravenclaw;
-            Session["Slytherin"] = findsresult.Slytherin;
-            Session["Gryffindor"] = findsresult.Gryffindor;
+            string[] VlistArray = findsresult.Vlist.Split('+');
+            var VlistList = new List<int>();
+            foreach (string item in VlistArray)
+            {
+                VlistList.Add(Convert.ToInt32(item));
+            }
+            Session["Vlist"] = VlistList;
+            Session["Hufflepuff"] = Convert.ToInt32(findsresult.Hufflepuff);
+            Session["Ravenclaw"] = Convert.ToInt32(findsresult.Ravenclaw);
+            Session["Slytherin"] = Convert.ToInt32(findsresult.Slytherin);
+            Session["Gryffindor"] = Convert.ToInt32(findsresult.Gryffindor);
+            string deletesortingrecord = "DELETE FROM [sorting] WHERE Id = @0;";
+            db.Execute(deletesortingrecord, Convert.ToInt32(Session["id"]));
         } else
         {
             List<int> VraagCountList = new List<int>(new int[] { 1, 2, 3, 4, 5, 6 });
@@ -44,7 +52,7 @@
 
         //validatie op inputs
         //if (Bvraag <= 5 && Bvraag >= 0 && antwoord >= 0 && antwoord <= 4)
-        if (Bvraag <= 6 && Bvraag > 0) 
+        if (Bvraag <= 6 && Bvraag > 0)
         {
             //fuctie die waardes bbij house sessions doet
             AntwoordRes(Bvraag, antwoord);
