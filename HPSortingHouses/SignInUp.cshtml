@@ -33,8 +33,20 @@
         if (submittype == "login")
         {
             var email = Request.Form["email"];
-            var password = Request.Form["password"]; 
+            var password = Request.Form["password"];
 
+            if (email == "" && password == "")
+            {
+                bericht1_2 = true;
+            }
+            if (email == "" && password != "")
+            {
+                bericht1_3 = true;
+            }
+            if (email != "" && password == "")
+            {
+                bericht1_4 = true;
+            }
             if (email != "" && password != "")
             {
                 string sel = "SELECT * FROM [user] WHERE email = @0 AND password = @1";
@@ -56,18 +68,6 @@
                         bericht1_1 = true;
                     }
                 }
-            }
-            if (email == "" && password == "")
-            {
-                bericht1_2 = true;
-            }
-            if (email == "" && password != "")
-            {
-                bericht1_3 = true;
-            }
-            if (email != "" && password == "")
-            {
-                bericht1_4 = true;
             }
         }
         else if (submittype == "register")
@@ -190,8 +190,7 @@
                 </div>
                 @if (bericht1_1 == true)
                 {
-                    <h3>Succesfol ingelogd.</h3>
-                    // Hier komt redirect naar main page //
+                    <h3>Wrong password.</h3>
                 }
                 @if (bericht1_2 == true)
                 {
