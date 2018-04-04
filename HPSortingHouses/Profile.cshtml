@@ -1,0 +1,49 @@
+﻿@{
+    if (Session["id"] == null)
+    {
+        Response.Redirect("~/SignInUp.cshtml");
+    }
+    Layout = "~/_SiteLayout.cshtml";
+
+    if (Convert.ToString(Session["house"]) == "Hufflepuff")
+    {
+        <style>
+            #background {
+                background-image: url("../Images/img/img1.png");
+            }
+        </style>
+    }
+
+    else if (Convert.ToString(Session["house"]) == "Slytherin")
+    {
+        <style>
+            #background {
+                background-image: url("../Images/img/img4.png");
+            }
+        </style>
+    }
+
+    else if (Convert.ToString(Session["house"]) == "Ravenclaw")
+    {
+        <style>
+            #background {
+                background-image: url("../Images/img/img2.jpg");
+            }
+        </style>
+    }
+
+    else if (Convert.ToString(Session["house"]) == "Gryffindor")
+    {
+        <style>
+            #background {
+                background-image: url("../Images/img/img3.jpg");
+            }
+        </style>
+    }
+
+    else
+    {
+        //trash
+    }
+}
+
