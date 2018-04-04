@@ -144,6 +144,10 @@ footer p:hover {
 
 /*flag toggle temp*/
 
+.muggleflag {
+    --fcolor: rgb(245, 70, 70)
+}
+
 #toggleflagcheckbox {
   display: none;
 }
@@ -252,7 +256,7 @@ footer p:hover {
 }
 
 #blockquote {
-    background: #f9f9f9;
+    background: transparent;
     border-left: 10px solid #ccc;
     margin: 1.5em 10px;
     padding: 0.5em 10px;
@@ -260,7 +264,6 @@ footer p:hover {
 }
 
     #blockquote:before {
-        color: #ccc;
         content: open-quote;
         font-size: 4em;
         line-height: 0.1em;

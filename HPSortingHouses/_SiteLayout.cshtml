@@ -2,22 +2,22 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8" />
-  <link href="~/Stylesheets/Main.css" rel="stylesheet" type="text/css" />
-  <link href="~/Stylesheets/app.css" rel="stylesheet" type="text/css" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <link href="~/Stylesheets/app.css" rel="stylesheet" type="text/css" />
+    <link href="~/Stylesheets/Main.css" rel="stylesheet" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Bootstap stuff voor nav-->
-  <!-- Bootstrap 4.0 CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <!-- JQuery 3.2.1 -->
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-  <!-- Popper JS 1.12.9 -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-  <!-- Bootstrap 4.0 JS -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <!-- Bootstap stuff voor nav-->
+    <!-- Bootstrap 4.0 CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- JQuery 3.2.1 -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <!-- Popper JS 1.12.9 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <!-- Bootstrap 4.0 JS -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
-  <title>@Page.Title - School of Wizards</title>
+    <title>@Page.Title - School of Wizards</title>
 </head>
 
 <body>
@@ -31,39 +31,40 @@
                 </button>
         <div class="navbar-collapse collapse" id="collapsingNavbar1">
             <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Lessen</a>
+                </li>
+                @if (Session["id"] != null)
+    {
             <li class="nav-item">
-                <a class="nav-link" href="~/Default.cshtml">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Lore</a>
-            </li>
-            @if (Session["id"] != null) {
-            <li class="nav-item">
-                <a class="nav-link" href="#">Lessen</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Ingeleverd huiswerk</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Profiel</a>
+                <a class="nav-link" href="#">Inleveren huiswerk</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Scoreboard</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">@Session["username"]</a>
+                <a class="nav-link" href="#">Lore</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="~/Logout.cshtml">Logout</a>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    @Session["username"]
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">Profile</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Log out</a>
+                </div>
             </li>
-            } else {
+}
+else
+{
             <li class="nav-item">
                 <a class="nav-link" href="~/SignInUp.cshtml?request=login">Login</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="~/SignInUp.cshtml?request=register">Register</a>
             </li>
-            }
+}
             </ul>
         </div>
         </nav>
