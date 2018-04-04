@@ -80,7 +80,7 @@
             </style>
         }
 
-        <div class="flag flag--middle flaghouse">
+        <div class="flag flag--middle flaghouse5">
             <div class="flag__container ">
                 <div id="opmaak" class="flag__top">
                     <br /><br /><br /><br /><h1>You're sorted in @Session["house"]!</h1>
@@ -92,7 +92,42 @@
         </div>
         break;
     case 2:
-        <div class="flag flag--middle flaghouse">
+        if (Convert.ToString(Session["house"]) == "Hufflepuff")
+        {
+            <style>
+                .flaghouse5 {
+                    --fcolor: geel;
+                }
+            </style>
+        }
+
+        else if (Convert.ToString(Session["house"]) == "Slytherin")
+        {
+            <style>
+                .flaghouse5 {
+                    --fcolor: green;
+                }
+            </style>
+        }
+
+        else if (Convert.ToString(Session["house"]) == "Gryffindor")
+        {
+            <style>
+                .flaghouse5 {
+                    --fcolor: red;
+                }
+            </style>
+        }
+
+        else if (Convert.ToString(Session["house"]) == "Ravenclaw")
+        {
+            <style>
+                .flaghouse5 {
+                    --fcolor: blue;
+                }
+            </style>
+        }
+        <div class="flag flag--middle flaghouse5">
             <div class="flag__container ">
                 <div id="opmaak" class="flag__top">
                     <br /><br /><br /><br /><h1>Welcome to @Session["house"]</h1>
@@ -123,7 +158,9 @@
                 <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
             </div>
         </form>
+ }
 }
+
 
 
 
