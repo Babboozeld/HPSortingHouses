@@ -8,13 +8,16 @@ using System.Web;
 /// </summary>
 public class Post
 {
-    public string post_content;
-    public string post_date;
-    public int post_by;
-    public Post(string post_content, string post_date, int post_by)
+    public int topic;
+    public string content;
+    public int by;
+    public DateTime date;
+
+    public Post(int topic, string content, DateTime date, int by)
     {
-        this.post_content = post_content;
-        this.post_date = post_date;
-        this.post_by = post_by;
+        this.topic = topic;
+        this.content = content;
+        this.date = date;
+        this.by = by;
     }
 }

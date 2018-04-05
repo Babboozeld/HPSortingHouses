@@ -7,9 +7,9 @@
     int id = Convert.ToInt32(Session["id"]);
 
     //subjectpost needs
-    string subjecttitel = "";
+    string topictitle = "";
     string catgo = "";
-    string inhoud = "";
+    string content = "";
     string succes = "";
     //getpost needs
     Topic topic = null;
@@ -23,10 +23,13 @@
 
         if (postform == "subject")
         {
-            subjecttitel = Request.Form["subject"];
+            topictitle = Request.Form["subject"];
             catgo = Request.Form["catgo"];
-            inhoud = Request.Form["inhoud"];
-            succes = Posts_handler.PostSubject(subjecttitel, catgo, inhoud, id);
+            content = Request.Form["inhoud"];
+            //validate toevoegen////////////////////////////
+            Topic newTopic = new Topic(topictitle, catgo, content , DateTime.Now, Convert.ToInt32(Session["id"]));
+            string newtopicid = Posts_handler.PostTopic(newTopic);
+            Response.Redirect("~/Posts.cshtml?poststate=post&topicid=" + newtopicid);
         }
     }
 
@@ -66,7 +69,7 @@
                     <form method="post">
                         <div class="form-group">
                             <br /><br /><label for="exampleFormControlInput1">Title</label>
-                            <input name="subject" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Title" value="@subjecttitel">
+                            <input name="subject" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Title" value="@topictitle">
                         </div>
                         <div class="form-group">
                             <br /><br /><label for="exampleFormControlSelect1">Category</label>
@@ -97,7 +100,9 @@
         <div class="container col-8">
             <div class="row">   <!-- subject -->
                 <h1>@topic.title</h1>
-                <p>@topic.sub</p>
+
+                <p>@topic.content</p>
+
                 <p>@topic.date</p>
                 
             </div>

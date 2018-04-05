@@ -8,48 +8,44 @@ using WebMatrix.Data;
 /// </summary>
 public static class Posts_handler
 {
-
-    public static void PostSubject(Topic topic)
+    public static string PostTopic(Topic topic)
     {
-        string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\HarryPotter.mdf;Integrated Security=True";
-        string provider = "System.Data.SqlClient";
-        Database db = Database.OpenConnectionString(connectionString, provider);                            
-        db.Execute("INSERT INTO [topics] (topic_sub, topic_date, topic_cat,topic_by, topic_title ) VALUES (@0, @1, @2, @3, @4)", topic.sub, DateTime.Now,topic.cat,topic.by,topic.title);
-                           
+        Database db = DatabaseConnectie();
+        db.Execute("INSERT INTO [topics] (title, cat, content, by, date) VALUES (@0, @1, @2, @3, @4)", topic.title, topic.cat, topic.content, topic.by, DateTime.Now);
+        return Convert.ToString(db.QueryValue("SELECT MAX(id) FROM [topics]"));
     }
 
     public static Topic GetTopic(int id)
     {
-        //open datbase
-        string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\HarryPotter.mdf;Integrated Security=True";
-        string provider = "System.Data.SqlClient";
-        Database db = Database.OpenConnectionString(connectionString, provider);
-
-        var topicdata = db.QuerySingle("SELECT * FROM [topics] WHERE topic_id = @0", id);
+        Database db = DatabaseConnectie();
+        var topicdata = db.QuerySingle("SELECT * FROM [topics] WHERE id = @0", id);
         if (topicdata == null)
         {
             return null;
         } else
         {
-            return new Topic(topicdata.topic_sub, topicdata.topic_cat, topicdata.topic_content, topicdata.topic_date, topicdata.topic_by);
+            return new Topic(topicdata.title, topicdata.cat, topicdata.content, Convert.ToInt32(topicdata.by), topicdata.date);
         }
     }
 
     public static List<Post> GetPost(int id)
     {
-        //open datbase
-        string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\HarryPotter.mdf;Integrated Security=True";
-        string provider = "System.Data.SqlClient";
-        Database db = Database.OpenConnectionString(connectionString, provider);
-
+        Database db = DatabaseConnectie();
         List<Post> posts = null;
-        var postsdata = db.Query("SELECT * FROM posts WHERE post_topic = @0", id);
+        var postsdata = db.Query("SELECT * FROM [posts] WHERE topic = @0", id);
 
         foreach (var item in postsdata)
         {
-             posts.Add(new Post(item.post_content, item.post_date, Convert.ToInt32(item.post_by)));
+             posts.Add(new Post(Convert.ToInt32(item.topic), item.content, item.date, Convert.ToInt32(item.by)));
         }
 
         return posts;
+    }
+
+   public static Database DatabaseConnectie()
+    {
+        string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\HarryPotter.mdf;Integrated Security=True";
+        string provider = "System.Data.SqlClient";
+        return Database.OpenConnectionString(connectionString, provider);
     }
 }

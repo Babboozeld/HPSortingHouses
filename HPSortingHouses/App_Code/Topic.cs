@@ -9,17 +9,17 @@ using System.Web;
 public class Topic
 {
     public string title;
-    public string cat ;
-    public string sub;
-    public DateTime date;
+    public string cat;
+    public string content;
     public int by;
-
-    public Topic(string topic_title, string topic_cat, string topic_sub, DateTime topic_date, int topic_by)
+    public DateTime date;
+    
+    public Topic(string title, string cat, string content, DateTime date, int by)
     {
-        this.title = topic_title;
-        this.cat = topic_cat;
-        this.sub = topic_sub;
-        this.date = topic_date;
-        this.by = topic_by;
+        this.title = title;
+        this.cat = cat;
+        this.content = content;
+        this.date = date;
+        this.by = by;
     }
 }
