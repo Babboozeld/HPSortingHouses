@@ -17,6 +17,8 @@
     //new post needs
     int topicid = 0;
     bool postsucces = false;
+    //topics 
+    List<Topics> topics = null;
 
     //type post
     if (IsPost)
@@ -64,8 +66,11 @@
         {
             PostPage = 3;
         }
+    } else
+    {
+        topics = Posts_handler.GetTopics();
+        // default PostPage = 0
     }
-    //else default PostPage = 0
 
     Layout = "~/_SiteLayout.cshtml";
     Page.Title = "Become a wizard";
@@ -77,20 +82,36 @@
 @switch (PostPage)
 {
     case 0:
-        //cool
+        <div class="container col-8">
+            <div class="row " style="margin-bottom: 90px;"></div>
+            <p style="color: white; background-color: darkcyan; text-align: center;"><a href="~/forum.cshtml"  style="color: white;"> make a new topic</a> </p>
+            @if (topics.Count() != 0)
+                {
+                    <br />
+                    foreach (Topics item in topics)
+                    {
+                        <!--  post  -->
+                        <div class="container col-10 offset-1 mb-2 bg-dark text-white ">
+                            <p class="row p-2">@Convert.ToString(item.id) - @item.title - @item.cat - @Convert.ToString(item.by)</p><br />
+                            <a href="~/Posts.cshtml?poststate=post&topicid=@Convert.ToString(item.id)" class="btn">Go to topic!</a>
+                        </div>
+                    }
+                }
+            <div class="row" style="margin-bottom: 250px;"></div>
+        </div>
         break;
     case 1:
         <div class="flag f-form">
             <div class="flag__container ">
                 <div id = "opmaak" class="flag__top">
                     
-                    <form method = "post" >
+                    <form method = "post" style="padding-top: 80px;">
                         <div class="form-group">
                             <br /><br /><label for="exampleFormControlInput1">Title</label>
                             <input name = "subject" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Title" value="@topictitle">
                         </div>
                         <div class="form-group">
-                            <br /><br /><label for="exampleFormControlSelect1">Category</label>
+                            <label for="exampleFormControlSelect1">Category</label>
                             <select name = "catgo" class="form-control" id="exampleFormControlSelect1">
                                 <option>Harry Potter films</option>
                                 <option>Harry Potter books</option>
@@ -109,7 +130,7 @@
                     </form>
 
                 </div>
-                <div class="flag__bottom--pointy"></div>
+                <div class="flag__bottom"></div>
             </div>
         </div>
 
@@ -121,42 +142,42 @@
             {
                 <p style="color: white; background-color: darkcyan; text-align: center;"> succes </p>
             }
-            <div class="col-8 p-3 mb-2 bg-danger text-white">
+            <div class="container col-12 mb-2 bg-danger text-white">
                 <!-- subject -->
-                <div class="row .offset-md-4">
-                    <h1 class="col-12">@topic.title</h1><br />
-                    <p class="col-12">@topic.content</p><br />
-                    <p class="col-12" style="font-size: 15px; font-style: italic; color: black">@Convert.ToString(topic.date) - @topic.by - @topic.cat</p> <br />
-                </div>
+                <!--<div class="row .offset-md-4">-->
+                    <h1 class="row p-2">@topic.title</h1><br />
+                    <p class="row p-2">@topic.content</p><br />
+                    <p class="row p-2" style="font-size: 15px; font-style: italic; color: black">@Convert.ToString(topic.date) - @topic.by - @topic.cat</p> <br />
+                <!--</div>-->
             </div>
             @if (posts.Count() != 0)
             {
-                <a href="#newpost" > make new post</a>
+            <p class="bg-dark" style="background-color: darkcyan; text-align: center;"><a href="#newpost" style="color: white;"> make new post</a></p>
                 <br />
                 foreach (Post item in posts)
                 {
                     <!--  post  -->
-                    <div class="col-8 p-3 mb-2 bg-dark text-white ">
-                        <div class="row .offset-md-4">
-                            <p class="col-12">@item.content</p><br />
-                            <p class="col-12">@item.by - @Convert.ToString(item.date)</p><br />
-                        </div>
+                    <div class="container col-10 offset-1 mb-2 bg-dark text-white ">
+                        <!--<div class="row .offset-md-4">-->
+                            <p class="row p-2">@item.content</p><br />
+                            <p class="row p-2">@item.by - @Convert.ToString(item.date)</p><br />
+                        <!--</div>-->
                     </div>
                 }
             }
             <br />
             <!--new post-->
-            <div class="col-8 p-3 mb-2 text-white bg-dark" id="newpost">
+            <div class="container col-12 mb-2 text-white bg-dark" id="newpost">
                     
                 <form method="post">
-                    <h1> New post</h1>
+                    <h1 class="row p-2"> New post</h1>
 
-                    <label for="exampleFormControlTextarea1">Post</label>
-                    <textarea name = "inhoud" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    <label class="row p-2" for="exampleFormControlTextarea1">Post</label>
+                    <textarea name = "inhoud" class="form-control col-10 offset-1 p-2" id="exampleFormControlTextarea1" rows="3"></textarea>
 
-                    <input type = "hidden" name="postform" value="post" />
-                    <input type = "hidden" name="subjectid" value="@Convert.ToSingle(topicid)" />
-                    <button type = "submit" class="btn btn-primary btn-lg">Post new post</button>
+                    <input type="hidden" name="postform" value="post" />
+                    <input type="hidden" name="subjectid" value="@Convert.ToSingle(topicid)" />
+                    <button type="submit" class="row p-2 btn btn-primary btn-lg">Post new post</button>
                 </form>
             </div>
         <div class="row" style="margin-bottom: 250px;"></div>

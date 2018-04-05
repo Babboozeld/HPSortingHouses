@@ -10,7 +10,6 @@ public static class Posts_handler
 {
     public static string PostTopic(Topic topic)
     {
-
         Database db = DatabaseConnectie();
         string posttopic = "INSERT INTO [topics] (title, cat, content, [by], date) VALUES(@0, @1, @2, @3, @4);";
         db.Execute(posttopic, topic.title, topic.cat, topic.content, topic.by, topic.date);
@@ -21,6 +20,22 @@ public static class Posts_handler
     {
         Database db = DatabaseConnectie();
         db.Execute("INSERT INTO [posts] (topic, content, [by] , date) VALUES (@0, @1, @2, @3)", post.topic, post.content, post.by, post.date);
+    }
+
+    public static List<Topics> GetTopics()
+    {
+        Database db = DatabaseConnectie();
+        List<Topics> topics = new List<Topics>();
+        var topicsdata = db.Query("SELECT * FROM [topics] ORDER BY date DESC;");
+        if (topicsdata != null)
+        {
+            foreach (var topicdata in topicsdata)
+            {
+                Topics topicitem = new Topics(Convert.ToInt32(topicdata.id), topicdata.title, topicdata.cat, topicdata.content, topicdata.date, Convert.ToInt32(topicdata.by));
+                topics.Add(topicitem);
+            }
+        }
+        return topics;
     }
 
     public static Topic GetTopic(int id)

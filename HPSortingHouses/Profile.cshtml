@@ -1,7 +1,10 @@
 ﻿@{
     if (Session["id"] == null)
     {
-        Response.Redirect("~/SignInUp.cshtml");
+        Response.Redirect("~/SignInUp.cshtml?request=login");
+    } else if (Convert.ToString(Session["house"]) == null)
+    {
+        Response.Redirect("~/forum.cshtml");
     }
     Layout = "~/_SiteLayout.cshtml";
 

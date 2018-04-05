@@ -285,8 +285,9 @@ footer p:hover {
     }
 
     .f-form {
-        --width: 80vw;
+        --width: 60vw;
         top: 0;
+        left: 20vw;
     }
 
 h4 {
