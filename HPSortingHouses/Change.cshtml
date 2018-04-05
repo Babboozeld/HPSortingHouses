@@ -1,8 +1,5 @@
 ﻿@{
-    if (Session["id"] == null)
-    {
-        Response.Redirect("~/SignInUp.cshtml?request=login");
-    }
+
     Layout = "~/_SiteLayout.cshtml";
     Page.Title = "Become a wizard";
     string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\HarryPotter.mdf;Integrated Security=True";
@@ -125,8 +122,7 @@
                 }
                 @if (bericht1_5 == true)
                 {
-                    <h2>Password succesfuly changed.</h2>
-
+                    <h3>Password succesfuly changed.</h3>
                 }
                 @if (bericht1_6 == true)
                 {
