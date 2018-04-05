@@ -28,6 +28,7 @@
     bool bericht2_9 = false;
     var role = "student";
 
+
     if (IsPost)
     {
         var submittype = Request.Form["submitbutton"];
@@ -173,9 +174,9 @@
             <a class="button-flag" style="display: none;">Join</a>
             <form class="loginform" method="post">
                 <div>
-                    <label for="Email" class="col-sm-2 col-form-label">Email</label>
+                    <label for="Email" input typeof="email" class="col-sm-2 col-form-label">Email</label>
                     <div class="col-sm-12">
-                        <input type="text" class="form-control" id="Email" name="email" placeholder="Email" value="@Request.Form["email"]">
+                        <input type="email" class="form-control" id="Email" name="email" placeholder="Email" value="@Request.Form["email"]">
                     </div>
                 </div>
                 <div>
@@ -220,7 +221,7 @@
                 <div>
                     <label for="Email" class="col-sm-2 col-form-label">Email</label>
                     <div class="col-sm-12">
-                        <input type="text" class="form-control" id="Email" name="email" placeholder="Email" value="@Request.Form["email"]" />
+                        <input type="email" class="form-control" id="Email" name="email" placeholder="Email" value="@Request.Form["email"]" />
                     </div>
                 </div>
 

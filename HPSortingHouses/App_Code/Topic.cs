@@ -19,7 +19,7 @@ public class Topic
         this.title = title;
         this.cat = cat;
         this.content = content;
-        this.date = date;
         this.by = by;
+        this.date = date;
     }
 }
