@@ -19,8 +19,8 @@
             {
                 var email = Request.Form["email"];
                 var password = Request.Form["password"];
-                var newemail = Request.Form["newemail"];
-                var confirmemail = Request.Form["confirmemail"];
+                var newusername = Request.Form["newusername"];
+                var confirmusername = Request.Form["confirmusername"];
 
                 if (email == "" && password == "")
                 {
@@ -40,10 +40,10 @@
                     var result = db.QuerySingle(sel, email, password);
                     if (result != null)
                     {
-                        if (newemail == confirmemail)
+                        if (newusername == confirmusername)
                         {
-                            string up = "UPDATE [user] SET email = @0 WHERE email = @1";
-                            db.Execute(up, newemail, email);
+                            string up = "UPDATE [user] SET username = @0 WHERE email = @1";
+                            db.Execute(up, newusername, email);
                             bericht1_5 = true;
                         }
 
@@ -85,21 +85,21 @@
                         </div>
                     </div>
                     <div>
-                        <label for="Old Password" class="col-sm-9 col-form-label">Old Password</label>
+                        <label for="Old Password" class="col-sm-9 col-form-label">Password</label>
                         <div class="col-sm-12">
-                            <input type="password" class="form-control" id="Password" name="password" placeholder="Old Password" value="@Request.Form["password"]">
+                            <input type="password" class="form-control" id="Password" name="password" placeholder="Password" value="@Request.Form["password"]">
                         </div>
-                        <label for="New Password" class="col-sm-9 col-form-label">New Password</label>
+                        <label for="New Password" class="col-sm-9 col-form-label">New username</label>
                         <div class="col-sm-12">
-                            <input type="password" class="form-control" id="Password" name="newemail" placeholder="New Password" value="@Request.Form["newemail"]">
+                            <input type="password" class="form-control" id="Password" name="newusername" placeholder="New Username" value="@Request.Form["newusername"]">
                         </div>
-                        <label for="Password" class="col-sm-9 col-form-label">Confirm Password</label>
+                        <label for="Password" class="col-sm-9 col-form-label">Confirm Username</label>
                         <div class="col-sm-12">
-                            <input type="password" class="form-control" id="Password" name="confiremail" placeholder="Confirm Password" value="@Request.Form["confirmemail"]">
+                            <input type="password" class="form-control" id="Password" name="confirmusername" placeholder="Confirm Username" value="@Request.Form["confirmusername"]">
                         </div>
                         <input type="hidden" name="submitbutton" value="login" />
                         <div id="buttonlog">
-                            <button type="submit" class="btn btn-secondary btn-xl">Change password</button>
+                            <button type="submit" class="btn btn-secondary btn-xl">Change Username</button>
                         </div>
                     </div>
 
@@ -121,11 +121,11 @@
                     }
                     @if (bericht1_5 == true)
                     {
-                        <h3>Password succesfuly changed.</h3>
+                        <h3>Username succesfuly changed.</h3>
                     }
                     @if (bericht1_6 == true)
                     {
-                        <h3>Passwords do not match.</h3>
+                        <h3>Usernames do not match.</h3>
                     }
 
                 </form>
@@ -134,4 +134,5 @@
             </div>
         </div>
     </div>
+}
 }

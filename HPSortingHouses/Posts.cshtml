@@ -18,7 +18,7 @@
     int topicid = 0;
     bool postsucces = false;
 
-    //type post 
+    //type post
     if (IsPost)
     {
         string postform = Request.Form["postform"];
@@ -28,7 +28,7 @@
             topictitle = Convert.ToString(Request.Form["subject"]);
             catgo = Convert.ToString(Request.Form["catgo"]);
             content = Convert.ToString(Request.Form["inhoud"]);
-            //validate toevoegen////////////////////////////
+			
             Topic newTopic = new Topic(topictitle, catgo, content , DateTime.Now, id);
             string newtopicid = Posts_handler.PostTopic(newTopic);
             Response.Redirect("~/Posts.cshtml?poststate=post&topicid=" + newtopicid);
@@ -42,13 +42,14 @@
         }
     }
 
-    //page 
+    //page
     int PostPage = 0;   // 0: default/readsubjects    1: Subjectpost       2: readpost    3:    subject does not exist
 
     if (Request.QueryString["poststate"] == "subject")
     {
         PostPage = 1;
-    } else if (Request.QueryString["poststate"] == "post" && Request.QueryString["topicid"] != null)
+    }
+    else if (Request.QueryString["poststate"] == "post" && Request.QueryString["topicid"] != null)
     {
         topicid = Convert.ToInt32(Request.QueryString["topicid"]);
         topic = Posts_handler.GetTopic(topicid);
@@ -57,7 +58,8 @@
         {
             posts = Posts_handler.GetPost(topicid);
             PostPage = 2;
-        } else
+        }
+        else
         {
             PostPage = 3;
         }
@@ -68,6 +70,9 @@
     Page.Title = "Become a wizard";
 
 }
+
+<link href="~/Stylesheets/Posts.css" rel="stylesheet" type="text/css" />
+
 @switch (PostPage)
 {
     case 0:
@@ -114,8 +119,8 @@
             {
                 <p>succes</p>
             }
-
             <div class="row">   <!-- subject -->
+
                 <h1>@topic.title</h1>
                 <p>@topic.content</p>
                 <p>@Convert.ToString(topic.date) - @topic.by - @topic.cat</p>
