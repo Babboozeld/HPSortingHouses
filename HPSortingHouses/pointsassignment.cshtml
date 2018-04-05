@@ -1,11 +1,20 @@
 ﻿@{
     Layout = "~/_SiteLayout.cshtml";
 
-    int Ravenclaw = Convert.ToInt32(Request.Form["Ravenclaw"]);
-    int Slytherin = Convert.ToInt32(Request.Form["Slytherin"]);
-    int Gryffindor = Convert.ToInt32(Request.Form["Gryffindor"]);
-    int Hufflepuff = Convert.ToInt32(Request.Form["Hufflepuff"]);
+    int Ravenclaw = 0;
+    int Slytherin = 0;
+    int Gryffindor = 0;
+    int Hufflepuff = 0;
 
+    if (IsPost)
+    {
+        Ravenclaw =+ Convert.ToInt32(Request.Form["Ravenclaw"]);
+        Slytherin =+ Convert.ToInt32(Request.Form["Slytherin"]);
+        Gryffindor =+ Convert.ToInt32(Request.Form["Gryffindor"]);
+        Hufflepuff =+ Convert.ToInt32(Request.Form["Hufflepuff"]);
+    }
+
+    /*
     int RA = 3;
     int SL = 2;
     int GR = 2;
@@ -15,11 +24,12 @@
     SL =  SL + Slytherin;
     GR = GR + Gryffindor;
     HU = HU + Hufflepuff;
+    */
 
-    Session["Ravenclaw"] = RA;
-    Session["Slytherin"] = SL;
-    Session["Gryffindor"] = GR;
-    Session["Hufflepuff"] = HU;
+    Session["Rw"] = Ravenclaw;
+    Session["Sn"] = Slytherin;
+    Session["Gr"] = Gryffindor;
+    Session["Hf"] = Hufflepuff;
 
 }
 
@@ -60,7 +70,7 @@
         <div class="flag__container ">
             <div id="opmaak" class="flag__top">
                 <br /><br /><br /><br /><br /> <br /><br /><br /><br /><br /><br /><br /><h4 style="text-align: center;">Slytherin</h4><br />
-                <input type="text" class="Puntending_S" name="Punten" value="@Request.Form["Slytherin"];"><br><br />
+                <input type="text" class="Puntending_S" name="Punten" value="@Request.Form["Sn"];"><br><br />
                 <button type="submit" class="btn btn-secondary btn-lg">Punten</button>
             </div>
             <div class="flag__bottom--pointy"></div>
@@ -71,7 +81,7 @@
         <div class="flag__container ">
             <div id="opmaak" class="flag__top">
                 <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><h4 style="text-align: center;">Ravenclaw</h4><br />
-                <input type="text"class="Puntending_R" name="Punten" value="@Request.Form["Ravenclaw"];"><br><br />
+                <input type="text"class="Puntending_R" name="Punten" value="@Request.Form["Rw"];"><br><br />
                 <button type="submit" class="btn btn-secondary btn-lg">Punten</button>
             </div>
             <div class="flag__bottom--pointy"></div>
@@ -82,7 +92,7 @@
         <div class="flag__container ">
             <div id="opmaak" class="flag__top">
                 <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><h4 style="text-align: center;">Gryffindor</h4><br />
-                <input type="text"class="Puntending_G" name="Punten" value="@Request.Form["Gryffindor"];"><br><br />
+                <input type="text"class="Puntending_G" name="Punten" value="@Request.Form["Gr"];"><br><br />
                 <button type="submit" class="btn btn-secondary btn-lg">Punten</button>
             </div>
             <div class="flag__bottom--pointy"></div>
@@ -93,7 +103,7 @@
         <div class="flag__container ">
             <div id="opmaak" class="flag__top">
                 <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><h4 style="text-align: center;">Hufflepuff</h4><br />
-                <input type="text" class="Puntending_" name="Punten" value="@Request.Form["Hufflepuff"];"><br><br />
+                <input type="text" class="Puntending_" name="Punten" value="@Request.Form["Hf"];"><br><br />
                 <button type="submit" class="btn btn-secondary btn-lg">Punten</button>
             </div>
             <div class="flag__bottom--pointy"></div>

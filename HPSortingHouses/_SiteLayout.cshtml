@@ -31,16 +31,17 @@
             </button>
             <div class="navbar-collapse collapse" id="collapsingNavbar1">
                 <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="~/Scoreboard.cshtml">Scoreboard</a>
+                    </li>
                     @if (Session["id"] != null) {
                     <li class="nav-item">
                         <a class="nav-link" href="~/Posts.cshtml?poststate=subject">Create Topic</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="~/Posts.cshtml">Form</a>
+                        <a class="nav-link" href="~/Posts.cshtml">Forum</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="~/Scoreboard.cshtml">Scoreboard</a>
-                    </li>
+                    
                     <li class="nav-item">
                         <a class="nav-link" href="~/Lore/MainLore.cshtml">Lore</a>
                     </li>
