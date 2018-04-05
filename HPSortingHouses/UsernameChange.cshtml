@@ -121,7 +121,11 @@
                     }
                     @if (bericht1_5 == true)
                     {
-                        <h3>Username succesfuly changed.</h3>
+                        <h2>Username succesfuly changed.</h2>
+                        <div id="buttonlog">
+                        <a  class="btn btn-secondary btn-xl" href="~/Profile.cshtml">Go back to your profile</a>
+                    </div>
+                        Session["username"] = Request.Form["newusername"];
                     }
                     @if (bericht1_6 == true)
                     {

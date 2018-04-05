@@ -122,6 +122,10 @@
                     @if (bericht1_5 == true)
                     {
                         <h3>Email succesfuly changed.</h3>
+                        <div id="buttonlog">
+                        <a  class="btn btn-secondary btn-xl" href="~/Profile.cshtml">Go back to your profile</a>
+                    </div>
+                        Session["email"] = Request.Form["newemail"];
                     }
                     @if (bericht1_6 == true)
                     {
