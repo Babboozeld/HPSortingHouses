@@ -5,6 +5,7 @@
 	margin-right: 25%;
 	margin-top: 40%;
 	transform: translateY(-50%);
+    padding-top: 180px;
 }
 #background {
 	background-image: url(../Images/bgl.png);

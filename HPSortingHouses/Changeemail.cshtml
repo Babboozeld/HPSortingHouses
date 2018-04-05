@@ -85,15 +85,15 @@
                     </div>
                 </div>
                 <div>
-                    <label for="Old Password" class="col-sm-9 col-form-label">Password</label>
+                    <label for="Password" class="col-sm-9 col-form-label">Password</label>
                     <div class="col-sm-12">
                         <input type="password" class="form-control" id="Password" name="password" placeholder="Password" value="@Request.Form["password"]">
                     </div>
-                    <label for="New Password" class="col-sm-9 col-form-label">New Email</label>
+                    <label for="New Email" class="col-sm-9 col-form-label">New Email</label>
                     <div class="col-sm-12">
-                        <input type="password" class="form-control" id="Password" name="newemail" placeholder="New Email" value="@Request.Form["newemail"]">
+                        <input type="email" class="form-control" id="Password" name="newemail" placeholder="New Email" value="@Request.Form["newemail"]">
                     </div>
-                    <label for="Password" class="col-sm-9 col-form-label">Confirm Email</label>
+                    <label for="ConfirmEmail" class="col-sm-9 col-form-label">Confirm Email</label>
                     <div class="col-sm-12">
                         <input type="password" class="form-control" id="Password" name="confirmemail" placeholder="Confirm Email" value="@Request.Form["confirmemail"]">
                     </div>
@@ -104,31 +104,31 @@
                 </div>
 				@if (bericht1_1 == true)
 				{
-					<h3>Wrong password.</h3>
+					<h5>Wrong password.</h5>
 				}
 				@if (bericht1_2 == true)
 				{
-					<h3>You should probably try to login.</h3>
+                    <h5>Did you even try to login?</h5>
 				}
 				@if (bericht1_3 == true)
 				{
-					<h3>Email is empty.</h3>
+					<h5>Email is empty.</h5>
 				}
 				@if (bericht1_4 == true)
 				{
-					<h3>Password is empty.</h3>
+					<h5>Password is empty.</h5>
 				}
 				@if (bericht1_5 == true)
 				{
-					<h3>Email succesfuly changed.</h3>
+					<h5>Email succesfuly changed.</h5>
 					<div id="buttonlog">
-					<a  class="btn btn-secondary btn-xl" href="~/Profile.cshtml">Go back to your profile</a>
+					<a  class="btn btn-secondary btn-xl" href="~/Profile.cshtml">Back to profile</a>
 				</div>
 					Session["email"] = Request.Form["newemail"];
 				}
 				@if (bericht1_6 == true)
 				{
-					<h3>Emails do not match.</h3>
+					<h5>Emails do not match.</h5>
 				}
             </form>
         </div>

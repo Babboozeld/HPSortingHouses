@@ -150,7 +150,7 @@ footer p:hover {
 }
 
 .bigflag {
-    --fcolor: rgb(169,169,169);
+    --fcolor: #5F9EA0;
     --width: 100vw;
     --height: 105vh;
     left: 0;
@@ -307,30 +307,35 @@ a {
     height: 50vh;
     position: fixed;
     transition: top 2s, bottom 2s, left 2s, right 2s;
+    font-family: 'Berkshire Swash', cursive;
 }
 
 .box-house1 {
     top: -50vh;
     left: -50vw;
     background-color: #a21a27;
+    text-align:center;
 }
 
 .box-house2 {
     top: -50vh;
     right: -50vw;
     background-color: #005930;
+    text-align: center;
 }
 
 .box-house3 {
     bottom: -50vh;
     left: -50vw;
     background-color: #d8ad21;
+    text-align: center;
 }
 
 .box-house4 {
     bottom: -50vh;
     right: -50vw;
     background-color: #005491;
+    text-align: center;
 }
 
 .box-house1.box-active {
