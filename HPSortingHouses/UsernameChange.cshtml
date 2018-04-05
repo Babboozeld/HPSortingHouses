@@ -22,9 +22,9 @@
         if (submittype == "login")
         {
             var email = Request.Form["email"];
-            var password = Request.Form["oldpassword"];
-            var newpassword = Request.Form["newpassword"];
-            var confirmpassword = Request.Form["confirmpassword"];
+            var password = Request.Form["password"];
+            var newusername = Request.Form["newusername"];
+            var confirmusername = Request.Form["confirmusername"];
 
             if (email == "" && password == "")
             {
@@ -44,10 +44,10 @@
                 var result = db.QuerySingle(sel, email, password);
                 if (result != null)
                 {
-                    if (newpassword == confirmpassword)
+                    if (newusername == confirmusername)
                     {
-                        string up = "UPDATE [user] SET password = @0 WHERE email = @1";
-                        db.Execute(up, newpassword, email);
+                        string up = "UPDATE [user] SET username = @0 WHERE email = @1";
+                        db.Execute(up, newusername, email);
                         bericht1_5 = true;
                     }
 
@@ -66,11 +66,7 @@
                     }
                 }
             }
-
-
         }
-
-
     }
 }
 
@@ -89,50 +85,52 @@
                     </div>
                 </div>
                 <div>
-                    <label for="Old Password" class="col-sm-9 col-form-label">Old Password</label>
+                    <label for="Old Password" class="col-sm-9 col-form-label">Password</label>
                     <div class="col-sm-12">
-                        <input type="password" class="form-control" id="Password" name="oldpassword" placeholder="Old Password" value="@Request.Form["oldpassword"]">
+                        <input type="password" class="form-control" id="Password" name="password" placeholder="Password" value="@Request.Form["password"]">
                     </div>
-                    <label for="New Password" class="col-sm-9 col-form-label">New Password</label>
+                    <label for="New Password" class="col-sm-9 col-form-label">New username</label>
                     <div class="col-sm-12">
-                        <input type="password" class="form-control" id="Password" name="newpassword" placeholder="New Password" value="@Request.Form["newpassword"]">
+                        <input type="password" class="form-control" id="Password" name="newusername" placeholder="New Username" value="@Request.Form["newusername"]">
                     </div>
-                    <label for="Password" class="col-sm-9 col-form-label">Confirm Password</label>
+                    <label for="Password" class="col-sm-9 col-form-label">Confirm Username</label>
                     <div class="col-sm-12">
-                        <input type="password" class="form-control" id="Password" name="confirmpassword" placeholder="Confirm Password" value="@Request.Form["confirmpassword"]">
+                        <input type="password" class="form-control" id="Password" name="confirmusername" placeholder="Confirm Username" value="@Request.Form["confirmusername"]">
                     </div>
                     <input type="hidden" name="submitbutton" value="login" />
                     <div id="buttonlog">
-                        <button type="submit" class="btn btn-secondary btn-xl">Change password</button>
+                        <button type="submit" class="btn btn-secondary btn-xl">Change Username</button>
                     </div>
                 </div>
 
-                @if (bericht1_1 == true)
-                {
-                    <h3>Wrong password.</h3>
-                }
-                @if (bericht1_2 == true)
-                {
-                    <h3>You should probably try to login.</h3>
-                }
-                @if (bericht1_3 == true)
-                {
-                    <h3>Email is empty.</h3>
-                }
-                @if (bericht1_4 == true)
-                {
-                    <h3>Password is empty.</h3>
-                }
-                @if (bericht1_5 == true)
-                {
-                    <h2>Password succesfuly changed.</h2>
-
-                }
-                @if (bericht1_6 == true)
-                {
-                    <h3>Passwords do not match.</h3>
-                }
-
+				@if (bericht1_1 == true)
+				{
+					<h3>Wrong password.</h3>
+				}
+				@if (bericht1_2 == true)
+				{
+					<h3>You should probably try to login.</h3>
+				}
+				@if (bericht1_3 == true)
+				{
+					<h3>Email is empty.</h3>
+				}
+				@if (bericht1_4 == true)
+				{
+					<h3>Password is empty.</h3>
+				}
+				@if (bericht1_5 == true)
+				{
+					<h2>Username succesfuly changed.</h2>
+					<div id="buttonlog">
+					<a  class="btn btn-secondary btn-xl" href="~/Profile.cshtml">Go back to your profile</a>
+				</div>
+					Session["username"] = Request.Form["newusername"];
+				}
+				@if (bericht1_6 == true)
+				{
+					<h3>Usernames do not match.</h3>
+				}
             </form>
         </div>
         <div class="flag__bottom">

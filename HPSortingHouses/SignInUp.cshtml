@@ -26,6 +26,8 @@
     bool bericht2_7 = false;
     bool bericht2_8 = false;
     bool bericht2_9 = false;
+    var role = "student";
+
 
     if (IsPost)
     {
@@ -57,6 +59,7 @@
                     Session["email"] = result.email;
                     Session["username"] = result.username;
                     Session["house"] = result.house;
+                    Session["role"] = role;
                     Response.Redirect("~/forum.cshtml");
                 }
                 else if (email != "" && password != "")
@@ -165,15 +168,15 @@
 <link href="~/Stylesheets/Login.css" rel="stylesheet" type="text/css" />
 <link href="~/Stylesheets/Register.css" rel="stylesheet" type="text/css" />
 
-<div class="flag--login">
+<div id="login" class="flag--login">
     <div class="flag__container ">
         <div class="flag__top">
             <a class="button-flag" style="display: none;">Join</a>
             <form class="loginform" method="post">
                 <div>
-                    <label for="Email" class="col-sm-2 col-form-label">Email</label>
+                    <label for="Email" input typeof="email" class="col-sm-2 col-form-label">Email</label>
                     <div class="col-sm-12">
-                        <input type="text" class="form-control" id="Email" name="email" placeholder="Email" value="@Request.Form["email"]">
+                        <input type="email" class="form-control" id="Email" name="email" placeholder="Email" value="@Request.Form["email"]">
                     </div>
                 </div>
                 <div>
@@ -210,7 +213,7 @@
     </div>
 </div>
 
-<div class="flag--register">
+<div id="register" class="flag--register">
     <div class="flag__container ">
         <div class="flag__top">
             <a class="button-flag" style="display: none;">Join</a>
@@ -218,7 +221,7 @@
                 <div>
                     <label for="Email" class="col-sm-2 col-form-label">Email</label>
                     <div class="col-sm-12">
-                        <input type="text" class="form-control" id="Email" name="email" placeholder="Email" value="@Request.Form["email"]" />
+                        <input type="email" class="form-control" id="Email" name="email" placeholder="Email" value="@Request.Form["email"]" />
                     </div>
                 </div>
 
@@ -285,4 +288,11 @@
         </div>
         <div class="flag__bottom"></div>
     </div>
+
+    <ul id="carousel-buttons2">
+        <li onclick="switchlogreg(this)" id="cButtonl" class="cButton cButtonl" href="#"></li>   <!--active-->
+        <li onclick="switchlogreg(this)" id="cButtonr" class="cButton cButtonr" href="#"></li>
+    </ul>
 </div>
+
+<script src="~/Scripts/loginregister.js"></script>
