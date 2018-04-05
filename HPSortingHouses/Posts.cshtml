@@ -2,7 +2,7 @@
     //chech of je al ingelogd bent
     if (Session["id"] == null)
     {
-        Response.Redirect("~/forum.cshtml");
+        Response.Redirect("~/SignInUp.cshtml?request=login");
     }
     int id = Convert.ToInt32(Session["id"]);
 
@@ -28,7 +28,7 @@
             topictitle = Convert.ToString(Request.Form["subject"]);
             catgo = Convert.ToString(Request.Form["catgo"]);
             content = Convert.ToString(Request.Form["inhoud"]);
-			
+
             Topic newTopic = new Topic(topictitle, catgo, content , DateTime.Now, id);
             string newtopicid = Posts_handler.PostTopic(newTopic);
             Response.Redirect("~/Posts.cshtml?poststate=post&topicid=" + newtopicid);

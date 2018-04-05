@@ -166,7 +166,7 @@
 <link href="~/Stylesheets/Login.css" rel="stylesheet" type="text/css" />
 <link href="~/Stylesheets/Register.css" rel="stylesheet" type="text/css" />
 
-<div class="flag--login">
+<div id="login" class="flag--login">
     <div class="flag__container ">
         <div class="flag__top">
             <a class="button-flag" style="display: none;">Join</a>
@@ -211,7 +211,7 @@
     </div>
 </div>
 
-<div class="flag--register">
+<div id="register" class="flag--register">
     <div class="flag__container ">
         <div class="flag__top">
             <a class="button-flag" style="display: none;">Join</a>
@@ -286,4 +286,11 @@
         </div>
         <div class="flag__bottom"></div>
     </div>
+
+    <ul id="carousel-buttons2">
+        <li onclick="switchlogreg(this)" id="cButtonl" class="cButton cButtonl" href="#"></li>   <!--active-->
+        <li onclick="switchlogreg(this)" id="cButtonr" class="cButton cButtonr" href="#"></li>
+    </ul>
 </div>
+
+<script src="~/Scripts/loginregister.js"></script>

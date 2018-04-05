@@ -2,7 +2,7 @@
 
     if (Session["id"] == null)
     {
-        Response.Redirect("~/SignInUp.cshtml");
+        Response.Redirect("~/SignInUp.cshtml?request=login");
     }
 
     int dashboardrequest = 0;   //0:   nog niet in huis     1:    result sorting     2:    default/...
