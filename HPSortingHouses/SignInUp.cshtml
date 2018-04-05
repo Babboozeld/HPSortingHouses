@@ -27,7 +27,6 @@
     bool bericht2_8 = false;
     bool bericht2_9 = false;
 
-
     if (IsPost)
     {
         var submittype = Request.Form["submitbutton"];
@@ -172,7 +171,7 @@
             <a class="button-flag" style="display: none;">Join</a>
             <form class="loginform" method="post">
                 <div>
-                    <label for="Email" input typeof="email" class="col-sm-2 col-form-label">Email</label>
+                    <label for="Email" class="col-sm-2 col-form-label">Email</label>
                     <div class="col-sm-12">
                         <input type="text" class="form-control" id="Email" name="email" placeholder="Email" value="@Request.Form["email"]">
                     </div>

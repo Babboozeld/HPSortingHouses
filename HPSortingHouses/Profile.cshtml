@@ -40,59 +40,6 @@
             }
         </style>
     }
-
-    if (Convert.ToString(Session["house"]) == "Hufflepuff")
-    {
-        <style>
-            .flaghouse5 {
-                --fcolor: #f0c75e;
-                --width: 40vw;
-                top: 0;
-            }
-        </style>
-    }
-
-    else if (Convert.ToString(Session["house"]) == "Slytherin")
-    {
-        <style>
-            .flaghouse5 {
-                --fcolor: #2a623d;
-                --width: 40vw;
-                top: 0;
-            }
-        </style>
-    }
-
-    else if (Convert.ToString(Session["house"]) == "Gryffindor")
-    {
-        <style>
-            .flaghouse5 {
-                --fcolor: #ae0001;
-                --width: 40vw;
-                top: 0;
-            }
-        </style>
-    }
-
-    else if (Convert.ToString(Session["house"]) == "Ravenclaw")
-    {
-        <style>
-            .flaghouse5 {
-                --fcolor: #222f5b;
-                --width: 40vw;
-                top: 0;
-            }
-        </style>
-    }
 }
 <a type="submit" class="btn btn-secondary" href="~/Change.cshtml">Change Password</a>
-<div class="flag flaghouse5">
-    <div class="flag__container ">
-        <div id="opmaak" class="flag__top">
-            <br /><br /><br /><br /><h1>Welcome to your own commonroom</h1>
-            <br /><p>Here you can manage your account</p>
-            <br /><p>LOOK @Session["username"], YOU'RE GONNA GO TO HOGWARTS, LEARN SPELLS, GET A FOOKIN WAND AND A FOOKIN OWL THAT WILL DELIVER YOUR SHITEY MAIL AND YOULL ENJOY IT YOU SPECCY COON﻿</p>
-        </div>
-        <div class="flag__bottom--pointy"></div>
-    </div>
-</div>
+
