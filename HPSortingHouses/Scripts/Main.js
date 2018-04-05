@@ -6,7 +6,6 @@ if (flag1 != null) {
 }
 */
 
-
 var flag1 = document.getElementById("flag1");
 var flag2 = document.getElementById("flag2");
 var bg = document.getElementById("background");
@@ -15,7 +14,6 @@ var cButtons = document.querySelectorAll(".cButton");
 flag1.style.top = "-100vh";
 flag1.style.top = 0;
 emblemBox = document.getElementById("emblem-box");
-
 
 function switchCarousel(x) {
 
@@ -46,5 +44,3 @@ function switchCarousel(x) {
     }
     x.classList.add("active");
 }
-
-

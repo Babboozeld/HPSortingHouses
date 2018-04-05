@@ -1,6 +1,6 @@
 :root {
-    --gray-green: rgb(87, 136, 98);
-    --flag-width: 0.7;
+  --gray-green: rgb(87, 136, 98);
+  --flag-width: 0.7;
 }
 
 /*
@@ -158,28 +158,28 @@ footer p:hover {
 }
 
 #toggleflagcheckbox {
-    display: none;
+  display: none;
 }
 
 .togle-flag {
-    position: fixed;
-    font-size: 80px;
-    right: 20px;
-    top: 50vh;
-    color: white;
+  position: fixed;
+  font-size: 80px;
+  right: 20px;
+  top: 50vh;
+  color: white;
 }
 
-#toggleflagcheckbox:checked + .flag-container {
-    top: 0px;
+#toggleflagcheckbox:checked+.flag-container {
+  top: 0px;
 }
 
 .flag-active {
-    top: 0px;
+  top: 0px;
 }
 
 /*Carousel buttons*/
 
-#carousel-buttons, #carousel-buttons2 {
+#carousel-buttons {
   position: fixed;
   margin: 0;
   padding: 0;
@@ -189,18 +189,18 @@ footer p:hover {
 }
 
 .cButton:hover, .cButton.active {
-    opacity: 0.6;
+  opacity: 0.6;
 }
 
 .cButton {
-    position: relative;
-    height: 20px;
-    width: 20px;
-    border-radius: 50%;
-    background-color: white;
-    display: inline-block;
-    opacity: 0.3;
-    transition: opacity 1s;
+  position: relative;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background-color: white;
+  display: inline-block;
+  opacity: 0.3;
+  transition: opacity 1s;
 }
 
 /*
@@ -218,51 +218,51 @@ footer p:hover {
 */
 
 .cButton2, .cButton3 {
-    margin-left: 8px;
+  margin-left: 8px;
 }
 
 /*emblem*/
 
 #emblem-box {
-    background: url(../Images/HPTPCverD14.png) center center no-repeat;
-    background-size: cover;
-    position: fixed;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: 450px;
-    height: 450px;
-    transition: left 2.5s;
+  background: url(../Images/HPTPCverD14.png) center center no-repeat;
+  background-size: cover;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 450px;
+  height: 450px;
+  transition: left 2.5s;
 }
 
 #emblem-box {
-    display: flex;
-    flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .emblem-house {
-    width: 50%;
-    height: 50%;
+  width: 50%;
+  height: 50%;
 }
 
 #emblem-box.eLeft {
-    left: 25%;
+  left: 25%;
 }
 
 #emblem-box.eRight {
-    left: 75%;
+  left: 75%;
 }
 
-#opmaak {
+#opmaak{
     color: white;
     padding-left: 20%;
     padding-right: 20%;
     text-align: center;
 }
 
-    #opmaak p {
+    #opmaak p{
         font-size: 20px;
-    }
+}
 
 #blockquote {
     background: transparent;
@@ -288,13 +288,3 @@ footer p:hover {
         --width: 80vw;
         top: 0;
     }
-
-h4 {
-    text-align: left;
-    font-weight: bold;
-    font-size: 20px;
-}
-
-a {
-    margin-left: 10px;
-}

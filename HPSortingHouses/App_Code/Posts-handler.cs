@@ -10,17 +10,9 @@ public static class Posts_handler
 {
     public static string PostTopic(Topic topic)
     {
-        
         Database db = DatabaseConnectie();
-        string posttopic = "INSERT INTO [topics] (title, cat, content, [by], date) VALUES(@0, @1, @2, @3, @4);";
-        db.Execute(posttopic, topic.title, topic.cat, topic.content, topic.by, topic.date);
+        db.Execute("INSERT INTO [topics] (title, cat, content, by, date) VALUES (@0, @1, @2, @3, @4)", topic.title, topic.cat, topic.content, topic.by, DateTime.Now);
         return Convert.ToString(db.QueryValue("SELECT MAX(id) FROM [topics]"));
-    }
-
-    public static void PostPost(Post post)
-    {
-        Database db = DatabaseConnectie();
-        db.Execute("INSERT INTO [posts] (topic, content, [by] , date) VALUES (@0, @1, @2, @3)", post.topic, post.content, post.by, post.date);
     }
 
     public static Topic GetTopic(int id)
@@ -32,23 +24,21 @@ public static class Posts_handler
             return null;
         } else
         {
-            return new Topic(topicdata.title, topicdata.cat, topicdata.content, topicdata.date, Convert.ToInt32(topicdata.by));
+            return new Topic(topicdata.title, topicdata.cat, topicdata.content, Convert.ToInt32(topicdata.by), topicdata.date);
         }
     }
 
     public static List<Post> GetPost(int id)
     {
         Database db = DatabaseConnectie();
-        List<Post> posts = new List<Post>();
+        List<Post> posts = null;
         var postsdata = db.Query("SELECT * FROM [posts] WHERE topic = @0", id);
-        if (postsdata != null)
+
+        foreach (var item in postsdata)
         {
-            foreach (var item in postsdata)
-            {
-                Post postitem = new Post(item.topic, item.content, item.date, item.by);
-                posts.Add(postitem);
-            }
+             posts.Add(new Post(Convert.ToInt32(item.topic), item.content, item.date, Convert.ToInt32(item.by)));
         }
+
         return posts;
     }
 
