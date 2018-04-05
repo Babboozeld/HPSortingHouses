@@ -103,31 +103,34 @@
                     </div>
                 </div>
 
-                @if (bericht1_1 == true)
-                {
-                    <h3>Wrong password.</h3>
-                }
-                @if (bericht1_2 == true)
-                {
-                    <h3>You should probably try to login.</h3>
-                }
-                @if (bericht1_3 == true)
-                {
-                    <h3>Email is empty.</h3>
-                }
-                @if (bericht1_4 == true)
-                {
-                    <h3>Password is empty.</h3>
-                }
-                @if (bericht1_5 == true)
-                {
-                    <h3>Username succesfuly changed.</h3>
-                }
-                @if (bericht1_6 == true)
-                {
-                    <h3>Usernames do not match.</h3>
-                }
-
+				@if (bericht1_1 == true)
+				{
+					<h3>Wrong password.</h3>
+				}
+				@if (bericht1_2 == true)
+				{
+					<h3>You should probably try to login.</h3>
+				}
+				@if (bericht1_3 == true)
+				{
+					<h3>Email is empty.</h3>
+				}
+				@if (bericht1_4 == true)
+				{
+					<h3>Password is empty.</h3>
+				}
+				@if (bericht1_5 == true)
+				{
+					<h2>Username succesfuly changed.</h2>
+					<div id="buttonlog">
+					<a  class="btn btn-secondary btn-xl" href="~/Profile.cshtml">Go back to your profile</a>
+				</div>
+					Session["username"] = Request.Form["newusername"];
+				}
+				@if (bericht1_6 == true)
+				{
+					<h3>Usernames do not match.</h3>
+				}
             </form>
         </div>
         <div class="flag__bottom">

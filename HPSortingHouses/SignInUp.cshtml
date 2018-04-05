@@ -26,6 +26,7 @@
     bool bericht2_7 = false;
     bool bericht2_8 = false;
     bool bericht2_9 = false;
+    var role = "student";
 
 
     if (IsPost)
@@ -58,6 +59,7 @@
                     Session["email"] = result.email;
                     Session["username"] = result.username;
                     Session["house"] = result.house;
+                    Session["role"] = role;
                     Response.Redirect("~/forum.cshtml");
                 }
                 else if (email != "" && password != "")
