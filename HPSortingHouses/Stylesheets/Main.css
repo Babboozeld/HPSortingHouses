@@ -288,3 +288,66 @@ footer p:hover {
         --width: 80vw;
         top: 0;
     }
+
+h4 {
+    text-align: left;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+a {
+    margin-left: 10px;
+}
+
+/*house boxen*/
+
+.box-house {
+    width: 50vw;
+    height: 50vh;
+    position: fixed;
+    transition: top 2s, bottom 2s, left 2s, right 2s;
+}
+
+.box-house1 {
+    top: -50vh;
+    left: -50vw;
+    background-color: #a21a27;
+}
+
+.box-house2 {
+    top: -50vh;
+    right: -50vw;
+    background-color: #005930;
+}
+
+.box-house3 {
+    bottom: -50vh;
+    left: -50vw;
+    background-color: #d8ad21;
+}
+
+.box-house4 {
+    bottom: -50vh;
+    right: -50vw;
+    background-color: #005491;
+}
+
+.box-house1.box-active {
+    top: 0;
+    left: 0;
+}
+
+.box-house2.box-active {
+    top: 0;
+    right: 0;
+}
+
+.box-house3.box-active {
+    bottom: 0;
+    left: 0;
+}
+
+.box-house4.box-active {
+    bottom: 0;
+    right: 0;
+}

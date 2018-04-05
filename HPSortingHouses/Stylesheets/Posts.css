@@ -1,0 +1,12 @@
+﻿#background {
+    background-image: url(../Images/bgpost.jpg);
+}
+#coolio {
+    background-color: red;
+}
+#newpost{
+    margin-bottom: 150px;
+}.container col-8{
+     position:center;
+ }
+

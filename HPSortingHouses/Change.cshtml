@@ -1,5 +1,8 @@
 ﻿@{
-
+    if (Session["id"] == null)
+    {
+        Response.Redirect("~/SignInUp.cshtml?request=login");
+    }
     Layout = "~/_SiteLayout.cshtml";
     Page.Title = "Become a wizard";
     string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\HarryPotter.mdf;Integrated Security=True";
