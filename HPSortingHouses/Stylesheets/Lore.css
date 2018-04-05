@@ -46,7 +46,7 @@
             border-radius: 6px 0 6px 6px;
         }
 
-#harry {
+#maincharacters {
     background-color: #e6dbbf;
     text-align: center;
     display: block;
@@ -56,8 +56,38 @@
     width: 250px;
 }
 
-#student {
-    background-color: #e6dbbf;
+#studentgry {
+    background-color: #a21a27;
+    text-align: center;
+    display: block;
+    float: right;
+    padding: 12px;
+    height: 48px;
+    width: 270px;
+}
+
+#studentsly {
+    background-color: #005930;
+    text-align: center;
+    display: block;
+    float: right;
+    padding: 12px;
+    height: 48px;
+    width: 270px;
+}
+
+#studenthuf {
+    background-color: #d8ad21;
+    text-align: center;
+    display: block;
+    float: right;
+    padding: 12px;
+    height: 48px;
+    width: 270px;
+}
+
+#studentrav {
+    background-color: #005491;
     text-align: center;
     display: block;
     float: right;
