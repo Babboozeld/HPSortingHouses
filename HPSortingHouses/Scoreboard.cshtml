@@ -1,0 +1,102 @@
+﻿@{
+        Layout = "~/_SiteLayout.cshtml";
+        //house scores
+        double Ra = 260;
+        double Hu = 375;
+        double Sl = 176;
+        double Gr = 480;
+
+        //alles wordt ten opzichte van ravenclaw berekend
+        double relatieve = Ra / 100;
+
+        //percentage tenopzichte van ravenclaw / 100
+        double R = 50;
+        double H = Hu / relatieve / 100;
+        double S = Sl / relatieve / 100;
+        double G = Gr / relatieve / 100;
+
+        //antwoorden
+        int Rav = Convert.ToInt32(R);
+        int Huf = Convert.ToInt32(H * 50);
+        int Sly = Convert.ToInt32(S * 50);
+        int Gry = Convert.ToInt32(G * 50);
+    
+
+
+        <style>
+    
+
+
+            .flagG, .flagH, .flagR, .flagS {
+            --width: 25vw;
+            top: 0;
+        }
+
+    .flagS {
+            --fcolor: #2a623d;
+        left: 0;
+            height: @(Sly)%;
+        }
+
+    .flagR {
+            --fcolor: #222f5b;
+        left: 25vw;
+            height: @(Rav)%;
+        }
+
+    .flagG {
+            --fcolor: #ae0001;
+        left: 50vw;
+            height: @(Gry)%
+    }
+
+    .flagH {
+            --fcolor: #f0c75e;
+        left: 75vw;
+            height: @(Huf)%
+    }
+</style>
+
+<div class="flag flagS">
+    <div class="flag__container ">
+        <div id="opmaak" class="flag__top">
+            <br /><br /><br /><br /><br /><br /><br /><br /><h4>Slytherin</h4>
+            <h5>@Sl Punten</h5>
+        </div>
+        <div class="flag__bottom--pointy"></div>
+    </div>
+</div>
+
+<div class="flag flagR">
+    <div class="flag__container ">
+        <div id="opmaak" class="flag__top">
+            <br /><br /><br /><br /><br /><br /><br /><br /><h4>Ravenclaw</h4>
+            <h5>@Ra Punten</h5>
+        </div>
+        <div class="flag__bottom--pointy"></div>
+    </div>
+</div>
+
+<div class="flag flagG">
+    <div class="flag__container ">
+        <div id="opmaak" class="flag__top">
+            <br /><br /><br /><br /><br /><br /><br /><br /><h4>Gryffindor</h4>
+            <h5>@Gr Punten</h5>
+        </div>
+        <div class="flag__bottom--pointy"></div>
+    </div>
+</div>
+
+<div class="flag flagH">
+    <div class="flag__container ">
+        <div id="opmaak" class="flag__top">
+            <br /><br /><br /><br /><br /><br /><br /><br /><h4>Hufflepuff</h4>
+            <h5>@Hu Punten</h5>
+        </div>
+        <div class="flag__bottom--pointy"></div>
+    </div>
+</div>
+
+
+
+}
