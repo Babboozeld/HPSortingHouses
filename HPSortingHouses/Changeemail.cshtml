@@ -1,0 +1,137 @@
+﻿@{
+        Layout = "~/_SiteLayout.cshtml";
+        Page.Title = "Become a wizard";
+        string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\HarryPotter.mdf;Integrated Security=True";
+        string provider = "System.Data.SqlClient";
+        Database db = Database.OpenConnectionString(connectionString, provider);
+
+        bool bericht1_1 = false;
+        bool bericht1_2 = false;
+        bool bericht1_3 = false;
+        bool bericht1_4 = false;
+        bool bericht1_5 = false;
+        bool bericht1_6 = false;
+
+        if (IsPost)
+        {
+            var submittype = Request.Form["submitbutton"];
+            if (submittype == "login")
+            {
+                var email = Request.Form["email"];
+                var password = Request.Form["password"];
+                var newemail = Request.Form["newemail"];
+                var confirmemail = Request.Form["confirmemail"];
+
+                if (email == "" && password == "")
+                {
+                    bericht1_2 = true;
+                }
+                if (email == "" && password != "")
+                {
+                    bericht1_3 = true;
+                }
+                if (email != "" && password == "")
+                {
+                    bericht1_4 = true;
+                }
+                if (email != "" && password != "")
+                {
+                    string sel = "SELECT * FROM [user] WHERE email = @0 AND password = @1";
+                    var result = db.QuerySingle(sel, email, password);
+                    if (result != null)
+                    {
+                        if (newemail == confirmemail)
+                        {
+                            string up = "UPDATE [user] SET email = @0 WHERE email = @1";
+                            db.Execute(up, newemail, email);
+                            bericht1_5 = true;
+                        }
+
+                        else
+                        {
+                            bericht1_6 = true;
+                        }
+                    }
+                    else if (email != "" && password != "")
+                    {
+                        string sel2 = "SELECT * FROM [user] WHERE email = @0 AND password = @1";
+                        var result2 = db.Query(sel2, email, password);
+                        if (result2.Count() == 0 && email != "" && password != "")
+                        {
+                            bericht1_1 = true;
+                        }
+                    }
+                }
+
+
+            }
+
+
+        }
+    }
+
+    <link href="~/Stylesheets/Login.css" rel="stylesheet" type="text/css" />
+    <link href="~/Stylesheets/Register.css" rel="stylesheet" type="text/css" />
+
+    <div class="flag--login">
+        <div class="flag__container ">
+            <div class="flag__top">
+                <a class="button-flag" style="display: none;">Join</a>
+                <form class="loginform" method="post">
+                    <div>
+                        <br /><br /><br /><br /><br /><label for="Email" class="col-sm-2 col-form-label">Email</label>
+                        <div class="col-sm-12">
+                            <input type="text" class="form-control" id="Email" name="email" placeholder="Email" value="@Request.Form["email"]">
+                        </div>
+                    </div>
+                    <div>
+                        <label for="Old Password" class="col-sm-9 col-form-label">Password</label>
+                        <div class="col-sm-12">
+                            <input type="password" class="form-control" id="Password" name="password" placeholder="Password" value="@Request.Form["password"]">
+                        </div>
+                        <label for="New Password" class="col-sm-9 col-form-label">New Email</label>
+                        <div class="col-sm-12">
+                            <input type="password" class="form-control" id="Password" name="newemail" placeholder="New Email" value="@Request.Form["newemail"]">
+                        </div>
+                        <label for="Password" class="col-sm-9 col-form-label">Confirm Email</label>
+                        <div class="col-sm-12">
+                            <input type="password" class="form-control" id="Password" name="confirmemail" placeholder="Confirm Email" value="@Request.Form["confirmemail"]">
+                        </div>
+                        <input type="hidden" name="submitbutton" value="login" />
+                        <div id="buttonlog">
+                            <button type="submit" class="btn btn-secondary btn-xl">Change Email</button>
+                        </div>
+                    </div>
+
+                    @if (bericht1_1 == true)
+                    {
+                        <h3>Wrong password.</h3>
+                    }
+                    @if (bericht1_2 == true)
+                    {
+                        <h3>You should probably try to login.</h3>
+                    }
+                    @if (bericht1_3 == true)
+                    {
+                        <h3>Email is empty.</h3>
+                    }
+                    @if (bericht1_4 == true)
+                    {
+                        <h3>Password is empty.</h3>
+                    }
+                    @if (bericht1_5 == true)
+                    {
+                        <h3>Email succesfuly changed.</h3>
+                    }
+                    @if (bericht1_6 == true)
+                    {
+                        <h3>Emails do not match.</h3>
+                    }
+
+                </form>
+            </div>
+            <div class="flag__bottom">
+            </div>
+        </div>
+    </div>
+}
