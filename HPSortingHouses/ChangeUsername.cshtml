@@ -85,15 +85,15 @@
                     </div>
                 </div>
                 <div>
-                    <label for="Old Password" class="col-sm-9 col-form-label">Password</label>
+                    <label for="Password" class="col-sm-9 col-form-label">Password</label>
                     <div class="col-sm-12">
                         <input type="password" class="form-control" id="Password" name="password" placeholder="Password" value="@Request.Form["password"]">
                     </div>
-                    <label for="New Password" class="col-sm-9 col-form-label">New username</label>
+                    <label for="New Username" class="col-sm-9 col-form-label">New username</label>
                     <div class="col-sm-12">
                         <input type="password" class="form-control" id="Password" name="newusername" placeholder="New Username" value="@Request.Form["newusername"]">
                     </div>
-                    <label for="Password" class="col-sm-9 col-form-label">Confirm Username</label>
+                    <label for="ConfirmUsername" class="col-sm-9 col-form-label">Confirm Username</label>
                     <div class="col-sm-12">
                         <input type="password" class="form-control" id="Password" name="confirmusername" placeholder="Confirm Username" value="@Request.Form["confirmusername"]">
                     </div>
@@ -105,31 +105,31 @@
 
                 @if (bericht1_1 == true)
                 {
-                    <h3>Wrong password.</h3>
+                    <h5>Wrong password.</h5>
                 }
                 @if (bericht1_2 == true)
                 {
-                    <h3>You should probably try to login.</h3>
+                    <h5>Did you even try to login?</h5>
                 }
                 @if (bericht1_3 == true)
                 {
-                    <h3>Email is empty.</h3>
+                    <h5>Email is empty.</h5>
                 }
                 @if (bericht1_4 == true)
                 {
-                    <h3>Password is empty.</h3>
+                    <h5>Password is empty.</h5>
                 }
                 @if (bericht1_5 == true)
                 {
-                    <h2>Username succesfuly changed.</h2>
+                    <h5>Username succesfuly changed.</h5>
                     <div id="buttonlog">
-                        <a class="btn btn-secondary btn-xl" href="~/Profile.cshtml">Go back to your profile</a>
+                        <a class="btn btn-secondary btn-xl" href="~/Profile.cshtml">Back to profile</a>
                     </div>
                     Session["username"] = Request.Form["newusername"];
                 }
                 @if (bericht1_6 == true)
                 {
-                    <h3>Usernames do not match.</h3>
+                    <h5>Usernames do not match.</h5>
                 }
             </form>
         </div>
