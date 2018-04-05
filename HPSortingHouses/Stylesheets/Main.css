@@ -179,13 +179,13 @@ footer p:hover {
 
 /*Carousel buttons*/
 
-#carousel-buttons {
-  position: fixed;
-  margin: 0;
-  padding: 0;
-  bottom: 90px;
-  left: 50%;
-  transform: translateX(-50%);
+#carousel-buttons, #carousel-buttons2 {
+    position: fixed;
+    margin: 0;
+    padding: 0;
+    bottom: 90px;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .cButton:hover, .cButton.active {
