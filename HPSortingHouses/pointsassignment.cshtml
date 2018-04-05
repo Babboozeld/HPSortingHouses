@@ -65,47 +65,48 @@
     }
     </style>
 
-
-    <div class="flag flagS">
-        <div class="flag__container ">
-            <div id="opmaak" class="flag__top">
-                <br /><br /><br /><br /><br /> <br /><br /><br /><br /><br /><br /><br /><h4 style="text-align: center;">Slytherin</h4><br />
-                <input type="text" class="Puntending_S" name="Punten" value="@Request.Form["Sn"];"><br><br />
-                <button type="submit" class="btn btn-secondary btn-lg">Punten</button>
+    <form method="post">
+        <div class="flag flagS">
+            <div class="flag__container ">
+                <div id="opmaak" class="flag__top">
+                    <br /><br /><br /><br /><br /> <br /><br /><br /><br /><br /><br /><br /><h4 style="text-align: center;">Slytherin</h4><br />
+                    <input type="text" class="Puntending_S" name="Ravenclaw" value="@Request.Form["Sn"]"><br><br />
+                    <button type="submit" class="btn btn-secondary btn-lg">Punten</button>
+                </div>
+                <div class="flag__bottom--pointy"></div>
             </div>
-            <div class="flag__bottom--pointy"></div>
         </div>
-    </div>
 
-    <div class="flag flagR">
-        <div class="flag__container ">
-            <div id="opmaak" class="flag__top">
-                <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><h4 style="text-align: center;">Ravenclaw</h4><br />
-                <input type="text"class="Puntending_R" name="Punten" value="@Request.Form["Rw"];"><br><br />
-                <button type="submit" class="btn btn-secondary btn-lg">Punten</button>
+        <div class="flag flagR">
+            <div class="flag__container ">
+                <div id="opmaak" class="flag__top">
+                    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><h4 style="text-align: center;">Ravenclaw</h4><br />
+                    <input type="text" class="Puntending_R" name="Slytherin" value="@Request.Form["Rw"]"><br><br />
+                    <button type="submit" class="btn btn-secondary btn-lg">Punten</button>
+                </div>
+                <div class="flag__bottom--pointy"></div>
             </div>
-            <div class="flag__bottom--pointy"></div>
         </div>
-    </div>
 
-    <div class="flag flagG">
-        <div class="flag__container ">
-            <div id="opmaak" class="flag__top">
-                <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><h4 style="text-align: center;">Gryffindor</h4><br />
-                <input type="text"class="Puntending_G" name="Punten" value="@Request.Form["Gr"];"><br><br />
-                <button type="submit" class="btn btn-secondary btn-lg">Punten</button>
+        <div class="flag flagG">
+            <div class="flag__container ">
+                <div id="opmaak" class="flag__top">
+                    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><h4 style="text-align: center;">Gryffindor</h4><br />
+                    <input type="text" class="Puntending_G" name="Gryffindor" value="@Request.Form["Gr"]"><br><br />
+                    <button type="submit" class="btn btn-secondary btn-lg">Punten</button>
+                </div>
+                <div class="flag__bottom--pointy"></div>
             </div>
-            <div class="flag__bottom--pointy"></div>
         </div>
-    </div>
 
-    <div class="flag flagH">
-        <div class="flag__container ">
-            <div id="opmaak" class="flag__top">
-                <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><h4 style="text-align: center;">Hufflepuff</h4><br />
-                <input type="text" class="Puntending_" name="Punten" value="@Request.Form["Hf"];"><br><br />
-                <button type="submit" class="btn btn-secondary btn-lg">Punten</button>
+        <div class="flag flagH">
+            <div class="flag__container ">
+                <div id="opmaak" class="flag__top">
+                    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><h4 style="text-align: center;">Hufflepuff</h4><br />
+                    <input type="text" class="Puntending_" name="Hufflepuff" value="@Request.Form["Hf"]"><br><br />
+                    <button type="submit" class="btn btn-secondary btn-lg">Punten</button>
+                </div>
+                <div class="flag__bottom--pointy"></div>
             </div>
-            <div class="flag__bottom--pointy"></div>
         </div>
-    </div>
+    </form>

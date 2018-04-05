@@ -5,30 +5,32 @@
     }
     Layout = "~/_SiteLayout.cshtml";
     //house scores
-    double Ra = Convert.ToInt32(Session["Rw"]);
-    double Hu = Convert.ToInt32(Session["Hf"]);
-    double Sl = Convert.ToInt32(Session["Sn"]);
-    double Gr = Convert.ToInt32(Session["Gr"]);
+    int Ra = Convert.ToInt32(Session["Rw"]);
+    int Hu = Convert.ToInt32(Session["Hf"]);
+    int Sl = Convert.ToInt32(Session["Sn"]);
+    int Gr = Convert.ToInt32(Session["Gr"]);
 
     //alles wordt ten opzichte van ravenclaw berekend
-    double relatieve = Ra / 100;
+    int count = Ra + Hu + Sl + Gr;
 
     //percentage tenopzichte van ravenclaw / 100
-    double R = 50;
-    double H = Hu / relatieve / 100;
-    double S = Sl / relatieve / 100;
-    double G = Gr / relatieve / 100;
+    int R = ((Ra / count) * 100);
+    int H = ((Hu / count) * 100);
+    int S = ((Sl / count) * 100);
+    int G = ((Gr / count) * 100);
 
+    /*
     double r = Math.Round(R, 1);
     double h = Math.Round(H, 1);
     double s = Math.Round(S, 1);
     double g = Math.Round(G, 1);
 
     //antwoorden
-    int Rav = Convert.ToInt32(r);
+    int Rav = Convert.ToInt32(R);
     int Huf = Convert.ToInt32(h * 50);
     int Sly = Convert.ToInt32(s * 50);
     int Gry = Convert.ToInt32(g * 50);
+    */
 
 <style>
     .flagG, .flagH, .flagR, .flagS {
@@ -39,25 +41,25 @@
     .flagS {
             --fcolor: #2a623d;
         left: 0;
-            height: @(Sly)%;
+            height: @(S)%;
         }
 
     .flagR {
             --fcolor: #222f5b;
         left: 25vw;
-            height: @(Rav)%;
+            height: @(R)%;
         }
 
     .flagG {
             --fcolor: #ae0001;
         left: 50vw;
-            height: @(Gry)%
+            height: @(G)%
     }
 
     .flagH {
         --fcolor: #f0c75e;
         left: 75vw;
-        height: @(Huf)%
+        height: @(H)%
     }
 </style>
 
