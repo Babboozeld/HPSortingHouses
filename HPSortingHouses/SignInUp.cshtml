@@ -141,7 +141,7 @@
             if (email != "" && username != "" && password != "" && password1 != "")
             {
                 string sel = "SELECT username FROM [user] WHERE username = @0";
-                githvar result = db.Query(sel, username);
+                var result = db.Query(sel, username);
                 if (result.Count() > 0 && username != "" && password != "")
                 {
                     bericht2_7 = true;
