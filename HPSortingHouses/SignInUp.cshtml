@@ -1,6 +1,6 @@
 ﻿@using WebMatrix.Data;
 @{
-    //check of je al ingelogd bent 
+    //check of je al ingelogd bent
     if (Session["id"] != null)
     {
         Response.Redirect("~/forum.cshtml");
@@ -77,10 +77,10 @@
             var password = Request.Form["password"];
             var password1 = Request.Form["password1"];
 
-            #region register
+            #region registerberichten
             if (email == "" && username == "" && password == "" && password1 == "")
             {
-                bericht2_5 = true;
+                bericht2_1 = true;
             }
             else if (email == "" && username == "" && password == "" && password1 != "")
             {
@@ -159,7 +159,6 @@
                 }
             }
             #endregion
-
         }
     }
 }
