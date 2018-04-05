@@ -1,10 +1,10 @@
 ﻿@{
     Layout = "~/_SiteLayout.cshtml";
     //house scores
-    double Ra = 260;
-    double Hu = 375;
-    double Sl = 176;
-    double Gr = 480;
+    double Ra = Convert.ToInt32(Session["Ravenclaw"]);
+    double Hu = Convert.ToInt32(Session["Hufflepuff"]);
+    double Sl = Convert.ToInt32(Session["Slytherin"]);
+    double Gr = Convert.ToInt32(Session["Gryffindor"]);
 
     //alles wordt ten opzichte van ravenclaw berekend
     double relatieve = Ra / 100;
@@ -15,12 +15,17 @@
     double S = Sl / relatieve / 100;
     double G = Gr / relatieve / 100;
 
+    double r = Math.Round(R, 1);
+    double h = Math.Round(H, 1);
+    double s = Math.Round(S, 1);
+    double g = Math.Round(G, 1);
+
     //antwoorden
-    int Rav = Convert.ToInt32(R);
-    int Huf = Convert.ToInt32(H * 50);
-    int Sly = Convert.ToInt32(S * 50);
-    int Gry = Convert.ToInt32(G * 50);
-    
+    int Rav = Convert.ToInt32(r);
+    int Huf = Convert.ToInt32(h * 50);
+    int Sly = Convert.ToInt32(s * 50);
+    int Gry = Convert.ToInt32(g * 50);
+
 <style>
     .flagG, .flagH, .flagR, .flagS {
         --width: 25vw;
