@@ -51,7 +51,7 @@
         int antwoord = Request.Form["antwoord"].AsInt();
 
         //validatie op inputs
-        if (Bvraag <= 10 && Bvraag > 0) 
+        if (Bvraag <= 10 && Bvraag > 0)
         {
             //fuctie die waardes bbij house sessions doet
             AntwoordRes(Bvraag, antwoord);
@@ -115,6 +115,49 @@
     int lp = rnd.Next(0, VList.Count);
     int aa = VList[lp];
 
+    string txtvraag = "";
+    if (aa == 1)
+    {
+        txtvraag = "Choose which picture fits you the best";
+    }
+    else if (aa == 2)
+    {
+        txtvraag = "Choose your favorite fantasy animal";
+    }
+    else if (aa == 3)
+    {
+        txtvraag = "Choose the best spot to hang out";
+    }
+    else if (aa == 4)
+    {
+        txtvraag = "Choose your favorite item";
+    }
+    else if (aa == 5)
+    {
+        txtvraag = "Choose your favorite pet";
+    }
+    else if (aa == 6)
+    {
+        txtvraag = "Choose the potion you want the most";
+    }
+    else if (aa == 7)
+    {
+        txtvraag = "Choose your favorite element";
+    }
+    else if (aa == 8)
+    {
+        txtvraag = "Choose your go to spell";
+    }
+    else if (aa == 9)
+    {
+        txtvraag = "Choose what fits you best";
+    }
+    else if (aa == 10)
+    {
+        txtvraag = "Choose your favorite class";
+    }
+
+
 }
 
 <link href="~/Stylesheets/sorting.css" rel="stylesheet" type="text/css" />
@@ -161,7 +204,7 @@
             break;
     }
     <h1 class="txtvraag">
-        Coole vraag is dit 1!
+        @txtvraag
     </h1>
 }
 
