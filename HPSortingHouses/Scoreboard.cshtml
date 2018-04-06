@@ -5,11 +5,11 @@
     }
     Layout = "~/_SiteLayout.cshtml";
     //house scores
-    int Ra = Convert.ToInt32(Session["Rw"]);
-    int Hu = Convert.ToInt32(Session["Hf"]);
-    int Sl = Convert.ToInt32(Session["Sn"]);
-    int Gr = Convert.ToInt32(Session["Gr"]);
-    /*
+    int Ra = Convert.ToInt32(Session["Rw"]) * 5;
+    int Hu = Convert.ToInt32(Session["Hf"]) * 5;
+    int Sl = Convert.ToInt32(Session["Sn"]) * 5;
+    int Gr = Convert.ToInt32(Session["Gr"]) * 5;
+
     //totaal van alle punten
     int count = Ra + Hu + Sl + Gr;
 
@@ -19,7 +19,7 @@
     int S = (Sl / count * 100);
     int G = (Gr / count * 100);
 
-    
+    /*
     double r = Math.Round(R, 1);
     double h = Math.Round(H, 1);
     double s = Math.Round(S, 1);
@@ -41,25 +41,25 @@
     .flagS {
             --fcolor: #2a623d;
         left: 0;
-            height: @(Sl)vh;
+            --height: @(Sl)vh;
         }
 
     .flagR {
             --fcolor: #222f5b;
         left: 25vw;
-            height: @(Ra)vh;
+            --height: @(Ra)vh;
         }
 
     .flagG {
             --fcolor: #ae0001;
         left: 50vw;
-            height: @(Gr)vh;
+            --height: @(Gr)vh;
     }
 
     .flagH {
         --fcolor: #f0c75e;
         left: 75vw;
-        height: @(Hu)vh;
+        --height: @(Hu)vh;
     }
 </style>
 
