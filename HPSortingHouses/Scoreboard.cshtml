@@ -9,17 +9,17 @@
     int Hu = Convert.ToInt32(Session["Hf"]);
     int Sl = Convert.ToInt32(Session["Sn"]);
     int Gr = Convert.ToInt32(Session["Gr"]);
-
-    //alles wordt ten opzichte van ravenclaw berekend
+    /*
+    //totaal van alle punten
     int count = Ra + Hu + Sl + Gr;
 
-    //percentage tenopzichte van ravenclaw / 100
-    int R = ((Ra / count) * 100);
-    int H = ((Hu / count) * 100);
-    int S = ((Sl / count) * 100);
-    int G = ((Gr / count) * 100);
+    //percentage tenopzichte van het totaal
+    int R = (Ra / count * 100);
+    int H = (Hu / count * 100);
+    int S = (Sl / count * 100);
+    int G = (Gr / count * 100);
 
-    /*
+    
     double r = Math.Round(R, 1);
     double h = Math.Round(H, 1);
     double s = Math.Round(S, 1);
@@ -41,25 +41,25 @@
     .flagS {
             --fcolor: #2a623d;
         left: 0;
-            height: @(S)%;
+            height: @(Sl)vh;
         }
 
     .flagR {
             --fcolor: #222f5b;
         left: 25vw;
-            height: @(R)%;
+            height: @(Ra)vh;
         }
 
     .flagG {
             --fcolor: #ae0001;
         left: 50vw;
-            height: @(G)%
+            height: @(Gr)vh;
     }
 
     .flagH {
         --fcolor: #f0c75e;
         left: 75vw;
-        height: @(H)%
+        height: @(Hu)vh;
     }
 </style>
 
@@ -86,7 +86,7 @@
 <div class="flag flagG">
     <div class="flag__container ">
         <div id="opmaak" class="flag__top">
-            <br /><br /><br /><br /><br /><br /><br /><br /><h4 style="text-align: center;">Gryffindor</h4><br />
+            <br /><br /><br /><br /><br /><br /><br /><h4 style="text-align: center;">Gryffindor</h4><br />
             <h5>@Gr Punten</h5>
         </div>
         <div class="flag__bottom--pointy"></div>
