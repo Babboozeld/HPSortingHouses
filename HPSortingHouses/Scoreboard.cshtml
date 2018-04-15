@@ -1,10 +1,14 @@
 ﻿@{
+    if (Session["Rw"] == null)
+    {
+        Response.Redirect("~/pointsassignment.cshtml");
+    }
     Layout = "~/_SiteLayout.cshtml";
     //house scores
-    double Ra = Convert.ToInt32(Session["Ravenclaw"]);
-    double Hu = Convert.ToInt32(Session["Hufflepuff"]);
-    double Sl = Convert.ToInt32(Session["Slytherin"]);
-    double Gr = Convert.ToInt32(Session["Gryffindor"]);
+    double Ra = Convert.ToInt32(Session["Rw"]);
+    double Hu = Convert.ToInt32(Session["Hf"]);
+    double Sl = Convert.ToInt32(Session["Sn"]);
+    double Gr = Convert.ToInt32(Session["Gr"]);
 
     //alles wordt ten opzichte van ravenclaw berekend
     double relatieve = Ra / 100;

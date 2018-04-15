@@ -1,0 +1,61 @@
+1.
+SELECT Pres_name, State_born
+FROM PRES
+WHERE State_born = 'New York' OR State_born = 'Virginia';
+2.
+SELECT Hobby
+FROM PRES_HOB
+WHERE Hobby LIKE '*ing' OR Hobby LIKE '*q*';
+3.
+SELECT *
+FROM PRES_MAR
+WHERE Nr_Child < 3 AND Pres_age < 28 OR Sp_age < 28;///dit was fout moet <3 zijn en <28
+4.
+CREATE TABLE Actions(
+pres_name varchar(16) NOT NULL,
+actionname varchar(25) NOT NULL,
+actiondate date,
+CONSTRAINT PK_Action PRIMARY KEY (pres_name, actionname)
+);
+5.
+INSERT INTO Actions
+VALUES ('Obama B H', ' Attack', ' 20-03-2011');
+6.
+SELECT Pres_name
+FROM PRES
+WHERE State_born IS NULL;
+7.
+SELECT DISTINCT Vp_name
+FROM ADM_PRVP;
+8.
+SELECT AVG(Pres_age), AVG(Sp_age), AVG(Pres_age) - AVG(Sp_age), MAX(Pres_age), MAX(Sp_age)
+FROM PRES_MAR;
+9.
+UPDATE PRES_HOB SET Hobby = 'Voetbal'
+WHERE Pres_name = 'BUSH G W H' AND Hobby = ‘Soccer’; //Bush had meerdere hobby's!
+10.
+SELECT hobby, count(pres_name) AS Aantal
+FROM pres_hob
+GROUP BY hobby
+ORDER BY count(pres_name);
+11.
+SELECT Cand_name, COUNT(cand_name) FROM EL_CAND
+GROUP BY Cand_name
+HAVING COUNT(Cand_name) <> 1
+ORDER BY Count(Cand_name) DESC;
+12.
+SELECT PRES_NAME, Count(Pres_name) FROM ADM_PRES
+GROUP BY PRES_NAME
+HAVING COUNT(Pres_name) <> 1 AND Pres_name <> "Monroe J"
+ORDER BY PRES_NAME DESC;
+13.
+SELECT EL_CAND.cand_name, EL_CAND.votes, PRES.party  FROM EL_CAND
+INNER JOIN PRES
+ON EL_CAND.cand_name = PRES.pres_name
+WHERE wl_indic = 'W';
+14.
+SELECT ADM_PRES.pres_name, ADM_PRVP.vp_name, ADM_PRES.adm_nr,ADM_PRES.year_inaug FROM ADM_PRVP
+INNER JOIN ADM_PRES 
+ON ADM_PRVP.adm_nr = ADM_PRES.adm_nr
+WHERE NOT ADM_PRVP.adm_nr <= 20
+ORDER BY year_inaug ASC;
