@@ -3,147 +3,7 @@
   --flag-width: 0.7;
 }
 
-/*
-body {
-  margin: 0;
-  padding: 0;
-}
-*/
-
-/*background
-
-#Background {
-  position: absolute;
-  height: 100vh;
-  width: 100vw;
-  background: url(../Images/bg1.jpg) center center no-repeat;
-  background-size: cover;
-  transition: background 2s ease;
-}
-
-#Background:before {
-  display: flex;
-  content: "";
-  width: 100%;
-  height: 100%;
-  background-color: black;
-  opacity: 0.3;
-}
-*/
-
-/*header
-
-header {
-  z-index: 5;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-}
-
-@media (min-width: 768px) {
-  .navbar-brand.abs {
-    position: absolute;
-    width: 100%;
-    left: 0;
-    text-align: center;
-  }
-}
-
-nav img {
-  transform: scale(0.6, 0.6);
-}
-
-nav {
-  background: linear-gradient(rgba(0, 0, 0, 0.8), transparent);
-}
-*/
-
-/*footer
-footer {
-    display: block;
-    position: fixed;
-    bottom: 0;
-    color: white;
-    width: 100%;
-    height: 80px;
-    z-index: 5;
-}
-.footer-gradient {
-    display: block;
-    position: absolute;
-    background: linear-gradient(transparent, rgba(0,0,0,0.3));
-    width: 100%;
-    height: 80px;
-}
-footer p {
-    bottom: 0;
-    display: block;
-    position: absolute;
-    opacity: 0.3;
-    left: 50%;
-    transform: translateX(-50%);
-    transition: opacity 1.5s;
-}
-
-footer p:hover {
-     opacity: 0.6;
-}
-*/
-
-/*Flag
-
-.flag-container {
-  --height: 100vh;
-  --width: 50vw;
-  position: fixed;
-  width: var(--width);
-  height: var(--height);
-  top: -100vh;
-  transition: top 2s;
-}
-
-.flag-box {
-  position: relative;
-  width: calc(var(--flag-width) * 100%);
-  height: 75%;
-  margin: auto;
-  background-color: var(--gray-green);
-}
-
-.flag-box-under {
-  width: 0;
-  height: 0;
-  margin: auto;
-  border-right: calc(var(--width) * (var(--flag-width) * 0.5)) solid var(--gray-green);
-  border-bottom: calc(var(--height) * 0.15) solid transparent;
-  border-left: calc(var(--width) * (var(--flag-width) * 0.5)) solid var(--gray-green);
-}
-
-.button-flag {
-  --button-color: white;
-  position: absolute;
-  display: block;
-  padding: 10px 55px;
-  border: solid var(--button-color) 5px;
-  width: 60px;
-  color: var(--button-color);
-  font-size: 35px;
-  text-align: center;
-  font-weight: bold;
-  bottom: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.button-flag:hover {
-  --button-color: red;
-}
-
-*/
-
 /*flag toggle temp*/
-
 
 .muggleflag4 {
     --fcolor: rgb(245, 70, 70)
@@ -158,23 +18,23 @@ footer p:hover {
 }
 
 #toggleflagcheckbox {
-  display: none;
+    display: none;
 }
 
 .togle-flag {
-  position: fixed;
-  font-size: 80px;
-  right: 20px;
-  top: 50vh;
-  color: white;
+    position: fixed;
+    font-size: 80px;
+    right: 20px;
+    top: 50vh;
+    color: white;
 }
 
 #toggleflagcheckbox:checked+.flag-container {
-  top: 0px;
+    top: 0px;
 }
 
 .flag-active {
-  top: 0px;
+    top: 0px;
 }
 
 /*Carousel buttons*/
@@ -189,33 +49,19 @@ footer p:hover {
 }
 
 .cButton:hover, .cButton.active {
-  opacity: 0.6;
+    opacity: 0.6;
 }
 
 .cButton {
-  position: relative;
-  height: 20px;
-  width: 20px;
-  border-radius: 50%;
-  background-color: white;
-  display: inline-block;
-  opacity: 0.3;
-  transition: opacity 1s;
-}
-
-/*
-.cButton.active:after {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    transform: scale(0.9,0.9);
+    position: relative;
+    height: 20px;
+    width: 20px;
     border-radius: 50%;
-    background-color: gray;
-    opacity: 0.6;
-    transition: opacity 1.5s;
+    background-color: white;
+    display: inline-block;
+    opacity: 0.3;
+    transition: opacity 1s;
 }
-*/
 
 .cButton2, .cButton3 {
   margin-left: 8px;
@@ -224,33 +70,34 @@ footer p:hover {
 /*emblem*/
 
 #emblem-box {
-  background: url(../Images/HPTPCverD14.png) center center no-repeat;
-  background-size: cover;
-  position: fixed;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  width: 450px;
-  height: 450px;
-  transition: left 2.5s;
+    background: url(../Images/HPTPCverD14.png) center center no-repeat;
+    background-size: cover;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 450px;
+    height: 450px;
+    transition: left 2.5s;
+    cursor: pointer;
 }
 
 #emblem-box {
-  display: flex;
-  flex-wrap: wrap;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .emblem-house {
-  width: 50%;
-  height: 50%;
+    width: 50%;
+    height: 50%;
 }
 
 #emblem-box.eLeft {
-  left: 25%;
+    left: 25%;
 }
 
 #emblem-box.eRight {
-  left: 75%;
+    left: 75%;
 }
 
 #opmaak{
